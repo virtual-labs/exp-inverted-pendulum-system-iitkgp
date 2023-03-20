@@ -62,43 +62,28 @@ x\\\\
 \frac{mL}{\sigma'}\\\\					
 \end{bmatrix}F$$
 				
-y = 
-				
+$$y = 				
 \begin{bmatrix}
 1 & 0 & 0 & 0\\\\
 0 & 0 & 1 & 0
-\end{bmatrix}
-				
+\end{bmatrix}				
 \begin{bmatrix}
-x \\\\
-				
-\dot{x} \\\\
-				
-\theta \\\\
-				
-\dot{\theta} \\\\					
-				
-\end{bmatrix}
-				
-\end{gather}$$
+x\\\\				
+\dot{x}\\\\				
+\theta\\\\				
+\dot{\theta}\\\\				
+\end{bmatrix}$$
 				
 where 
 				
 $$\sigma' = I(M+m) + MmL^2$$
 				
 and 
-				
-$$\begin{gather}
-				
-X = 
-				
-\begin{bmatrix}
-x & \dot{x} & \theta & \dot{\theta} 					
-				
+		
+$$X = \begin{bmatrix}
+x & \dot{x} & \theta & \dot{\theta} 			
 \end{bmatrix}
-^T
-				
-\end{gather}$$
+^T$$
 
 F is the force acting on the horizontal direction.
 
@@ -139,19 +124,12 @@ which yields a fifth order characteristic equation , let the desired characteris
 				
 $$s^5+p_1s^4 +p_2s^3 +p_3s^2+p_4s +p_5 = 0$$
 				
-$$\begin{gather}
-\begin{bmatrix}
-				
--b_1 & 0 & 0 & b_2 & 0 & 0 \\\\
-				
-0  & -b_1 & 0 & 0 & b_2 & 0 \\\\
-				
-a^2b_1 & 0 & -b_1 & 0 & 0 & b_2\\\\
-				
-0 & a^2b_1 & 0 & 0 & 0 & 0\\\\
-				
-0 & 0 & a^2b_1 & 0 & 0 & 0 \\\\
-								
+$$\begin{bmatrix}				
+-b_1 & 0 & 0 & b_2 & 0 & 0 \\\\				
+0  & -b_1 & 0 & 0 & b_2 & 0 \\\\				
+a^2b_1 & 0 & -b_1 & 0 & 0 & b_2\\\\				
+0 & a^2b_1 & 0 & 0 & 0 & 0\\\\				
+0 & 0 & a^2b_1 & 0 & 0 & 0 \\\\								
 \end{bmatrix}
 \begin{bmatrix}
 k^1_d\\\\
@@ -160,16 +138,14 @@ k^1_i\\\\
 k^2_d\\\\
 k^2_p\\\\
 k^2_i\\\\				
-\end{bmatrix}
-=
+\end{bmatrix}=
 \begin{bmatrix}
 p_1\\\\
 p_2 + a^2\\\\
 p_3\\\\
 p_4\\\\
 p_5\\\\				
-\end{bmatrix}
-\end{gather}$$
+\end{bmatrix}$$
 				
 <div align="center">				
 <img alt="" src="./images/controllerdia.png" style="width:620px;height:340px;">
