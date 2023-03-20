@@ -37,6 +37,25 @@ $$\sigma = mL^2(M+m cos^2\theta)+I(M+m)$$
 
 **State Space Representation**
 
+$$\begin{bmatrix}	\dot{x}\\\\ \ddot{x}\\\\ \dot{\theta}\\\\ \ddot{\theta}\\\\	\end{bmatrix}=
+\begin{bmatrix} 
+0 & 1& 0 & 0 \\\\
+0 & \frac{-(J+mL^2)b}{\sigma'} & \frac{m^2 L^2 g}{\sigma'}  & 0   \\\\				
+0 & \frac{mLb}{\sigma'} & \frac{mgL(m+M)}{\sigma'} & 0 \\\\			
+\end{bmatrix}
+\begin{bmatrix}
+x \\\\				
+\dot{x} \\\\				
+\theta \\\\				
+\dot{\theta} \\\\				
+\end{bmatrix}				
++				
+\begin{bmatrix}
+0 \\\\				
+\frac{-(J+mL^2)}{\sigma'} \\\\				
+0 \\\\				
+\frac{mL}{\sigma'} \\\\					
+\end{bmatrix}F$$
 
 where 
 				
@@ -160,5 +179,5 @@ Basically, any system that requires vertical stabilization has dynamics that are
 <img alt="" src="./images/segway.png" style="width:240px;height:370px;">
 </div>
 
-						
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>				
 
