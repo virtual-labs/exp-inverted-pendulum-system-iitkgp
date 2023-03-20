@@ -2,38 +2,103 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "Radha uses simple pendulum to determine value of acceleration due to gravity in her physics laboratory,The percentage error of measurement in length and time period of pendulum are 1% and 2%.The percentage error in g,determined by her is",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "1\u0025",
+        "b": "3\u0025",
+        "c": " 5\u0025",
+        "d": "None of the above"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "A child swinging on a swing,in sitting position,stands up,then the time period of the swing will",
+      "answers": {
+        "a": "Decrease  ",
+        "b": "Remain Same",
+        "c": "Increase",
+        "d": "None of these"
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "The value of 'g' in moon is 1/6 th times to that at the surface of earth,then the time period of a pendulum at moon is how much times to that at earth?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "6 ",
+        "b": "1/6 ",
+        "c": "&#8730 6",
+        "d": "1/&#8730 6"
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
+    },
+    {
+      "question": "A pendulum clock be taken from earth to revolving artificial satellite,it will",
+      "answers": {
+        "a": "Run slow",
+        "b": " Run Fast  ",
+        "c": "Given the same time",
+        "d": "Stop altogether "
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": " All simple pendulums are compound pendulums.",
+      "answers": {
+        "a": "True ",
+        "b": "False"
+		
+        
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "which one of the following controllers increases the order of the system by one?",
+      "answers": {
+        "a": " P-controller ",
+        "b": "P-I controller",
+        "c": "None of these",
+        "d": " All of the above"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "If the mass moment inertia of the object is increased to 4 times then what will be the effect of time period of the simple pendulum?",
+      "answers": {
+        "a": "Doubled",
+        "b": "Remains same",
+        "c": "Decreases by &#8730 2",
+        "d": " None of the above"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Compound pendulum needs to be spherical in shape.",
+      "answers": {
+        "a": "true",
+        "b": "false"
+        
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    }, 
+    {
+      "question": "The period 'T' of a pendulum, having length'L',moment of inertia'I', bob of mass 'm' is given by",
+      "answers": {
+        "a": " T = 2π &#8730 I/mgL ",
+        "b": "T= 2πIL/g",
+        "c": "T= 2πmgL/I",
+        "d": "None of the above "
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
     }
+    
   ]
 }
