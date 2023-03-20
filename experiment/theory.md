@@ -37,84 +37,14 @@ $$\sigma = mL^2(M+m cos^2\theta)+I(M+m)$$
 
 **State Space Representation**
 
-$$\begin{gather}
-\begin{bmatrix}	\dot{x}\\\\ \ddot{x}\\\\ \dot{\theta}\\\\ \ddot{\theta}\\\\	\end{bmatrix}
-=
-\begin{bmatrix} 
-0 & 1& 0 & 0 \\\\
 
-0 & \frac{-(J+mL^2)b}{\sigma'} & \frac{m^2 L^2 g}{\sigma'}  & 0   \\\\
-				
-0 & \frac{mLb}{\sigma'} & \frac{mgL(m+M)}{\sigma'} & 0 \\\\				
-				
-\end{bmatrix}
-				
-\begin{bmatrix}
-x \\\\
-				
-\dot{x} \\\\
-				
-\theta \\\\
-				
-\dot{\theta} \\\\					
-				
-\end{bmatrix}
-				
-+
-				
-\begin{bmatrix}
-0 \\\\
-				
-\frac{-(J+mL^2)}{\sigma'} \\\\
-				
-0 \\\\
-				
-\frac{mL}{\sigma'} \\\\					
-				
-\end{bmatrix}
-F			
-				
-\end{gather}
-				
-\begin{gather}
-				
-y = 
-				
-\begin{bmatrix}
-1 & 0 & 0 & 0\\\\
-0 & 0 & 1 & 0
-\end{bmatrix}
-				
-\begin{bmatrix}
-x \\\\
-				
-\dot{x} \\\\
-				
-\theta \\\\
-				
-\dot{\theta} \\\\					
-				
-\end{bmatrix}
-				
-\end{gather}$$
 				
 where 
 				
 $$\sigma' = I(M+m) + MmL^2$$
 				
 and 
-				
-$$\begin{gather}
-				
-X = 
-				
-\begin{bmatrix}
-x & \dot{x} & \theta & \dot{\theta} 					
-				
-\end{bmatrix}
-^T
-				
-\end{gather}$$
+
 
 F is the force acting on the horizontal direction.
 
@@ -155,19 +85,7 @@ which yields a fifth order characteristic equation , let the desired characteris
 				
 $$s^5+p_1s^4 +p_2s^3 +p_3s^2+p_4s +p_5 = 0$$
 				
-$$\begin{gather}
-\begin{bmatrix}
-				
--b_1 & 0 & 0 & b_2 & 0 & 0 \\\\
-				
-0  & -b_1 & 0 & 0 & b_2 & 0 \\\\
-				
-a^2b_1 & 0 & -b_1 & 0 & 0 & b_2\\\\
-				
-0 & a^2b_1 & 0 & 0 & 0 & 0\\\\
-				
-0 & 0 & a^2b_1 & 0 & 0 & 0 \\\\
-								
+
 \end{bmatrix}
 \begin{bmatrix}
 k^1_d\\\\
@@ -176,16 +94,14 @@ k^1_i\\\\
 k^2_d\\\\
 k^2_p\\\\
 k^2_i\\\\				
-\end{bmatrix}
-=
+
 \begin{bmatrix}
 p_1\\\\
 p_2 + a^2\\\\
 p_3\\\\
 p_4\\\\
 p_5\\\\				
-\end{bmatrix}
-\end{gather}$$
+
 				
 <div align="center">				
 <img alt="" src="./images/controllerdia.png" style="width:620px;height:340px;">
@@ -246,4 +162,4 @@ Basically, any system that requires vertical stabilization has dynamics that are
 </div>
 
 						
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>								
+
