@@ -30,15 +30,14 @@ The cart-pendulum has 2 DOF of motions –
 The equations of motion are described by –
 				
 $$\ddot{\theta}=\frac{mL}{\sigma}\{[F-b\dot{x}]cos\theta - mL(\dot{\theta})^2 sin\theta cos\theta +(m+M)g sin\theta\}$$
-				
+
 $$\ddot{x}=\frac{1}{\sigma}\{(J+mL^2)[F-b\dot{x}-mL(\dot{\theta})^2 sin\theta]+mL^2g sin\theta cos\theta\}$$
-				
+
 $$\sigma = mL^2(M+m cos^2\theta)+I(M+m)$$
 
 **State Space Representation**
 
 
-				
 where 
 				
 $$\sigma' = I(M+m) + MmL^2$$
