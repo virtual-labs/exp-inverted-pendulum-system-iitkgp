@@ -37,84 +37,48 @@ $$\sigma = mL^2(M+m cos^2\theta)+I(M+m)$$
 
 **State Space Representation**
 
-$$\begin{gather}
-\begin{bmatrix}	\dot{x}\\\\ \ddot{x}\\\\ \dot{\theta}\\\\ \ddot{\theta}\\\\	\end{bmatrix}
-=
+$$\begin{bmatrix}	\dot{x}\\\\ \ddot{x}\\\\ \dot{\theta}\\\\ \ddot{\theta}\\\\	\end{bmatrix}=
 \begin{bmatrix} 
 0 & 1& 0 & 0 \\\\
-
-0 & \frac{-(J+mL^2)b}{\sigma'} & \frac{m^2 L^2 g}{\sigma'}  & 0   \\\\
-				
-0 & \frac{mLb}{\sigma'} & \frac{mgL(m+M)}{\sigma'} & 0 \\\\				
-				
+0 & \frac{-(J+mL^2)b}{\sigma'} & \frac{m^2 L^2 g}{\sigma'}  & 0   \\\\				
+0 & \frac{mLb}{\sigma'} & \frac{mgL(m+M)}{\sigma'} & 0 \\\\			
 \end{bmatrix}
-				
 \begin{bmatrix}
-x \\\\
-				
-\dot{x} \\\\
-				
-\theta \\\\
-				
-\dot{\theta} \\\\					
-				
-\end{bmatrix}
-				
-+
-				
+x \\\\				
+\dot{x} \\\\				
+\theta \\\\				
+\dot{\theta} \\\\				
+\end{bmatrix}				
++				
 \begin{bmatrix}
-0 \\\\
-				
-\frac{-(J+mL^2)}{\sigma'} \\\\
-				
-0 \\\\
-				
+0 \\\\				
+\frac{-(J+mL^2)}{\sigma'} \\\\				
+0 \\\\				
 \frac{mL}{\sigma'} \\\\					
+\end{bmatrix}F$$
 				
-\end{bmatrix}
-F			
-				
-\end{gather}
-				
-\begin{gather}
-				
-y = 
-				
+$$y = 				
 \begin{bmatrix}
 1 & 0 & 0 & 0\\\\
 0 & 0 & 1 & 0
-\end{bmatrix}
-				
+\end{bmatrix}				
 \begin{bmatrix}
-x \\\\
-				
-\dot{x} \\\\
-				
-\theta \\\\
-				
-\dot{\theta} \\\\					
-				
-\end{bmatrix}
-				
-\end{gather}$$
+x \\\\				
+\dot{x} \\\\				
+\theta \\\\				
+\dot{\theta} \\\\				
+\end{bmatrix}$$
 				
 where 
 				
 $$\sigma' = I(M+m) + MmL^2$$
 				
 and 
-				
-$$\begin{gather}
-				
-X = 
-				
-\begin{bmatrix}
-x & \dot{x} & \theta & \dot{\theta} 					
-				
+		
+$$X = \begin{bmatrix}
+x & \dot{x} & \theta & \dot{\theta} 			
 \end{bmatrix}
-^T
-				
-\end{gather}$$
+^T$$
 
 F is the force acting on the horizontal direction.
 
