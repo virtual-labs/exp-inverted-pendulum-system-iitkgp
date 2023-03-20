@@ -44,7 +44,7 @@ $$\begin{bmatrix}
 \ddot{\theta}\\\\
 \end{bmatrix}=
 \begin{bmatrix} 
-0 & 1& 0 & 0 \\\\
+0 & 1& 0 & 0\\\\
 0 & \frac{-(J+mL^2)b}{\sigma'} & \frac{m^2 L^2 g}{\sigma'}  & 0\\\\				
 0 & \frac{mLb}{\sigma'} & \frac{mgL(m+M)}{\sigma'} & 0\\\\			
 \end{bmatrix}
@@ -53,8 +53,7 @@ x\\\\
 \dot{x}\\\\				
 \theta\\\\				
 \dot{\theta}\\\\				
-\end{bmatrix}				
-+				
+\end{bmatrix}+				
 \begin{bmatrix}
 0\\\\				
 \frac{-(J+mL^2)}{\sigma'}\\\\				
