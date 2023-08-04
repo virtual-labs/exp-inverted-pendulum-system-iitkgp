@@ -40,7 +40,17 @@
 
 
   <style>
-	
+	@media print {
+  body {
+    visibility: hidden;
+  }
+  #plotbucket {
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
 	
   </style>
   
@@ -67,14 +77,21 @@
 
             </div><!--First col under 2nd row end-->
             <div class="col-md-6"><!--2nd col under 2nd row start-->
-
+                <p class="h1"> <b>Study and operation of Inverted Pendulum System </b> </p>
             </div><!--2nd col under 2nd row end-->
             <div class="col-md-3"><!--3rd col under 2nd row start-->
 
             </div><!--3rd col under 2nd row end-->
         </div><!--2nd row under 1st container end-->
         <hr>
-
+        <div class="d-flex p-1 text-primary"><!--3rd row under 1st container start-->
+          <div class="p-1" > <p class="h4"><a href="../index.html"> <span class="LN"> <b> Control and Instrumentation Lab </b></span> --> </a></p></div>
+          <div class="p-1"> <p class="h4"><a href="./index.html"> <span class="ExpN"> <b> Study and operation of Inverted Pendulum System </b> </span> </a></p></div>
+        </div><!--3rd row under 1st container end-->
+    </div><!--First Container under body tag end-->
+    
+    <div class="container p-3 my-5 text-primary text-center border"><!--2nd Container under body tag start-->
+        <div class="row"><!--First row under 2nd container start-->
 
             <ul class="nav nav-pills nav-justified">
                 <li class="nav-item">
@@ -106,7 +123,8 @@
                   </li>
 
               </ul>
-
+        </div><!--First row under 2nd container end-->
+    </div><!--2nd Container under body tag end-->
 	
     <div class="container p-3 my-5 text-left border"><!--3rd Container under body tag start-->
       <div class="row"><!--First row under 3rd container start-->
@@ -116,20 +134,20 @@
               <ol id="inst" style="display:block;height:200px;overflow-y:auto;">
                       <li>At first click on "Start" button to observe pendulum-cart system is moving normally on the track.Click on 'Stop' button to stop it.</li></br>
   
-					  <li>Now under 'Controller Panel' section click on 'Pendulum Real-Time Models',then click on 'Crane Stab' to observe crane control
-					  of pendulum-cart system.Click on 'cart desired trajectory' block to enter desired amplitude,frequency and time value of a sinusoidal trajectory.
-					  Click on 'Ok'.Click on 'Incremental Build' icon and wait for an alert message to successfully build the model.</li><br/>
+					  <li>Now under 'Controller Panel' section click on 'Crane Stabilization' to observe crane control of pendulum-cart system.
+					  Initially the controller for crane stabilization is shown. Click on 'cart desired trajectory' block to enter desired amplitude,frequency and time value of a sinusoidal trajectory.
+					  Click on 'Ok'. Click on 'Incremental Build' icon and wait for an alert message to successfully build the model.</li><br/>
 					 
-					 <li>Click on "Connect to Target" button now and wait for the run button to be enabled.Click on the green'Power' button.Then click on
+					 <li>Click on "Connect to Target" button now and wait for the run button to be enabled. Click on the green'Power' button. Now click on
 						 'Start' button just beside that Power button.Click on the 'Run' button now to observe the simulation for crane control
 						 and graphical representation of cart position and pendulum angle(which will be around 3.1415).Plot can be
 						 downloaded from 'Download Plot' button. Now click on 'Ok' button.</li></br>
 
-					 <li>Now under 'Controller Panel' section click on 'Pendulum Real-Time Models',then click on 'PendStabPD' to observe Inverted Pendulum control
-					  of pendulum-cart system.Click on the pendulum pole to make it inverted(Upright position).Click on 'Incremental Build' icon and wait for an alert message to successfully build the model.</li><br/> 
+					 <li>Now under 'Controller Panel' section click on 'Pendulum Stabilization' to observe Inverted Pendulum control
+					  of pendulum-cart system. Click on the pendulum pole to make it inverted ( Upright position ).Click on 'Incremental Build' icon and wait for an alert message to successfully build the model.</li><br/> 
 
-					<li>Click on "Connect to Target" button now and wait for the run button to be enabled.Click on the green'Power' button.Then click on
-						 'Start' button just beside that Power button.Click on the 'Run' button now to observe the simulation for Inverted Pendulum control
+					<li>Click on "Connect to Target" button now and wait for the run button to be enabled. Click on the green'Power' button and then click on
+						 'Start' button just beside that Power button. Click on the 'Run' button now to observe the simulation for Inverted Pendulum control
 						 and graphical representation of cart position and pendulum angle(which will be around 0).Plot can be
 						downloaded from 'Download Plot' button. Now click on 'Ok' button.</li></br>
 						 
@@ -148,9 +166,11 @@
 	<div class="col-md-10">
 	
 	
-			<div   class="img-container">
 			
-			<button type="button" onclick=""  class="btn btn-primary " >Controller Panel</button>
+			
+			<button type="button" onclick=""  class="btn btn-primary " >Controller Panel</button><br/><br/>
+			<button type="button" onclick="showpic1()"  class="btn btn-warning " >Crane stabilization</button>
+			<button type="button" onclick="showpic2()"  class="btn btn-warning " >Pendulum stabilization</button>
 			<!--<<button type="button" onclick="pend_control()"  class="btn btn-primary " >Pendulum Stabilization</button>
 			<button type="button" onclick="pend_auto_control()"  class="btn btn-primary " >Swing and Hold</button>
 			
@@ -162,7 +182,7 @@
 			Enter the desired % Overshoot :<input type="number" id="ov2" value="10" style="position:absolute;width:20%"readonly="readonly"><br/></br>
 			Enter the desired 2% settling time:&nbsp;<input type="number" id="ts2" value="20" style="position:absolute;width:20%"readonly="readonly"><br/><br/>-->
 						
-			</div>
+			
 		
 	
 	
@@ -180,10 +200,10 @@
 				<div class="img-container"><!--img container div start-->
 				
 				
-					<img class="img-fluid " id="controller" src="images/s1.jpg " />
-					<img class="img-fluid " id="cbtn1" onclick="crane_ctrl_pics1()" src="./images/btn1.jpg " />
+					<img class="img-fluid " id="controller" src="images/s3.jpg " />
+					<!--<img class="img-fluid " id="cbtn1" onclick="crane_ctrl_pics1()" src="./images/btn1.jpg " />
 					<img class="img-fluid " id="cbtn2" onclick="crane_ctrl_pics2()" src="./images/btn2.jpg " />
-					<img class="img-fluid " id="cbtn3" onclick="crane_ctrl_pics3()" src="./images/invpend.png " />
+					<img class="img-fluid " id="cbtn3" onclick="crane_ctrl_pics3()" src="./images/invpend.png " />-->
 					
 					
 					<img class="img-fluid " id="b1" src="images/build.png " onclick="Build()"/>
@@ -195,7 +215,7 @@
 					<img class="img-fluid " id="r1" src="images/run.png " onclick="simu1()" />
 					<img class="img-fluid " id="r2" src="images/run.png " onclick="simu2()" />
 					
-					<input type="number" id="display_duration" min='10' max='100' value='40' style="display:none;position:absolute;top:1%;left:46%;width:6%;height:7%"readonly="readonly">
+					<input type="number" id="display_duration" min='10' max='100' value='40' style="display:block;position:absolute;top:1%;left:46%;width:6%;height:7%"readonly="readonly">
 					<input type="number" id="display_duration2" min='10' max='100' value='40' style="display:none;position:absolute;top:1%;left:46%;width:6%;height:7%">
 					
 					
@@ -250,7 +270,7 @@
 					
 		  
 				</div><!--img container div end--><br>
-				<button type="button"   onclick="back()"  class="btn btn-success" >Back</button>	
+				<!--<button type="button"   onclick="back()"  class="btn btn-success" >Back</button>-->	
 					<!--<button type="button" id="refresh" onclick="Refresh()" class="btn btn-primary" >Clear</button>-->
 			</div><!---end of 1st col under 1st row--->	
 			
@@ -308,15 +328,15 @@
 	 
 			<div class="col-md-12">
 				<div id = "plotbucket" class="content-center" style="display:none; position relative; border:3px solid white;height:650px;width:823px ">
-				<button type="button" id="exportChart" class="btn btn-primary"  style="display:none;position:absolute;left:20%;">Download Plot</button>
-				<button type="button" id="result" class="btn btn-primary" onclick="Refresh()"  style="display:none;position:absolute;left:27%">OK</button><br/><br/>
+				
 				<div id="chartContainer"  style="display:none; position:absolute; height: 30%; width: 40%;z-index:1 "></div><br>
 				<br><br><br><br><br><br><br><br><br><br><br><br>	
 				<div id="chartContainer2"  style="display:none; position:absolute; height: 30%; width: 40%;z-index:1 "></div>
 								
 				
 				</div>				
-				
+				<button type="button" id="exportChart" class="btn btn-primary"  style="display:none;position:absolute;left:20%;">Download Plot</button>
+				<button type="button" id="result" class="btn btn-primary" onclick="Refresh()"  style="display:none;position:absolute;left:27%">OK</button><br/><br/>
 			</div>
 			
 			
@@ -349,4 +369,4 @@
 	
 	
 </body><!--body tag end-->
-
+</html><!--html tag end-->

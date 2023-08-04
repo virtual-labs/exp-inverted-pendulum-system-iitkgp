@@ -200,9 +200,6 @@ $$k^2_i = 247.43$$
 								
 Basically, any system that requires vertical stabilization has dynamics that are similar to an inverted pendulum. The work involved in modeling and controlling an inverted pendulum can be carried over to many engineering areas.
 
-<div align="center">				
-<img alt="" src="./images/segway.png" style="width:240px;height:370px;">
-</div>
 
 						
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>								

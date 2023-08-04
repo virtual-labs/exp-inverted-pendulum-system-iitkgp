@@ -51,6 +51,49 @@
 	document.getElementById('display_duration2').style.display="block";	
 	  
   }
+  
+  function showpic1(){
+	document.getElementById('controller').src = "images/s3.jpg";  
+	document.getElementById('b1').style.display = "block";
+	document.getElementById('c1').style.display = "block";
+	//document.getElementById('r1').style.display = "block";
+	document.getElementById('sine').style.display = "block";
+	document.getElementById('display_duration').style.display = "block";
+	
+	document.getElementById('b2').style.display = "none";
+	document.getElementById('c2').style.display = "none";
+	document.getElementById('r2').style.display = "none";
+	document.getElementById('display_duration2').style.display = "none";
+	  
+  }
+  
+  function showpic2(){
+	document.getElementById('controller').src = "images/s4.jpg";  
+	document.getElementById('b2').style.display = "block";
+	document.getElementById('c2').style.display = "block";
+	//document.getElementById('r2').style.display = "block";
+	document.getElementById('display_duration2').style.display = "block";
+	
+	document.getElementById('b1').style.display = "none";
+	document.getElementById('c1').style.display = "none";
+	document.getElementById('r1').style.display = "none";
+	document.getElementById('sine').style.display = "none";
+	document.getElementById('display_duration').style.display = "none";
+	  
+	  
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   function set_trajectory(){
 	  
 	document.getElementById('sinetab').style.display='block';
@@ -87,15 +130,15 @@
   
   
   function back(){
-	document.getElementById('controller').src = './images/s1.jpg';
-	document.getElementById('cbtn1').style.display = "block"; 	  
-	document.getElementById('cbtn2').style.display = "none";
-	document.getElementById('sine').style.display = "none";
+	document.getElementById('controller').src = './images/s3.jpg';
+	//document.getElementById('cbtn1').style.display = "block"; 	  
+	//document.getElementById('cbtn2').style.display = "none";
+	document.getElementById('sine').style.display = "block";
 	
-	document.getElementById('b1').style.display="none";
-	document.getElementById('c1').style.display="none";
-	document.getElementById('r1').style.display="none";
-	document.getElementById('display_duration').style.display="none";
+	document.getElementById('b1').style.display="block";
+	document.getElementById('c1').style.display="block";
+	document.getElementById('r1').style.display="block";
+	document.getElementById('display_duration').style.display="block";
 	
 	
 	document.getElementById('b2').style.display="none";
@@ -465,9 +508,9 @@ document.getElementById('chartContainer2').style.display  = "block";
 	document.getElementById("result").style.display = "block";
 	document.getElementById("exportChart").style.display = "block";
 	document.getElementById("exportChart").addEventListener("click",function(){
-	chart.exportChart({format: "jpg"})});	
-
-
+	//chart.exportChart({format: "jpg"})	
+	window.print();
+});
 }
 
 function Invpend_PD(){
@@ -653,9 +696,9 @@ document.getElementById('chartContainer2').style.display  = "block";
 	document.getElementById("result").style.display = "block";
 	document.getElementById("exportChart").style.display = "block";
 	document.getElementById("exportChart").addEventListener("click",function(){
-	chart.exportChart({format: "jpg"})});	
-
-
+	//chart.exportChart({format: "jpg"})});	
+		window.print();
+});
 }
 
 
