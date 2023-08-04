@@ -12,17 +12,7 @@
       "correctAnswer": "d",
       "difficulty": "beginner"
     },
-    {
-      "question": "For a simple pendulum, time period for a beat, is",
-      "answers": {
-        "a": " π √ l/g",
-        "b": "π √ 2l/g",
-        "c": "π √ g/2l",
-        "d": "π √ l/2g"
-      },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
-    },
+    
     {
       "question": "In order to double the period of a simple pendulum, the length of the string should be",
       "answers": {
@@ -35,7 +25,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "For a linear time in variant system, an optimal controller can be designed if",
+      "question": "For a linear time invariant system, an optimal controller can be designed if",
       "answers": {
         "a": "The system is controllable and observable",
         "b": "The system is uncontrollable but stable",
