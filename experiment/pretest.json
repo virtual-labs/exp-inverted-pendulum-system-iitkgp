@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "For a simple pendulum the time period of one oscillation is given by",
+      "question": "1. For a simple pendulum the time period of one oscillation is given by",
       "answers": {
         "a": "2 π √ g/l",
         "b": "2 π √ 2l/g",
@@ -14,7 +14,7 @@
     },
     
     {
-      "question": "In order to double the period of a simple pendulum, the length of the string should be",
+      "question": "2. In order to double the period of a simple pendulum, the length of the string should be",
       "answers": {
         "a": "Halved",
         "b": "Doubled",
@@ -25,7 +25,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "For a linear time invariant system, an optimal controller can be designed if",
+      "question": "3. For a linear time invariant system, an optimal controller can be designed if",
       "answers": {
         "a": "The system is controllable and observable",
         "b": "The system is uncontrollable but stable",
@@ -36,7 +36,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "If a spring of mass 20kg has spring constant of 5N/m, then the time period is given by,",
+      "question": "4. If a spring of mass 20kg has spring constant of 5N/m, then the time period is given by,",
       "answers": {
         "a": "4",
         "b": "2",
@@ -47,7 +47,7 @@
       "difficulty": "beginner"
     },
 	{
-      "question": "A slow running pendulum clock can be speeded up by,",
+      "question": "5. A slow running pendulum clock can be speeded up by,",
       "answers": {
         "a": "Increasing the length of the rod",
         "b": "Increasing the weight of the bob",
@@ -59,7 +59,7 @@
     },	
 	
 	{
-      "question": "If a clock, based on oscillating pendulum is taken to the Moon, it will",
+      "question": "6. If a clock, based on oscillating pendulum is taken to the Moon, it will",
       "answers": {
         "a": "Become slow",
         "b": "Become fast",
@@ -71,7 +71,7 @@
     },
 	
 	{
-      "question": "Which of the following variables has zero value at the extreme position in SHM?",
+      "question": "7. Which of the following variables has zero value at the extreme position in SHM?",
       "answers": {
         "a": "Acceleration",
         "b": "Speed",
@@ -84,7 +84,7 @@
 	
 	
 	{
-      "question": "The period of simple pendulum inside the satellite orbiting earth is",
+      "question": "8. The period of simple pendulum inside the satellite orbiting earth is",
       "answers": {
         "a": "Zero",
         "b": "2T",
@@ -96,7 +96,7 @@
     },
 	
 	{
-      "question": "A simple pendulum,having time period T,mass of the bob is made one fourth , then time period will be",
+      "question": "9. A simple pendulum,having time period T,mass of the bob is made one fourth , then time period will be",
       "answers": {
         "a": "2T",
         "b": "4T",
