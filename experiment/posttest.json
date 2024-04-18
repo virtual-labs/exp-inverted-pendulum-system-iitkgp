@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "1. A girl uses simple pendulum to determine value of acceleration due to gravity in her physics laboratory. The percentage error of measurement in length and time period of pendulum are 1% and 2% respectively. The percentage error in g, determined by her is",
+      "question": "1. A girl uses simple pendulum to determine the value of acceleration due to gravity in her physics laboratory. The percentage error of measurement in length and time period of pendulum are 1% and 2% respectively. The percentage error in g, determined by her is",
       "answers": {
         "a": "1\u0025",
         "b": "3\u0025",
@@ -14,7 +14,7 @@
     },
     
     {
-      "question": "2. The value of 'g' in moon is 1/6 th times to that at the surface of earth,then the time period of a pendulum at moon is how much times to that at earth?",
+      "question": "2. The value of 'g' in the moon is 1/6 th times than that on the earth surface, then the time period of a pendulum in the moon is how much times than that of the earth surface?",
       "answers": {
         "a": "6 ",
         "b": "1/6 ",
@@ -25,14 +25,14 @@
       "difficulty": "beginner"
     },
     {
-      "question": "3. A pendulum clock is taken from earth to revolving artificial satellite,it will",
+      "question": "3. A pendulum clock is taken from earth to revolving artificial satellite, it will ____",
       "answers": {
         "a": "Run slow",
-        "b": " Run Fast  ",
-        "c": "Given the same time",
-        "d": "Stop altogether "
+        "b": "Run fast",
+        "c": "Stop oscillating",
+        "d": "None of the above"
       },
-      "correctAnswer": "d",
+      "correctAnswer": "c",
       "difficulty": "beginner"
     },
     {
@@ -47,19 +47,19 @@
       "difficulty": "beginner"
     },
     {
-      "question": "5. which one of the following controllers increases the order of the system by one?",
+      "question": "5. which one of the following is a correct statement",
       "answers": {
-        "a": " P-controller ",
-        "b": "P-I controller",
-        "c": "None of these",
+        "a": " PI controller improves steady state response ",
+        "b": "PD controller improves transient response",
+        "c": "None of the above",
         "d": " All of the above"
       },
-      "correctAnswer": "b",
+      "correctAnswer": "d",
       "difficulty": "beginner"
     },
     
     {
-      "question": "6. The period of oscillation of a simple pendulum of constant length at earth surface is T. Its period inside a mine is",
+      "question": "6. The period of oscillation of a simple pendulum of constant length on the earth surface is T. Its period inside a mine is",
       "answers": {
         "a": "Greater than T",
         "b": "Less than T",
@@ -99,11 +99,23 @@
 	
 	
     {
-      "question": "9. The period 'T' of a pendulum, having length'L',moment of inertia'I', bob of mass 'm' is given by",
+      "question": "9. The period 'T' of a pendulum, having length'L', moment of inertia'I', bob of mass 'm' is given by",
       "answers": {
-        "a": " T = 2π &#8730 I/mgL ",
+        "a": " T = 2π &#8730(I/mgL) ",
         "b": "T= 2πIL/g",
         "c": "T= 2πmgL/I",
+        "d": "None of the above "
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "10. If a child swinging on a swing in sitting position suddenly stands up, the time period of swing will",
+      "answers": {
+        "a": " Decrease ",
+        "b": "Remain same",
+        "c": "Increase",
         "d": "None of the above "
       },
       "correctAnswer": "a",
