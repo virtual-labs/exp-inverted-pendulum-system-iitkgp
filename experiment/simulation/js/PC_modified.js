@@ -195,7 +195,7 @@
  ///////////////////////////////////////////////////////////// moves the cart_pendulum to left- right and right - left direction //////////////////////////////////////////////////////////////
    
    //var right = 120; /* initial positon */
-	var left1 = 0.2; /*initial position */
+	var left1 = 0;//math.round(0.2); /*initial position */
 	var left2 = 0.2; /*initial position */
 	//var left3 = 340; /*initial position */
 	//var temp = right;
@@ -223,19 +223,28 @@ function start(){
 }
       
 	  
-      function movecart_pend(){ 
+      function movecart_pend(){
+		var ampl = Number(document.getElementById('amp').value);
+		var unit_meter = math.divide(16.2,0.3);
+		var pos = math.round(math.multiply(ampl,unit_meter));
+		
+		var unit_meterrev = math.divide(-16.8,0.3);
+		var npos = math.round(math.multiply(ampl,unit_meterrev));
+		
+		//console.log(pos);
+		//console.log(npos);
 		
 		if(goRight1) {
 			temp1++;
 			
-			if(temp1 == 16.2 ) { /* move right*/
+			if(temp1 == math.number(pos) ) { /* move right*/
 				goRight1 = false;
 				goLeft1 = true;
 			}
 		} else if(goLeft1) {
 			temp1--;
 			
-			if(temp1 == -16.8 ) { /* move left */
+			if(temp1 == math.number(npos)) { /* move left */
 				goLeft1 = false;
 				goRight1 = true;
 			}
@@ -331,78 +340,94 @@ function crane_stab_sine(){
 	var duration = document.getElementById('timesine').value;
 	var freq = document.getElementById('frq').value;
 	
+	var i = math.sqrt(-1);
 	var yip = new Array();
     var yop = new Array();	
 	var dataIPPoints=[];
-	var dataOPPoints=[];	
+	var dataOPPoints=[];
 	
-	////////////////////////Actual tested Math model through EOM taking theta=pi , sintheta = -theta,costheta=-1,thetadotsqr = 0 kp1=8,ki1=0.3,kd1=4//////////////////////
-	/***var a = math.complex(0.000449133,0.000313629);	
-	var b = math.complex(-0.0180374,-2.57231);	
-	var c = math.multiply(b,t);	
-	var d = math.pow(math.e,c);	
-	var e = math.complex(0.34443,-0.938812);
-	var f = math.complex(0,5.14463);
-	var g = math.multiply(f,t);		
-	var h = math.pow(math.e,g);	
-	var j = math.add(e,h);	
-	var frstcomp = math.multiply(a,d,j);
+	var omega = math.multiply(2,math.pi,freq);
+	var omega2 = math.pow(omega,2);
 	
-	var k = math.complex(-0.00187338,-0.80225);	
-	var l = math.complex(0,-0.628318);	
-	var m = math.multiply(b,t);	
-	var n = math.pow(math.e,c);	
-	var o = math.complex(-0.999989,-0.0046703);
-	var p = math.complex(0,1.25664);
-	var q = math.multiply(p,t);		
-	var r = math.pow(math.e,q);	
-	var s = math.add(o,r);	
-	var scndcomp = math.multiply(k,n,s);
+	///pendulum parameters
+	///C1,P1 for crane stabilization
+	var pconst = 43.3;///document.getElementById('kp').value;///kp1///AG sir's paper value
+	var iconst = 33.796;///document.getElementById('ki').value;///ki1 ''
+	var dconst = 2.254;///document.getElementById('kd').value;///kd1  ''
 	
-	var thrdcomp = (math.multiply(0.0577219,math.pow(math.e,math.multiply(-21.2911,t))));
+	///C2,P2 for pendulum stabilization
+	var pconst2 = 120.9;///document.getElementById('kp').value;///kp2///AG sir's paper value
+	var iconst2 = 247.43;///document.getElementById('ki').value;///ki2 ''
+	var dconst2 = 10;///document.getElementById('kd').value;///kd2  ''
 	
-	var frthcomp = -(math.multiply(0.0567033,math.pow(math.e,math.multiply(-2.1625,t))));
+	///crane position
+	var k = math.multiply(5.841,iconst);
+	var sconst = math.multiply(5.841,pconst);
+	var sqrconst = math.multiply(5.841,dconst);
 	
-	var fifthcomp = (math.multiply(1.61527,math.pow(10,-7),math.pow(math.e,math.multiply(-0.0382302,t))));
+	///crane angle (theta =Pi)
+	var k2 = math.multiply(3.957,iconst2);
+	var sconst2 = math.subtract(math.multiply(3.957,pconst2),6.807);
+	var sqrconst2 = math.multiply(3.957,dconst2);
 	
-	var y = math.multiply(0.188495,math.add(frstcomp,scndcomp,thrdcomp,frthcomp,fifthcomp));
+	///crane Position
+	var roots = math.polynomialRoot(k,sconst,sqrconst,1);
+	var pol1 = roots[0];
+	var pol2 = roots[1];
+	var pol3 = roots[2];
+	
+	///crane angle
+	var roots2 = math.polynomialRoot(k2,sconst2,sqrconst2,1);
+	var pol12 = roots2[0];
+	var pol22 = roots2[1];
+	var pol32 = roots2[2];
+	
+	///crane Position
+	var rhs_sine = math.multiply(Amp,omega,5.841,math.add(math.multiply(dconst,math.pow(math.multiply(i,omega),2)),math.multiply(pconst,math.multiply(i,omega)),iconst));
+	var rhs_pol1 = math.multiply(Amp,omega,5.841,math.add(math.multiply(dconst,math.pow(pol1,2)),math.multiply(pconst,pol1),iconst));
+	var rhs_pol2 = math.multiply(Amp,omega,5.841,math.add(math.multiply(dconst,math.pow(pol2,2)),math.multiply(pconst,pol2),iconst));
+	var rhs_pol3 = math.multiply(Amp,omega,5.841,math.add(math.multiply(dconst,math.pow(pol3,2)),math.multiply(pconst,pol3),iconst));
+	
+	///crane angle
+	var rhs_theta = math.multiply(math.pi,3.957,iconst2);
+	var rhs_pol12 = math.multiply(math.pi,3.957,math.add(math.multiply(dconst2,math.pow(pol12,2)),math.multiply(pconst2,pol12),iconst2));
+	var rhs_pol22 = math.multiply(math.pi,3.957,math.add(math.multiply(dconst2,math.pow(pol22,2)),math.multiply(pconst2,pol22),iconst2));
+	var rhs_pol32 = math.multiply(math.pi,3.957,math.add(math.multiply(dconst2,math.pow(pol32,2)),math.multiply(pconst2,pol32),iconst2));
+	
+	///crane Position
+	var coeff1 = math.divide(rhs_sine,math.multiply(math.subtract(math.multiply(i,omega),pol1),math.subtract(math.multiply(i,omega),pol2),math.subtract(math.multiply(i,omega),pol3)));
+	var coeff2 = math.divide(rhs_pol1,math.multiply(math.add(math.pow(pol1,2),omega2),math.subtract(pol1,pol2),math.subtract(pol1,pol3)));
+	var coeff3 = math.divide(rhs_pol2,math.multiply(math.add(math.pow(pol2,2),omega2),math.subtract(pol2,pol1),math.subtract(pol2,pol3)));
+	var coeff4 = math.divide(rhs_pol3,math.multiply(math.add(math.pow(pol3,2),omega2),math.subtract(pol3,pol1),math.subtract(pol3,pol2)));
+	
+	///crane angle
+	var coeff12 = math.divide(rhs_theta,math.multiply(math.subtract(0,pol12),math.subtract(0,pol22),math.subtract(0,pol32)));
+	var coeff22 = math.divide(rhs_pol12,math.multiply(pol12,math.subtract(pol12,pol22),math.subtract(pol12,pol32)));
+	var coeff32 = math.divide(rhs_pol22,math.multiply(pol22,math.subtract(pol22,pol12),math.subtract(pol22,pol32)));
+	var coeff42 = math.divide(rhs_pol32,math.multiply(pol32,math.subtract(pol32,pol12),math.subtract(pol32,pol22)));
 	
 	
-	yop[t] = (y.re);
-	yip[t] = 3.141592;
+	for( var t=0; t<=duration;t+=0.1){	
 	
-	The above math model is valid for sine amp = 0.3 v , freq = 0.1 Hz, PID1 and PID2 parameters are found through tuning process (as in MATLAB).It is observed for different amps and freqs
-    the above model provides exactly desired output as input. Hence to make model user defined the replica of above model has been used.cause due to complex computational issue it is not
-    possible to use the above model for user defined desired signals.****/	
+	///crane Position
+	var part1 = math.multiply(math.divide(coeff1,omega),math.sin(math.multiply(omega,t)));
+	var part2 = math.multiply(coeff2,math.pow(math.e,math.multiply(pol1,t)));
+	var part3 = math.multiply(coeff3,math.pow(math.e,math.multiply(pol2,t)));
+	var part4 = math.multiply(coeff4,math.pow(math.e,math.multiply(pol3,t)));
 	
-	/////////////////////////Math Model simulation replica///////////////////////
-	for(var t=0;t<=duration;t++){
-		
+	///crane angle
+	var part12 = coeff12;
+	var part22 = math.multiply(coeff22,math.pow(math.e,math.multiply(pol12,t)));
+	var part32 = math.multiply(coeff32,math.pow(math.e,math.multiply(pol22,t)));
+	var part42 = math.multiply(coeff42,math.pow(math.e,math.multiply(pol32,t)));
 	
 	
-	var y = Amp * Math.sin(2*Math.PI*freq*t);
+	//y[t]= math.multiply(sinv , math.sin(math.multiply(2,math.pi, sinf ,t)));//assuming sine amp of 0.5v .Input plot
 	
-	
-	yop[t] = (y);
-	//////////////////Math model test for angle theta=pi, kp2 =5, ki2=0.1, kd2= 0.2/////////////////////////////
-	
-	/*var a = math.complex(-0.371945,-0.046996);	
-	var b = math.multiply(math.complex(-0.41448,-5.13889),t);
-	var c = math.pow(math.e,b);	
-	var d = math.complex(0.968572,-0.248733);
-	var e = math.pow(math.e,math.multiply(math.complex(0,10.2778),t));
-	var f = math.add(d,e);
-	var frstcomp = math.multiply(a,c,f);
-	
-	var scndcomp = math.multiply(0.0096899,math.pow(math.e,math.multiply(-0.0197586,t)))
-	
-	var thrdcomp = 0.75358;
-	var y = math.multiply(3.1415,math.add(frstcomp,scndcomp,thrdcomp));
-	
-	yip[t]= (y.re);*/
-	
-	yip[t] = 3.141592;
-	console.log("cart position="+ yop[t]);
+	yop[t] = (math.add(part1,part2,part3,part4)).re;///crane Position
+	 
+	yip[t] = (math.add(part12,part22,part32,part42)).re;///3.141592;///crane angle
+	//console.log("cart position="+ yop[t]);
 	
 	dataIPPoints.push({x:(t), y:(yip[t])});///pendulum angle pi
 	dataOPPoints.push({x:(t), y:(yop[t])});///cart position in m
@@ -424,11 +449,11 @@ document.getElementById('chartContainer2').style.display  = "block";
 	  
 	  axisX:{
         interlacedColor: "#B2F9FA",
-        title: "Time(Sec)"
+        title: "Time (sec)"
       },
     axisY: [
 	      {/////output Y axis
-            title: "Position(m)",
+            title: "Position (m)",
 			
 			maximum:1,
         },
@@ -444,7 +469,7 @@ document.getElementById('chartContainer2').style.display  = "block";
 	data: [
       {        
         type: "spline",
-		color:"109DB6",
+		color:"black",
         dataPoints:dataOPPoints
 	
        },
@@ -469,11 +494,11 @@ document.getElementById('chartContainer2').style.display  = "block";
 	  
 	  axisX:{
         interlacedColor: "#B2F9FA",
-        title: "Time(Sec)"
+        title: "Time (sec)"
       },
     axisY: [
 	      {/////output Y axis
-            title: "Position(m)",
+            title: "Angle (rad)",
 			
 			//maximum:3.5,
         },
@@ -489,7 +514,7 @@ document.getElementById('chartContainer2').style.display  = "block";
 	data: [
       {        
         type: "spline",
-		color:"109DB6",
+		color:"black",
         dataPoints:dataIPPoints
 	
        },
@@ -515,86 +540,104 @@ document.getElementById('chartContainer2').style.display  = "block";
 
 function Invpend_PD(){
 	
-	var Amp = document.getElementById('amp').value;
-	var duration = document.getElementById('display_duration2').value;
 	
+	// var Amp = 0.3;//document.getElementById('amp').value;
+	var duration = document.getElementById('display_duration2').value;
+	//var freq = 0.1;//document.getElementById('frq').value;
+	 
+	var i = math.sqrt(-1);
 	var yip = new Array();
     var yop = new Array();	
 	var dataIPPoints=[];
-	var dataOPPoints=[];	
+	var dataOPPoints=[];
 	
-	/////////////////////////Math Model LQR PID kp1=43.3, ki1=33.796, kd1=2.254 kp2=120.9, ki2=247.43, kd2=10///////////////////////
-	for(var t=0;t<=duration;t++){
-		
-	var a = math.multiply(-0.81277,t);
-	var b = math.pow(math.e,a);
-	var frstcomp = math.multiply(0.00229776,b);
+	/* var omega = math.multiply(2,math.pi,freq);
+	var omega2 = math.pow(omega,2); */
 	
-	var c = math.complex(6.58135,-5.62228);
-	var d = math.complex(-6.17641,-14.3083);
-	var e = math.multiply(d,t);
-	var f = math.pow(math.e,e);
+	///pendulum parameters
+	///C1,P1 for crane stabilization
+	var pconst = 43.3;///document.getElementById('kp').value;///kp1///AG sir's paper value
+	var iconst = 33.796;///document.getElementById('ki').value;///ki1 ''
+	var dconst = 2.254;///document.getElementById('kd').value;///kd1  ''
 	
-	var g = math.complex(0.156214,0.987723);
-	var h = math.complex(0,28.6166);
-	var j = math.multiply(h,t);
-	var k = math.pow(math.e,j);
-	var l = math.add(g,k);
+	///C2,P2 for pendulum stabilization
+	var pconst2 = 120.9;///document.getElementById('kp').value;///kp2///AG sir's paper value
+	var iconst2 = 247.43;///document.getElementById('ki').value;///ki2 ''
+	var dconst2 = 10;///document.getElementById('kd').value;///kd2  ''
 	
-	var scndcomp = math.multiply(c,f,l);
+	///crane position
+	var k = math.multiply(5.841,iconst);
+	var sconst = math.multiply(5.841,pconst);
+	var sqrconst = math.multiply(5.841,dconst);
 	
-	var y = math.add(frstcomp,scndcomp);
+	///crane angle (theta =Pi)
+	var k2 = math.multiply(3.957,iconst2);
+	var sconst2 = math.subtract(math.multiply(3.957,pconst2),6.807);
+	var sqrconst2 = math.multiply(3.957,dconst2);
 	
-	yop[t] = (y.re);	
+	///crane Position
+	var roots = math.polynomialRoot(k,sconst,sqrconst,1);
+	var pol1 = roots[0];
+	var pol2 = roots[1];
+	var pol3 = roots[2];
+	
+	///crane angle
+	var roots2 = math.polynomialRoot(k2,sconst2,sqrconst2,1);
+	var pol12 = roots2[0];
+	var pol22 = roots2[1];
+	var pol32 = roots2[2];
+	
+	///crane Position
+	//var rhs_sine = math.multiply(Amp,omega,5.841,math.add(math.multiply(dconst,math.pow(math.multiply(i,omega),2)),math.multiply(pconst,math.multiply(i,omega)),iconst));
+	var rhs_pol1 = math.multiply(5.841,math.add(math.multiply(dconst,math.pow(pol1,2)),math.multiply(pconst,pol1),iconst));
+	var rhs_pol2 = math.multiply(5.841,math.add(math.multiply(dconst,math.pow(pol2,2)),math.multiply(pconst,pol2),iconst));
+	var rhs_pol3 = math.multiply(5.841,math.add(math.multiply(dconst,math.pow(pol3,2)),math.multiply(pconst,pol3),iconst));
+	
+	///crane angle
+	//var rhs_theta = math.multiply(0.001,3.957,iconst2);
+	var rhs_pol12 = math.multiply(3.957,math.add(math.multiply(dconst2,math.pow(pol12,2)),math.multiply(pconst2,pol12),iconst2));
+	var rhs_pol22 = math.multiply(3.957,math.add(math.multiply(dconst2,math.pow(pol22,2)),math.multiply(pconst2,pol22),iconst2));
+	var rhs_pol32 = math.multiply(3.957,math.add(math.multiply(dconst2,math.pow(pol32,2)),math.multiply(pconst2,pol32),iconst2));
+	
+	///crane Position
+	//var coeff1 = math.divide(rhs_sine,math.multiply(math.subtract(math.multiply(i,omega),pol1),math.subtract(math.multiply(i,omega),pol2),math.subtract(math.multiply(i,omega),pol3)));
+	var coeff2 = math.divide(rhs_pol1,math.multiply(math.subtract(pol1,pol2),math.subtract(pol1,pol3)));
+	var coeff3 = math.divide(rhs_pol2,math.multiply(math.subtract(pol2,pol1),math.subtract(pol2,pol3)));
+	var coeff4 = math.divide(rhs_pol3,math.multiply(math.subtract(pol3,pol1),math.subtract(pol3,pol2)));
+	
+	///crane angle
+	//var coeff12 = math.divide(rhs_theta,math.multiply(math.subtract(0,pol12),math.subtract(0,pol22),math.subtract(0,pol32)));
+	var coeff22 = math.divide(rhs_pol12,math.multiply(pol12,math.subtract(pol12,pol22),math.subtract(pol12,pol32)));
+	var coeff32 = math.divide(rhs_pol22,math.multiply(pol22,math.subtract(pol22,pol12),math.subtract(pol22,pol32)));
+	var coeff42 = math.divide(rhs_pol32,math.multiply(pol32,math.subtract(pol32,pol12),math.subtract(pol32,pol22)));
 	
 	
-	console.log("cart position="+ yop[t]);
+	for( var t=0; t<=duration;t+=0.1){	
+	
+	///crane Position
+	//var part1 = math.multiply(math.divide(coeff1,omega),math.sin(math.multiply(omega,t)));
+	var part2 = math.multiply(coeff2,math.pow(math.e,math.multiply(pol1,t)));
+	var part3 = math.multiply(coeff3,math.pow(math.e,math.multiply(pol2,t)));
+	var part4 = math.multiply(coeff4,math.pow(math.e,math.multiply(pol3,t)));
+	
+	///crane angle
+	//var part12 = coeff12;
+	var part22 = math.multiply(coeff22,math.pow(math.e,math.multiply(pol12,t)));
+	var part32 = math.multiply(coeff32,math.pow(math.e,math.multiply(pol22,t)));
+	var part42 = math.multiply(coeff42,math.pow(math.e,math.multiply(pol32,t)));
 	
 	
+	//y[t]= math.multiply(sinv , math.sin(math.multiply(2,math.pi, sinf ,t)));//assuming sine amp of 0.5v .Input plot
+	
+	yop[t] = (math.add(part2,part3,part4)).re;///crane Position
+	 
+	yip[t] = (math.add(part22,part32,part42)).re;///0.001 approx;///crane angle
+	//console.log("cart position="+ yop[t]);
+	
+	dataIPPoints.push({x:(t), y:(yip[t])});///pendulum angle approx 0.001
 	dataOPPoints.push({x:(t), y:(yop[t])});///cart position in m
 	
 }
-/*for(var t=0;t<=duration/8;t++){
-
-yip[t] = 3.141592;
-
-dataIPPoints.push({x:(t), y:(yip[t])});///pendulum angle pi
-}
-
-for(var t=duration/8;t<=duration;t++){
-
-yip[t] = 0.001;
-
-dataIPPoints.push({x:(t), y:(yip[t])});///pendulum angle zero
-}*/
-///////////Model test///////////////////////////////////////////////////////
-for(var t=0;t<=duration;t++){
-
-
-	var m = math.multiply(-2.60998,t);
-	var n = math.pow(math.e,m);
-	var frstcomp1 = math.multiply(0.0000457248,n);
-	
-	var o = math.complex(19.785,30.7107);
-	var p = math.complex(-18.48,-5.79815);
-	var q = math.multiply(p,t);
-	var r = math.pow(math.e,q);
-	
-	var s = math.complex(-0.413385,-0.910556);
-	var u = math.complex(0,11.5963);
-	var v = math.multiply(u,t);
-	var w = math.pow(math.e,v);
-	var z = math.add(s,w);
-	
-	var scndcomp1 = math.multiply(o,r,z);
-	
-	var y1 = math.add(frstcomp1,scndcomp1);
-	
-	yip[t] = (y1.re);
-
-dataIPPoints.push({x:(t), y:(yip[t])});
-}
-
 
 document.getElementById('plotbucket').style.display  = "block"; 
 document.getElementById('chartContainer').style.display  = "block"; 
@@ -611,14 +654,13 @@ document.getElementById('chartContainer2').style.display  = "block";
 	  
 	  axisX:{
         interlacedColor: "#B2F9FA",
-        title: "Time(Sec)"
-		//maximum:1,
+        title: "Time (sec)"
       },
     axisY: [
 	      {/////output Y axis
-            title: "Position(m)",
+            title: "Position (m)",
 			
-			maximum:40,
+			//maximum:1,
         },
 		/*{/////input y axis invisible
 			gridThickness: 0,
@@ -632,7 +674,7 @@ document.getElementById('chartContainer2').style.display  = "block";
 	data: [
       {        
         type: "spline",
-		color:"109DB6",
+		color:"black",
         dataPoints:dataOPPoints
 	
        },
@@ -657,13 +699,13 @@ document.getElementById('chartContainer2').style.display  = "block";
 	  
 	  axisX:{
         interlacedColor: "#B2F9FA",
-        title: "Time(Sec)"
+        title: "Time (sec)"
       },
     axisY: [
 	      {/////output Y axis
-            title: "Angle(rad)",
+            title: "Angle (rad)",
 			
-			maximum:100,
+			//maximum:3.5,
         },
 		/*{/////input y axis invisible
 			gridThickness: 0,
@@ -677,7 +719,7 @@ document.getElementById('chartContainer2').style.display  = "block";
 	data: [
       {        
         type: "spline",
-		color:"109DB6",
+		color:"black",
         dataPoints:dataIPPoints
 	
        },
@@ -696,8 +738,8 @@ document.getElementById('chartContainer2').style.display  = "block";
 	document.getElementById("result").style.display = "block";
 	document.getElementById("exportChart").style.display = "block";
 	document.getElementById("exportChart").addEventListener("click",function(){
-	//chart.exportChart({format: "jpg"})});	
-		window.print();
+	//chart.exportChart({format: "jpg"})	
+	window.print();
 });
 }
 
@@ -708,14 +750,28 @@ document.getElementById('chartContainer2').style.display  = "block";
 function simu1(){		
 		
 		if(document.getElementById('ponoff').src.match('./images/pon.png') && document.getElementById('con').src.match('./images/c_on.png')){
-			
+		
+		var frequency = document.getElementById('frq').value;
+		var timep = math.divide(1,frequency);
+		var timer = Number(math.add(20,timep));
+		console.log(timer);
+		
 		document.getElementById('r1').src ="./images/pause.png";
-		movecart= setInterval(movecart_pend, 30);				
+		movecart= setInterval(movecart_pend, timer);				
 		crane_stab_sine();
 		
 		var time = document.getElementById('display_duration').value;
 		var t2 = parseFloat((10000/50)* time);
-		setTimeout( function() { stop_simu1(); },t2);
+		
+		document.getElementById('strt').disable = true;
+		document.getElementById('stp').disable = true;
+		
+		setTimeout( function() { 
+		
+		stop_simu1(); },t2);
+		document.getElementById('strt').disable = false;
+		document.getElementById('stp').disable = false;
+		
 		}
 	else {
 		alert('Switch on the Power button and click on the green Start push button');

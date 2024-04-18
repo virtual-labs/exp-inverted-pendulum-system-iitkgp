@@ -13,15 +13,19 @@
 ### About the Experiment 
 **System description**
 
-The pendulum workshop can be divided into two separate control problems. First is the crane control problem, in which the goal is to move the cart into a desired position with as little oscillation of the load (pendulum arms) as possible. The other is to stabilize the inverted pendulum in an upright position. The crane control problem is very often encountered in industrial applications where load movement is incorporated. It is especially difficult to realise when cranes are placed on ships and the effect of waves is considered.The inverted pendulum task can be seen as a self-erecting control problem, which is present in missile launching and control applications.The inverted cart–pendulum is an example of under-actuated,non-minimum phase and highly unstable system.Therefore a controller design is difficult for such a system.The design becomes more difficult because of the physical constraints on track length, applied voltage and the pendulum angle.a two-loop PID controller using pole placement technique where the (dominant) closed-loop poles	are placed at the desired locations,is used here to produce control signal which helps in stabilizing the system.
-  
-<div align="center">
-<img class="img-fluid"  src="./images/intro.png" alt="">
+The pendulum workshop can be segmented into two distinct control challenges. First is the crane control problem, focused on moving the cart to a desired position with minimal oscillation of the load (pendulum arms). Second is the task of stabilizing the inverted pendulum in an upright position. The crane control issue is frequently encountered in industrial settings where precise load movement is essential, particularly challenging when cranes operate on ships where wave effects come into play. The inverted pendulum task resembles a self-erecting control problem, relevant in applications like missile launching and control. The inverted cart-pendulum exemplifies an under-actuated, non-minimum phase, and highly unstable system, 
+posing significant challenges for controller design. Complicating matters are physical constraints on track length, applied voltage and pendulum angle. To address these challenges, a two-loop PID controller utilizing pole placement technique is employed here, strategically positioning dominant closed-loop poles at desired locations to generate control signals that aid in system stabilization.
 
-Fig1.Inverted Cart Pendulum along with Actuator, Controller and PC 
+Fig. 1 explains how the control system is organised.
+		  
+
+<div align="center">
+<img class="img-fluid"  src="experiment/images/intro.png" alt="">
+
+<b>Fig. 1. Inverted Cart Pendulum along with Actuator, Controller and PC </b>
 </div>
 
-<b>Name of Developer | <b> **Prof. Alok Kanti Deb**
+<b>Subject matter expertise | <b> **Prof. Alok Kanti Deb**
 :--|:--|
 <b> Institute | <b>  **Indian Institute of Technology Kharagpur**
 <b> Email id|     <b>  **alokkanti@ee.iitkgp.ac.in**
@@ -32,4 +36,5 @@ Fig1.Inverted Cart Pendulum along with Actuator, Controller and PC
 
 SrNo | Name | VLabs Developer or Integration Engineer | Designation | Department| Institute
 :--|:--|:--|:--|:--|:--|
-1 | **Piyali Chattopadhyay** | Developer & Integration | Project Scientist | Department of Electrical Engineering | IIT Kharagpur | 
+1 | **Piyali Chattopadhyay** | Developer | Project Scientist | Department of Electrical Engineering | IIT Kharagpur | 
+2 | **Subhasis Mahata** | Integration Engineer | Senior Project Scientist | Department of Mechanical Engineering | IIT Kharagpur |

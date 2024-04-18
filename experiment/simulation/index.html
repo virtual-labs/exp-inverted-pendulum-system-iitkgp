@@ -21,7 +21,7 @@
   
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script  src="./js/PC.js">   </script>
+  <script  src="./js/PC_modified.js"></script>
   
   
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -29,7 +29,7 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.2.1/math.js"></script>
   <script src=" https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.2.1/math.min.js  "></script>
- 
+   <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
  
 
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
@@ -77,79 +77,43 @@
 
             </div><!--First col under 2nd row end-->
             <div class="col-md-6"><!--2nd col under 2nd row start-->
-                <p class="h1"> <b>Study and operation of Inverted Pendulum System </b> </p>
+                <p class="h1"> <b>Simulation</b> </p>
             </div><!--2nd col under 2nd row end-->
             <div class="col-md-3"><!--3rd col under 2nd row start-->
 
             </div><!--3rd col under 2nd row end-->
         </div><!--2nd row under 1st container end-->
         <hr>
-        <div class="d-flex p-1 text-primary"><!--3rd row under 1st container start-->
-          <div class="p-1" > <p class="h4"><a href="../index.html"> <span class="LN"> <b> Control and Instrumentation Lab </b></span> --> </a></p></div>
-          <div class="p-1"> <p class="h4"><a href="./index.html"> <span class="ExpN"> <b> Study and operation of Inverted Pendulum System </b> </span> </a></p></div>
-        </div><!--3rd row under 1st container end-->
+       
     </div><!--First Container under body tag end-->
     
-    <div class="container p-3 my-5 text-primary text-center border"><!--2nd Container under body tag start-->
-        <div class="row"><!--First row under 2nd container start-->
-
-            <ul class="nav nav-pills nav-justified">
-                <li class="nav-item">
-                  <a class="nav-link" href="../index.html">Introduction</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../aim.html">Objective</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../prequiz.html">Pre Quiz</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../theory.html">Theory</a>
-                </li>
-				<li class="nav-item">
-                  <a class="nav-link" href="../procedure.html">Procedure</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="./index.html">Simulation</a>
-                  </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../postquiz.html">Post Quiz</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../feedback.html">Feedback</a>
-                  </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../references.html">References</a>
-                  </li>
-
-              </ul>
-        </div><!--First row under 2nd container end-->
-    </div><!--2nd Container under body tag end-->
+    
 	
-    <div class="container p-3 my-5 text-left border"><!--3rd Container under body tag start-->
+    <div class="container p-3 my-5 text-left border" style="text-align:justify"><!--3rd Container under body tag start-->
       <div class="row"><!--First row under 3rd container start-->
         <div class="col-md-1"></div><!--First col under 3rd container start& end-->
         <div class="col-md-10"><!--2nd col under 3rd container start-->
             <p class="text-center bg-success"> <a class="nav-link" data-bs-toggle="tab"  id="instcontrol" style="background-color:#128BD9"  ><span class=" h3 text-dark"> Instructions </span></a>
-              <ol id="inst" style="display:block;height:200px;overflow-y:auto;">
-                      <li>At first click on "Start" button to observe pendulum-cart system is moving normally on the track.Click on 'Stop' button to stop it.</li></br>
+              <ol id="inst" style="display:block;height:200px;overflow-y:auto;text-align:justify;">
+                       <li>First click on "Start" button to observe the pendulum-cart system is moving normally on the track. Click on 'Stop' button to stop it.</li></br>
+						  
   
-					  <li>Now under 'Controller Panel' section click on 'Crane Stabilization' to observe crane control of pendulum-cart system.
-					  Initially the controller for crane stabilization is shown. Click on 'cart desired trajectory' block to enter desired amplitude,frequency and time value of a sinusoidal trajectory.
+					  <li>Now under 'Controller Panel' section click on 'Crane Stabilization' to observe crane control simulation of pendulum-cart system.
+					  Initially the controller for crane stabilization is shown. Click on 'Cart desired trajectory' block to enter desired amplitude,frequency and time value of a sinusoidal trajectory.
 					  Click on 'Ok'. Click on 'Incremental Build' icon and wait for an alert message to successfully build the model.</li><br/>
-					 
-					 <li>Click on "Connect to Target" button now and wait for the run button to be enabled. Click on the green'Power' button. Now click on
-						 'Start' button just beside that Power button.Click on the 'Run' button now to observe the simulation for crane control
-						 and graphical representation of cart position and pendulum angle(which will be around 3.1415).Plot can be
-						 downloaded from 'Download Plot' button. Now click on 'Ok' button.</li></br>
+						  	 
+					 <li>Click on "Connect to Target" icon now and wait for the run (triangular button beside "Connect to Target") button to be enabled. Click on the green 'Power' button. Now click on
+						 'Start' button just beside that 'Power' button. Click on the run button now to observe the simulation for crane control
+						 and graphical representation of cart position and pendulum angle (which will be around &pi;). Plot can be
+						 downloaded by clicking on 'Download' button. Now click on 'Ok' button.</li></br>
 
-					 <li>Now under 'Controller Panel' section click on 'Pendulum Stabilization' to observe Inverted Pendulum control
-					  of pendulum-cart system. Click on the pendulum pole to make it inverted ( Upright position ).Click on 'Incremental Build' icon and wait for an alert message to successfully build the model.</li><br/> 
+					 <li>Now under 'Controller Panel' section click on 'Pendulum Stabilization' to observe inverted pendulum control simulation
+					  of pendulum-cart system. Click on the pendulum pole to make it inverted (vertically upright position). Click on 'Incremental Build' icon and wait for an alert message to successfully build the model.</li><br/> 
 
-					<li>Click on "Connect to Target" button now and wait for the run button to be enabled. Click on the green'Power' button and then click on
-						 'Start' button just beside that Power button. Click on the 'Run' button now to observe the simulation for Inverted Pendulum control
-						 and graphical representation of cart position and pendulum angle(which will be around 0).Plot can be
-						downloaded from 'Download Plot' button. Now click on 'Ok' button.</li></br>
+					<li>Click on "Connect to Target" icon now and wait for the run button to be enabled. Click on the green 'Power' button and then click on
+						 'Start' button just beside that 'Power' button. Click on the run button now to observe the simulation for inverted pendulum control
+						 and graphical representation of cart position and pendulum angle (which will be around 0). Plot can be
+						downloaded by clicking on 'Download' button. Now click on 'Ok' button.</li></br>
 						 
 		   </ol>
             </p> 
@@ -215,8 +179,8 @@
 					<img class="img-fluid " id="r1" src="images/run.png " onclick="simu1()" />
 					<img class="img-fluid " id="r2" src="images/run.png " onclick="simu2()" />
 					
-					<input type="number" id="display_duration" min='10' max='100' value='40' style="display:block;position:absolute;top:1%;left:46%;width:6%;height:7%"readonly="readonly">
-					<input type="number" id="display_duration2" min='10' max='100' value='40' style="display:none;position:absolute;top:1%;left:46%;width:6%;height:7%">
+					<input type="number" id="display_duration" min='10' max='100' value='40' style="display:block;position:absolute;top:1%;left:83.5%;width:6%;height:7%"readonly="readonly">
+					<input type="number" id="display_duration2" min='10' max='100' value='40' style="display:none;position:absolute;top:1%;left:83.5%;width:6%;height:7%">
 					
 					
 					<img class="img-fluid " id="sine" src="images/dt.png " onclick="set_trajectory()" />
@@ -234,13 +198,13 @@
 					
 					
 					<div id="sinetab">
-					<span>Cart desired trajectory(Sine)</span><br>
+					<span>Cart desired trajectory (Sine)</span><br>
 					
-					<input type="number" id="amp" min="0" max="0.4" step="0.01" value="0.3">Amplitude<br><br>
+					<input type="number" id="amp" min="0" max="0.3" step="0.01" value="0.3">&nbsp;Amplitude<br><br>
 					
-					<input type="number" id="frq" min="0" max="0.5" step="0.1" value="0.1">Frequency(Hz)<br><br>
+					<input type="number" id="frq" min="0" max="0.5" step="0.1" value="0.1">&nbsp;Frequency (Hz)<br><br>
 					
-					<input type="number" id="timesine" min="0" max="100" step="10" value="40">Time(sec)<br><br>
+					<input type="number" id="timesine" min="0" max="100" step="10" value="40">&nbsp;Time (sec)<br><br>
 					
 					<button type="button" style="position:absolute;top:64%;left:70%"  onclick="close_trajectory()"  class="btn btn-danger" >Ok</button>
 					</div>
@@ -272,6 +236,7 @@
 				</div><!--img container div end--><br>
 				<!--<button type="button"   onclick="back()"  class="btn btn-success" >Back</button>-->	
 					<!--<button type="button" id="refresh" onclick="Refresh()" class="btn btn-primary" >Clear</button>-->
+				
 			</div><!---end of 1st col under 1st row--->	
 			
         </div><!--1st row under fourth container end-->
@@ -281,8 +246,8 @@
 	<div class="row my-5 gy-2"><!--- 2nd row under fourth container start--->
 	
 		<div class="col-md-2 ">
-		<button type="button"   onclick="start()"  class="btn btn-success" >Start</button>
-		<button type="button"   onclick="stop()"  class="btn btn-danger" >Stop</button>
+		<button type="button"  id="strt" onclick="start()"  class="btn btn-success" >Start</button>
+		<button type="button"   id="stp" onclick="stop()"  class="btn btn-danger" >Stop</button>
 		
 		</div><!--1st col under 2nd row start and end -->
 		
@@ -327,16 +292,15 @@
 		
 	 
 			<div class="col-md-12">
-				<div id = "plotbucket" class="content-center" style="display:none; position relative; border:3px solid white;height:650px;width:823px ">
+				<div id = "plotbucket" class="content-center" style="display:none; position: relative; border:3px solid white;height:650px;width:823px ">
 				
 				<div id="chartContainer"  style="display:none; position:absolute; height: 30%; width: 40%;z-index:1 "></div><br>
-				<br><br><br><br><br><br><br><br><br><br><br><br>	
+				<br><br><br><br><br><br><br/><br/>
 				<div id="chartContainer2"  style="display:none; position:absolute; height: 30%; width: 40%;z-index:1 "></div>
 								
-				
 				</div>				
-				<button type="button" id="exportChart" class="btn btn-primary"  style="display:none;position:absolute;left:20%;">Download Plot</button>
-				<button type="button" id="result" class="btn btn-primary" onclick="Refresh()"  style="display:none;position:absolute;left:27%">OK</button><br/><br/>
+				<button type="button" id="exportChart" class="btn btn-primary p-2"  style="display:none;position:absolute;left:20%;">Download</button>
+				<button type="button" id="result" class="btn btn-danger" onclick="Refresh()"  style="display:none;position:absolute;left:27%">Ok</button><br/><br/>
 			</div>
 			
 			
