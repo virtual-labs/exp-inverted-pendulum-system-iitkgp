@@ -46,28 +46,28 @@ Linearising equations (1) and (2) for small angle of <span class="fontCss2">&the
 
 $$
 \left[\begin{array}{cc}
-\dot{x}\\
-\ddot{x}\\
-\dot{\theta}\\
-\ddot{\theta}\\
+\dot{x}\\\
+\ddot{x}\\\
+\dot{\theta}\\\
+\ddot{\theta}\\\
 \end{array}\right] =
 \left[\begin{array}{cc}
-0 & 1 & 0 & 0 \\
-0 & \frac{-(J+mL^2)b}{\sigma'} & \frac{m^2 L^2 g}{\sigma'} & 0 \\
-0 & 0 & 0 & 1 \\
-0 & \frac{- mLb}{\sigma'} & \frac{mgL(m+M)}{\sigma'} & 0 \\
+0 & 1 & 0 & 0 \\\
+0 & \frac{-(J+mL^2)b}{\sigma'} & \frac{m^2 L^2 g}{\sigma'} & 0 \\\
+0 & 0 & 0 & 1 \\\
+0 & \frac{- mLb}{\sigma'} & \frac{mgL(m+M)}{\sigma'} & 0 \\\
 \end{array}\right]
 \left[\begin{array}{cc}
-x \\
-\dot{x} \\
-\theta \\
-\dot{\theta} \\
+x \\\
+\dot{x} \\\
+\theta \\\
+\dot{\theta} \\\
 \end{array}\right] +
 \left[\begin{array}{cc}
-0 \\
-\frac{(J+mL^2)}{\sigma'} \\
-0 \\
-\frac{mL}{\sigma'} \\
+0 \\\
+\frac{(J+mL^2)}{\sigma'} \\\
+0 \\\
+\frac{mL}{\sigma'} \\\
 \end{array}\right] \ F....(3)$$
 
 
