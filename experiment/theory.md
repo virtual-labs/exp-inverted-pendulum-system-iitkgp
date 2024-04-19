@@ -88,7 +88,7 @@ $$\sigma' = J(M+m) + MmL^2$$
 
 
 <p><b>Plant Parameter</b>:</p><br/>
-<div align="center">
+<center>
 <table class="table  text-center table-striped ">
 <tr >
 <th><b>Parameter</b></th>
@@ -139,7 +139,7 @@ $$\sigma' = J(M+m) + MmL^2$$
 <th>&theta;&leq;0.1 rad</th>				
 </tr>
 </table>
-</div>
+</center>
 <br/>
 Next, substituting the values of <span class="fontCss2">M, L, J</span>, <span class="fontCss">m</span> and <span class="fontCss">g</span> in equations (3) and (4) and neglecting the friction coefficient <span class="fontCss">b</span> (which is very small compared to other parameters) the
 following transfer functions are obtained<br/>
