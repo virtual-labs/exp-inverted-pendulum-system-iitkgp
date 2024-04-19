@@ -71,14 +71,14 @@ x \newline
 
 
 $$ y = \ \left[\begin{array}{cc}
-1 & 0 & 0 & 0\\
+1 & 0 & 0 & 0\newline
 0 & 0 & 1 & 0
 \end{array}\right]
 \left[\begin{array}{cc}
-x \\
-\dot{x} \\
-\theta \\
-\dot{\theta} \\
+x \newline
+\dot{x} \newline
+\theta \newline
+\dot{\theta} \newline
 \end{array}\right] \ ....(4) $$
 
 
@@ -203,26 +203,26 @@ Comparing the coefficients of (13) and (14) the following matrix equation is obt
 
 
 $$\left[\begin{array}{cc}
--b_1 & 0 & 0 & b_2 & 0 & 0 \\
-0 & -b_1 & 0 & 0 & b_2 & 0 \\
-a^2b_1 & 0 & -b_1 & 0 & 0 & b_2\\
-0 & a^2b_1 & 0 & 0 & 0 & 0\\
-0 & 0 & a^2b_1 & 0 & 0 & 0 \\
+-b_1 & 0 & 0 & b_2 & 0 & 0 \newline
+0 & -b_1 & 0 & 0 & b_2 & 0 \newline
+a^2b_1 & 0 & -b_1 & 0 & 0 & b_2\newline
+0 & a^2b_1 & 0 & 0 & 0 & 0\newline
+0 & 0 & a^2b_1 & 0 & 0 & 0 \newline
 \end{array}\right]
 \left[\begin{array}{cc}
-k^1_d\\
-k^1_p \\
-k^1_i\\
-k^2_d\\
-k^2_p\\
-k^2_i\\
+k^1_d\newline
+k^1_p \newline
+k^1_i\newline
+k^2_d\newline
+k^2_p\newline
+k^2_i\newline
 \end{array}\right] =
 \left[\begin{array}{cc}
-p_1\\
-p_2 + a^2\\
-p_3\\
-p_4\\
-p_5\\
+p_1\newline
+p_2 + a^2\newline
+p_3\newline
+p_4\newline
+p_5\newline
 \end{array}\right] \ .....(15)$$
 
 
@@ -255,20 +255,20 @@ value in (3) and (4) and then comparing these equations with (16) we get,
 
 
 $$A = \ \left[\begin{array}{cc}
-0 & 1 & 0 & 0\\
-0 & 0 & 0.238 & 0 \\
-0 & 0 & 0 & 1\\
-0 & 0 & 6.807 & 0\\
+0 & 1 & 0 & 0\newline
+0 & 0 & 0.238 & 0 \newline
+0 & 0 & 0 & 1\newline
+0 & 0 & 6.807 & 0\newline
 \end{array}\right],
 B = \ \left[\begin{array}{cc}
-0\\
-0.3894\\
-0\\
-0.2638\\
+0\newline
+0.3894\newline
+0\newline
+0.2638\newline
 \end{array}\right] \times  15,
 C = \ \left[\begin{array}{cc}
-1 & 0 & 0 & 0\\
-0 & 0 & 1 & 0 \\
+1 & 0 & 0 & 0\newline
+0 & 0 & 1 & 0 \newline
 \end{array}\right] \ .....(20)$$
 
 
@@ -292,26 +292,26 @@ dominant one amongst these four poles, the coefficients of (14) are obtained as,
 Next, by substituting these <span class="fontCss">p</span><sub>1</sub>, <span class="fontCss">p<sub>2</sub>, <span class="fontCss">p</span><sub>3</sub>, <span class="fontCss">p</span><sub>4</sub>, <span class="fontCss">p</span><sub>5</sub> and <span class="fontCss">b</span><sub>1</sub>, <span class="fontCss">b</span><sub>2</sub>, a</span> obtained from (7), (8) in (15), we get
 
 $$\left[\begin{array}{cc}
--5.841 & 0 & 0 & 3.957 & 0 & 0\\
-0 & -5.841 & 0 & 0 & 3.957 & 0\\
-39.759 & 0 & -5.841 & 0 & 0 & 3.957\\
-0 & 39.759 & 0 & 0 & 0 & 0\\
-0 & 0 & 39.759 & 0 & 0 & 0\\
+-5.841 & 0 & 0 & 3.957 & 0 & 0\newline
+0 & -5.841 & 0 & 0 & 3.957 & 0\newline
+39.759 & 0 & -5.841 & 0 & 0 & 3.957\newline
+0 & 39.759 & 0 & 0 & 0 & 0\newline
+0 & 0 & 39.759 & 0 & 0 & 0\newline
 \end{array}\right]
 \left[\begin{array}{cc}
-k^1_d\\
-k^1_p \\
-k^1_i\\
-k^2_d\\
-k^2_p\\
-k^2_i\\
+k^1_d\newline
+k^1_p \newline
+k^1_i\newline
+k^2_d\newline
+k^2_p\newline
+k^2_i\newline
 \end{array}\right] =
 \left[\begin{array}{cc}
-26.4\\
-225.5\\
-871.3\\
-1721.8\\
-1343.7\\
+26.4\newline
+225.5\newline
+871.3\newline
+1721.8\newline
+1343.7\newline
 \end{array}\right] \ .....(22)$$
 
 				
