@@ -88,7 +88,7 @@ $$\sigma' = J(M+m) + MmL^2$$
 
 <p><b>Plant Parameter</b>:</p><br/>
 
-<table class="table table-bordered text-center table-striped ">
+<table class="table  text-center table-striped ">
 <tr >
 <th><b>Parameter</b></th>
 <th><b>Value</b></th>				
