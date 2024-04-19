@@ -44,72 +44,44 @@ Linearising equations (1) and (2) for small angle of <span class="fontCss2">&the
 
 <b>State Space Representation</b>
 
-\begin{gather}
-
-\begin{bmatrix}	\dot{x}\\ \ddot{x}\\ \dot{\theta}\\ \ddot{\theta}\\	\end{bmatrix}
-=
-\begin{bmatrix} 
+$$
+\left[\begin{array}{cc}
+\dot{x}\\
+\ddot{x}\\
+\dot{\theta}\\
+\ddot{\theta}\\
+\end{array}\right] =
+\left[\begin{array}{cc}
 0 & 1 & 0 & 0 \\
-
-0 & \frac{-(J+mL^2)b}{\sigma'} & \frac{m^2 L^2 g}{\sigma'}  & 0   \\
-
+0 & \frac{-(J+mL^2)b}{\sigma'} & \frac{m^2 L^2 g}{\sigma'} & 0 \\
 0 & 0 & 0 & 1 \\
-
-0 & \frac{- mLb}{\sigma'} & \frac{mgL(m+M)}{\sigma'} & 0 \\				
-
-\end{bmatrix}
-
-\begin{bmatrix}
+0 & \frac{- mLb}{\sigma'} & \frac{mgL(m+M)}{\sigma'} & 0 \\
+\end{array}\right]
+\left[\begin{array}{cc}
 x \\
-
 \dot{x} \\
-
 \theta \\
-
-\dot{\theta} \\					
-
-\end{bmatrix}
-
-+
-
-\begin{bmatrix}
+\dot{\theta} \\
+\end{array}\right] +
+\left[\begin{array}{cc}
 0 \\
-
 \frac{(J+mL^2)}{\sigma'} \\
-
 0 \\
+\frac{mL}{\sigma'} \\
+\end{array}\right] \ F....(3)$$
 
-\frac{mL}{\sigma'} \\					
 
-\end{bmatrix}
-F....(3)			
-
-\end{gather}
-
-<br>
-
-\begin{gather}
-
-y = 
-
-\begin{bmatrix}
+$$y = \ \left[\begin{array}{cc}
 1 & 0 & 0 & 0\\
 0 & 0 & 1 & 0
-\end{bmatrix}
-
-\begin{bmatrix}
+\end{array}\right]
+\left[\begin{array}{cc}
 x \\
-
 \dot{x} \\
-
 \theta \\
+\dot{\theta} \\
+\end{array}\right] \ ....(4)$$
 
-\dot{\theta} \\					
-
-\end{bmatrix}
-....(4)
-
-\end{gather}
 
 $$where \ x, \ \dot{x}, \ \theta \ and \  \dot{θ} \ are \ the \ states \ and \ y \ is \ the \ output \ vector,$$
 
@@ -231,38 +203,30 @@ $$s^5 + p_1s^4 + p_2s^3 + p_3s^2 + p_4s + p_5 = 0.....(14)$$
 Comparing the coefficients of (13) and (14) the following matrix equation is obtained
 
 
-\begin{gather}
-\begin{bmatrix}
-
+$$\left[\begin{array}{cc}
 -b_1 & 0 & 0 & b_2 & 0 & 0 \\
-
-0  & -b_1 & 0 & 0 & b_2 & 0 \\
-
+0 & -b_1 & 0 & 0 & b_2 & 0 \\
 a^2b_1 & 0 & -b_1 & 0 & 0 & b_2\\
-
 0 & a^2b_1 & 0 & 0 & 0 & 0\\
-
 0 & 0 & a^2b_1 & 0 & 0 & 0 \\
-
-\end{bmatrix}
-\begin{bmatrix}
+\end{array}\right]
+\left[\begin{array}{cc}
 k^1_d\\
 k^1_p \\
 k^1_i\\
 k^2_d\\
 k^2_p\\
-k^2_i\\				
-\end{bmatrix}
-=
-\begin{bmatrix}
+k^2_i\\
+\end{array}\right] =
+\left[\begin{array}{cc}
 p_1\\
 p_2 + a^2\\
 p_3\\
 p_4\\
-p_5\\				
-\end{bmatrix}
-.....(15)
-\end{gather}
+p_5\\
+\end{array}\right] \ .....(15)$$
+
+
 
 <div align="center">				
 <img alt="" src="./images/controllerdia.png" class="img-fluid"><br/>
@@ -270,8 +234,7 @@ p_5\\
 </div><br>
 
 <p><b>LQR Design</b></p><br/>
-The LQR is an optimal state feedback controller designed to minimise a particular quadratic performance index, which
-takes care of the design constraints. For an LTI system,<br/>
+The LQR is an optimal state feedback controller designed to minimise a particular quadratic performance index, which takes care of the design constraints. For an LTI system,<br/>
 
 $$\dot{X}= AX + BU$$
 $$Y=CX  ....(16)$$
@@ -290,30 +253,26 @@ $$K = -R^{-1}B^TP .....(19)$$
 Now for the inverted pendulum system, the above LQR design is carried out. Substituting the system parameters
 value in (3) and (4) and then comparing these equations with (16) we get,
 
-\begin{gather}
-A =
-\begin{bmatrix}
+
+
+$$A = \ \left[\begin{array}{cc}
 0 & 1 & 0 & 0\\
 0 & 0 & 0.238 & 0 \\
 0 & 0 & 0 & 1\\
-0 & 0 & 6.807 & 0\\				
-\end{bmatrix},
-B =
-\begin{bmatrix}
+0 & 0 & 6.807 & 0\\
+\end{array}\right],
+B = \ \left[\begin{array}{cc}
 0\\
 0.3894\\
 0\\
-0.2638\\			
-\end{bmatrix}
-\times 15,
-\
-C = 
-\begin{bmatrix}
+0.2638\\
+\end{array}\right] \times  15,
+C = \ \left[\begin{array}{cc}
 1 & 0 & 0 & 0\\
 0 & 0 & 1 & 0 \\
-\end{bmatrix}
-.....(20)
-\end{gather}
+\end{array}\right] \ .....(20)$$
+
+
 
 The <span class="fontCss2">A</span> matrix being of fourth order, it may be chosen <i style="font-family:'century'">Q</i> = diag {<span class="fontCss">q</span><sub>1</sub>, <span class="fontCss">q</span><sub>2</sub>, <span class="fontCss">q</span><sub>3</sub>, <span class="fontCss">q</span><sub>4</sub>}
 such that  <span class="fontCss">q</span><sub>1</sub> >> <span class="fontCss">q</span><sub>2</sub>, <span class="fontCss">q</span><sub>2</sub> >> <span class="fontCss">q</span><sub>4</sub>, <span class="fontCss">q</span><sub>3</sub> >> <span class="fontCss">q</span><sub>4</sub>.
@@ -333,32 +292,30 @@ dominant one amongst these four poles, the coefficients of (14) are obtained as,
 <br/><br/>
 Next, by substituting these <span class="fontCss">p</span><sub>1</sub>, <span class="fontCss">p<sub>2</sub>, <span class="fontCss">p</span><sub>3</sub>, <span class="fontCss">p</span><sub>4</sub>, <span class="fontCss">p</span><sub>5</sub> and <span class="fontCss">b</span><sub>1</sub>, <span class="fontCss">b</span><sub>2</sub>, a</span> obtained from (7), (8) in (15), we get
 
-\begin{gather}				
-\begin{bmatrix}
+$$\left[\begin{array}{cc}
 -5.841 & 0 & 0 & 3.957 & 0 & 0\\
 0 & -5.841 & 0 & 0 & 3.957 & 0\\
 39.759 & 0 & -5.841 & 0 & 0 & 3.957\\
 0 & 39.759 & 0 & 0 & 0 & 0\\
-0 & 0 & 39.759 & 0 & 0 & 0\\				
-\end{bmatrix}
-\begin{bmatrix}
+0 & 0 & 39.759 & 0 & 0 & 0\\
+\end{array}\right]
+\left[\begin{array}{cc}
 k^1_d\\
 k^1_p \\
 k^1_i\\
 k^2_d\\
 k^2_p\\
-k^2_i\\				
-\end{bmatrix}
-=
-\begin{bmatrix}
+k^2_i\\
+\end{array}\right] =
+\left[\begin{array}{cc}
 26.4\\
 225.5\\
 871.3\\
 1721.8\\
 1343.7\\
-\end{bmatrix}
-.....(22)
-\end{gather}				
+\end{array}\right] \ .....(22)$$
+
+				
 
 In (22), five poles need to be placed and we have six parameters. So we need to fix one parameter. 
 
