@@ -45,28 +45,28 @@ Linearising equations (1) and (2) for small angle of <span class="fontCss2">&the
 <b>State Space Representation</b>
 
 $$ \left[\begin{array}{cc}
-\dot{x}\\\
-\ddot{x}\\\
-\dot{\theta}\\\
-\ddot{\theta}\\\
+\dot{x}\newline
+\ddot{x}\newline
+\dot{\theta}\newline
+\ddot{\theta}\newline
 \end{array}\right] =
 \left[\begin{array}{cc}
-0 & 1 & 0 & 0 \\\
-0 & \frac{-(J+mL^2)b}{\sigma'} & \frac{m^2 L^2 g}{\sigma'} & 0 \\\
-0 & 0 & 0 & 1 \\\
-0 & \frac{- mLb}{\sigma'} & \frac{mgL(m+M)}{\sigma'} & 0 \\\
+0 & 1 & 0 & 0 \newline
+0 & \frac{-(J+mL^2)b}{\sigma'} & \frac{m^2 L^2 g}{\sigma'} & 0 \newline
+0 & 0 & 0 & 1 \newline
+0 & \frac{- mLb}{\sigma'} & \frac{mgL(m+M)}{\sigma'} & 0 \newline
 \end{array}\right]
 \left[\begin{array}{cc}
-x \\\
-\dot{x} \\\
-\theta \\\
-\dot{\theta} \\\
+x \newline
+\dot{x} \newline
+\theta \newline
+\dot{\theta} \newline
 \end{array}\right] +
 \left[\begin{array}{cc}
+0 \newline
+\frac{(J+mL^2)}{\sigma'} \newline
 0 \\\
-\frac{(J+mL^2)}{\sigma'} \\\
-0 \\\
-\frac{mL}{\sigma'} \\\
+\frac{mL}{\sigma'} \newline
 \end{array}\right] \ F....(3) $$
 
 
