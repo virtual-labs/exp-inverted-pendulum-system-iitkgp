@@ -44,8 +44,7 @@ Linearising equations (1) and (2) for small angle of <span class="fontCss2">&the
 
 <b>State Space Representation</b>
 
-$$
-\left[\begin{array}{cc}
+$$ \left[\begin{array}{cc}
 \dot{x}\\\
 \ddot{x}\\\
 \dot{\theta}\\\
@@ -68,10 +67,10 @@ x \\\
 \frac{(J+mL^2)}{\sigma'} \\\
 0 \\\
 \frac{mL}{\sigma'} \\\
-\end{array}\right] \ F....(3)$$
+\end{array}\right] \ F....(3) $$
 
 
-$$y = \ \left[\begin{array}{cc}
+$$ y = \ \left[\begin{array}{cc}
 1 & 0 & 0 & 0\\
 0 & 0 & 1 & 0
 \end{array}\right]
@@ -80,7 +79,7 @@ x \\
 \dot{x} \\
 \theta \\
 \dot{\theta} \\
-\end{array}\right] \ ....(4)$$
+\end{array}\right] \ ....(4) $$
 
 
 $$where \ x, \ \dot{x}, \ \theta \ and \  \dot{θ} \ are \ the \ states \ and \ y \ is \ the \ output \ vector,$$
