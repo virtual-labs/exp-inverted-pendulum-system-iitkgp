@@ -82,7 +82,9 @@ x \newline
 \end{array}\right] \ ....(4) $$
 
 
-$$where \ x, \ \dot{x}, \ \theta \ and \  \dot{θ} \ are \ the \ states \ and \ y \ is \ the \ output \ vector,$$
+$$where \ x, \ \dot{x}, \ \theta \ and \  \dot{θ} \ are \ the \ states$$
+
+and <span style="font-family:'Georgia';font-weight:400;font-style:italic">y</span> is the output vector,
 
 $$\sigma' = J(M+m) + MmL^2$$
 
@@ -195,7 +197,7 @@ $$1 - (\frac{b_1}{s^2}\frac{k^1_d s^2 +k^1_p s +k^1_i}{s})+ (\frac{b_2}{s^2 - a^
 
 which yields 
 
-$$s^5 + ( -b_1 k^1_d + b_2 k^2_d )s^4 + ( -a^2 - b_1 k^1_p + b_2 k^2_i )s^3 + ( -b_1 k^1_i + a^2b_1k^1_d + b_2k^2_i )s^2 + ( a^2b_1k^1_p )s + ( a^2b_1k^1_i ) = 0....(13)$$
+$$s^5 + ( -b_1 k^1_d + b_2 k^2_d )s^4 + ( -a^2 - b_1 k^1_p + b_2 k^2_p )s^3 + ( -b_1 k^1_i + a^2b_1k^1_d + b_2k^2_i )s^2 + ( a^2b_1k^1_p )s + ( a^2b_1k^1_i ) = 0....(13)$$
 
 Since the above characteristic equation is of fifth order, let the desired characteristic equation be
 

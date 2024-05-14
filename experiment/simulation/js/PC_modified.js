@@ -215,11 +215,13 @@
    var movecart2;
    
 function start(){
-
+	clearInterval(movecart);
    movecart= setInterval(movecart_pend, 30); 
   // movepend= setInterval(move_pend, 30);    
     //clearInterval(1000); 
 	document.getElementById('pend').classList.add("movependulum");
+	document.getElementById('stp').disabled = false; 
+	document.getElementById('strt').disabled = true; 
 }
       
 	  
@@ -288,7 +290,8 @@ function start(){
 		 clearInterval(movecart);
 		 //clearInterval(movepend);
 		document.getElementById('pend').classList.remove("movependulum");
-		 
+		document.getElementById('strt').disabled = false;
+		document.getElementById('stp').disabled = true; 
 	} 
   
   function stop_simu1(){

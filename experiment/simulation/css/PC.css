@@ -386,6 +386,20 @@ width: 3%;
 height: 7%;
  }   
   
+ .fontCss{
+  font-family:'Bodoni MT';
+  font-size:20px;
+  font-style:italic;
+  }
+  .fontCss2{
+  font-family:'Bodoni MT';
+  font-style:italic;
+  }
+  .fontCssp{
+  font-family:'Bodoni MT';
+  font-size:18px;
+  font-style:italic;
+  }
  /*#sc1{
 	display:none;
 position:absolute;
@@ -409,20 +423,7 @@ height:5.4%;
 	  
   }*/
   
-  .fontCss{
-    font-family:'Bodoni MT';
-    font-size:20px;
-    font-style:italic;
-    }
-    .fontCss2{
-    font-family:'Bodoni MT';
-    font-style:italic;
-    }
-    .fontCssp{
-    font-family:'Bodoni MT';
-    font-size:18px;
-    font-style:italic;
-    }
+  
   
   
   
