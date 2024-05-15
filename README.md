@@ -7,7 +7,7 @@
 <b>Discipline | <b> Electrical Engineering 
 :--|:--|
 <b> Lab | <b> **Control and Instrumentation Lab**
-<b> Experiment|     <b> **Study and operation of Inverted Pendulum System and Experiment 6**
+<b> Experiment|     <b> **Study and operation of Inverted Pendulum System**
 
 
 ### About the Experiment 
