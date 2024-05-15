@@ -47,7 +47,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "5. which one of the following is a correct statement",
+      "question": "5. Which one of the following is a correct statement",
       "answers": {
         "a": " PI controller improves steady state response ",
         "b": "PD controller improves transient response",
