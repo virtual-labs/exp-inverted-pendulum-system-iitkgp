@@ -4,7 +4,7 @@
 <div align="center">
 <img class="img-fluid"  src="./images/intro.png" alt="">
 
-<b>Fig. 1. Schematic of the Cart-Pendulum plant</b>
+<b>Fig. 1. Inverted Cart Pendulum along with Actuator, Controller and PC</b>
 </div>
 
 
