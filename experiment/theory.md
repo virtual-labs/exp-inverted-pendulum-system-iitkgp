@@ -4,7 +4,7 @@ The inverted cart–pendulum is an example of under-actuated, non-minimum phase 
 The first step in the analysis of control system is to derive its mathematical model to understand the working of the complete system.
 <br><br>
 
-<h2>The Plant (Pendulum-Cart):</h2><br/>
+<h2>The Plant (Pendulum-Cart)</h2><br/>
 <b>Pendulum set description</b><br/>
 
 The pendulum setup consists of a cart moving along the 1 metre length track. The cart has a shaft to which two pendulums are attached and are able to rotate freely. The cart can move back and forth causing the pendulums to swing. The movement of the cart is caused by pulling the belt in two directions by the dc motor attached at the end of the rail. By applying a voltage to the motor the force is controlled with which the cart is pulled. The value of the force depends on the value of the control voltage. The voltage is the control signal. The two variables that are read from the pendulum (using optical encoders) are the pendulum position (angle) and the cart position on the rail. The controller’s task will be to change the dc motor voltage depending on these two variables in such a way that the desired control task is fulfilled (stabilizing in an upright
@@ -16,7 +16,7 @@ The next section explains the modelling process of the pendulum.
 <b>Fig. 1. Digital Pendulum mechanical unit</b> 
 </div><br>
 
-<b>Pendulum Model :</b><br/>
+<b>Pendulum Model</b><br/>
 Every control project starts with the plant modelling. The phenomenological model of the pendulum is presented in Fig. 2. The phenomenological model of the pendulum is nonlinear, meaning that at least one of the states (<span class="fontCss">x</span> and its derivative or <span class="fontCss2">&theta;</span> and its derivative) is an argument of a nonlinear function (<span class="fontCss">x</span> – position of cart (m), <span class="fontCss2">&theta;</span> – angle of the pendulum with respect to vertical (rad)). For such a model to be presented as a transfer function (a form of linear plant dynamics representation used in control engineering), it has to be linearised.<br>
 
 <div align="center">				
@@ -81,15 +81,15 @@ x \newline
 \dot{\theta} \newline
 \end{array}\right] \ \tag 4 $$
 
-
-$$where \ x, \ \dot{x}, \ \theta \ and \  \dot{θ} \ are \ the \ states$$
+where
+$$x, \ \dot{x}, \ \theta \ and \  \dot{θ} \ are \ the \ states$$
 
 and <span style="font-family:'Georgia';font-weight:400;font-style:italic">y</span> is the output vector,
 
 $$\sigma' = J(M+m) + MmL^2$$
 
 
-<p><b>Plant Parameter</b>:</p><br/>
+<p><b>Plant Parameter</b></p><br/>
 <center>
 <table class="table  text-center table-striped ">
 <tr >
@@ -172,7 +172,7 @@ $$\frac{\theta(s)}{U(s)} \triangleq \frac{b_2}{s^2 - a^2} = \frac{3.957}{s^2 - 6
 
 
 <br>
-<p><b>Two loop PID controller:</b></p>
+<p><b>Two loop PID controller</b></p>
 
 The two-loop PID controller to be employed for the cart–pendulum system is shown in Fig. 4. Let the two PID controllers be
 
@@ -335,7 +335,7 @@ $$k^2_p =120.9 $$
 $$k^2_i = 247.43$$
 
 <br>
-<b>Application:</b><br/>
+<b>Application</b><br/>
 <ul>
 <li>The Segway</li>
 <li>The human posture systems</li>
