@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en"><!--html tag start-->
 <head>
-    <title>Study and operation of Inverted Pendulum System</title>
+    <title>Study and Operation of Inverted Pendulum System</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/adik.css" rel="stylesheet">
   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"></script>
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -51,12 +53,34 @@
     top: 0;
   }
 }
-	
+.fontCss{
+font-family:'Bodoni MT';
+font-size:20px;
+font-style:italic;
+}
+.fontCss2{
+font-family:'Bodoni MT';
+font-style:italic;
+}
+
+#alrtDiv1{
+
+border: 2px solid none;
+background-color:#f2f0ef;
+display:none;
+}	
+#alrtDiv2{
+border: 2px solid none;
+background-color:#f2f0ef;
+display:none;
+}
   </style>
   
   
   
 </head>
+
+
 <body><!--body tag start-->
     <div class="container p-3 my-3 text-primary text-center border"><!--First Container under body tag start-->
         <div class="row"><!--First row under 1st container start-->
@@ -87,32 +111,39 @@
        
     </div><!--First Container under body tag end-->
     
-    	
+	
     <div class="container p-3 my-5 text-left border" style="text-align:justify"><!--3rd Container under body tag start-->
       <div class="row"><!--First row under 3rd container start-->
         <div class="col-md-1"></div><!--First col under 3rd container start& end-->
         <div class="col-md-10"><!--2nd col under 3rd container start-->
             <p class="text-center bg-success"> <a class="nav-link" data-bs-toggle="tab"  id="instcontrol" style="background-color:#128BD9"  ><span class=" h3 text-dark"> Instructions </span></a>
               <ol id="inst" style="display:block;height:200px;overflow-y:auto;">
-                       <li>First click on "Start" button to observe the pendulum-cart system is moving normally on the track. Click on 'Stop' button to stop it.</li></br>
-						  
+			  
+					<li>Enter the value of the gain <span class="fontCss">k<sub>d</sub></span><b><sup>2</sup></b> (a positive integer value) in Controller Analysation box and click on 'Submit' button.</li><br/>
+					<li>The values of gains <span class="fontCss">k<sub>p</sub></span><b><sup>1</sup></b>, <span class="fontCss">k<sub>p</sub></span><b><sup>2</sup></b>, <span class="fontCss">k<sub>i</sub></span><b><sup>1</sup></b>, 
+					<span class="fontCss">k<sub>i</sub></span><b><sup>2</sup></b> and <span class="fontCss">k<sub>d</sub></span><b><sup>1</sup></b> will be calculated.</li>
+                       <li>Click on "Stabilizing controller" block in the control panel, click on 'Get calculated controller values' button. The controller values will be visible in respective boxes in controller block.
+					   Click on 'Ok'.</li></br>
+					 
+					<li><ul><li>Set desired time for simulation (preferably 10 sec., maximum 100 sec) in corresponding input box on top of the panel.</li>
+					<li>Switch on the power supply by clicking on the 'Red Switch' under digital pendulum mechanical unit.</li>
+					<li>Click on 'Incremental Build' icon and wait for an alert message to successfully build the model.</li></ul></li>
+					
+					<li><ul><li>Click on "Connect to Target" icon now and wait for the run button to get enabled.</li><br/>
+					  <li>Click on the green 'Power' button on digital pendulum controller. Now click on 'Start' button just beside that 'Power' button.</li><br/>
+					  <li>Click on the run button now. Provide an initial value of angle (approximately -6&deg; &le; <span class="fontCss2"style="font-weight:bold">θ</span> &le; +6&deg;) in Controller Analysation box then click on the pendulum pole to make it inverted (vertically upright position).</li></ul></li><br/>						
   
-					  <li>Now under 'Controller Panel' section click on 'Crane Stabilization' to observe crane control simulation of pendulum-cart system.
-					  Initially the controller for crane stabilization is shown. Click on 'Cart desired trajectory' block to enter desired amplitude,frequency and time value of a sinusoidal trajectory.
-					  Click on 'Ok'. Click on 'Incremental Build' icon and wait for an alert message to successfully build the model.</li><br/>
-						  	 
-					 <li>Click on "Connect to Target" icon now and wait for the run (triangular button beside "Connect to Target") button to be enabled. Click on the green 'Power' button. Now click on
-						 'Start' button just beside that 'Power' button. Click on the run button now to observe the simulation for crane control
-						 and graphical representation of cart position and pendulum angle (which will be around &pi;). Plot can be
-						 downloaded by clicking on 'Download' button. Now click on 'Ok' button.</li></br>
-
-					 <li>Now under 'Controller Panel' section click on 'Pendulum Stabilization' to observe inverted pendulum control simulation
-					  of pendulum-cart system. Click on the pendulum pole to make it inverted (vertically upright position). Click on 'Incremental Build' icon and wait for an alert message to successfully build the model.</li><br/> 
-
-					<li>Click on "Connect to Target" icon now and wait for the run button to be enabled. Click on the green 'Power' button and then click on
-						 'Start' button just beside that 'Power' button. Click on the run button now to observe the simulation for inverted pendulum control
-						 and graphical representation of cart position and pendulum angle (which will be around 0). Plot can be
-						downloaded by clicking on 'Download' button. Now click on 'Ok' button.</li></br>
+					   <li>Click on 'Simulate' button to observe the simulation for inverted pendulum control and graphical representation of cart position, pendulum angle and control voltage.</li><br/>
+					  <li>Plot can be downloaded by clicking on 'Download' button. Now click on 'Ok' button beside the 'Download' button.</li><br/>
+					  
+					  <li> Wait untill the pendulum stops oscillating and the system settles down. Click on 'Show Table' button in control panel, then on 'Clear' button. Click on 'Stop' button on digital pendulum controller.</li><br/>
+					  
+					  <li><b>Note:</b> If the cart-pendulum system becomes unstable for any initial angle, wait untill the pendulum stops oscillating and the system settles down. Then one alert message will get appeared.
+					  After the pendulum stops completely, click on 'Clear' button, then on 'Reset' button to bring the cart-pendulum system to center position on track.</li><br/>
+					  					  
+					  <li>Change the gain value <span class="fontCss">k<sub>d</sub></span><b><sup>2</sup></b> and repeat steps 2-8 for another initial value of angle (degree).</li><br/>
+					  
+					  <li>Click on 'Compared plots' button to observe compared graphical representations of all the provided initial angle value and gain values.</li> 
 						 
 		   </ol>
             </p> 
@@ -124,130 +155,105 @@
 	
     <div class="container p-3 my-5 text-center border" id="canvas" ><!--Fourth container under body tag start-->
 	
+	
 	<div class="row my-5 gy-2">
-	<div class="col-md-1"></div>
-	<div class="col-md-10">
 	
+	<div id="alrtDiv1">	
+	<p>The gain value <span class="fontCss">k<sub>d</sub></span><b><sup>2</sup></b> must be a positive integer, not zero or negative.</p>
+	<button type="button" onclick="Realrt1()"  class="btn btn-primary ">Ok</button>	
+	</div>
 	
-			
-			
-			<button type="button" onclick=""  class="btn btn-primary " >Controller Panel</button><br/><br/>
-			<button type="button" onclick="showpic1()"  class="btn btn-warning " >Crane stabilization</button>
-			<button type="button" onclick="showpic2()"  class="btn btn-warning " >Pendulum stabilization</button>
-			<!--<<button type="button" onclick="pend_control()"  class="btn btn-primary " >Pendulum Stabilization</button>
-			<button type="button" onclick="pend_auto_control()"  class="btn btn-primary " >Swing and Hold</button>
-			
-			<input type="number" id="choose_action" min='1' max='3' value='1' style="display:none;position:absolute;top:25%;left:45%;">-->
-			<!--Tank-1<br/>
-			Enter the desired % Overshoot :<input type="number" id="ov" value="11" style="position:absolute;width:20%" readonly="readonly"><br/></br>
-			Enter the desired 2% settling time:&nbsp;<input type="number" id="ts" value="10" style="position:absolute;width:20%"readonly="readonly"><br/><br/>
-			Tank-2<br/>
-			Enter the desired % Overshoot :<input type="number" id="ov2" value="10" style="position:absolute;width:20%"readonly="readonly"><br/></br>
-			Enter the desired 2% settling time:&nbsp;<input type="number" id="ts2" value="20" style="position:absolute;width:20%"readonly="readonly"><br/><br/>-->
-						
-			
+	<div id="alrtDiv2">	
+	<p>For the provided <span class="fontCss">k<sub>d</sub></span><b><sup>2</sup></b> gain value, the cart-pendulum system moves beyond the track length, hence the balancing of the pendulum fails. Change the <span class="fontCss">k<sub>d</sub></span><b><sup>2</sup></b> gain value.</p>	
+	<button type="button" onclick="Realrt2()"  class="btn btn-primary ">Ok</button>	
+	</div>
+	
+		<div class="col-md-12" style="background-color:#e6e5e9;border:2px solid black;padding:4px">
+		<span><b>Controller Analysation</b></span><br/><br/>
+		<label>Enter the value of <span class="fontCss">k<sub>d</sub></span><b><sup>2</sup></b> : <input type="number" id="ckd2" value="10" min="1" max="10" step="1" > <button onclick="calc()"  class="btn btn-secondary " style="text-align:center">Submit</button></label><br/><br/>
+		&nbsp;<span class="fontCss">k<sub>p</sub></span><b><sup>1</sup></b> : <input type="number" id="ckp1" value="0" readonly=readonly style="text-align:center">
+		&nbsp;<span class="fontCss">k<sub>p</sub></span><b><sup>2</sup></b> : <input type="number" id="ckp2" value="0" readonly=readonly style="text-align:center">
+		&nbsp;<span class="fontCss">k<sub>i</sub></span><b><sup>1</sup></b> : <input type="number" id="cki1" value="0" readonly=readonly style="text-align:center">
+		&nbsp;<span class="fontCss">k<sub>i</sub></span><b><sup>2</sup></b> : <input type="number" id="cki2" value="0" readonly=readonly style="text-align:center">
+		&nbsp;<span class="fontCss">k<sub>d</sub></span><b><sup>1</sup></b> : <input type="number" id="ckd1" value="0" readonly=readonly style="text-align:center"><br/><br/>
 		
+	 <label>Enter the initial value of Angle (degree): <input type="number" id="theta0" min="-19" max="19" step="0.1" value="1" style="text-align:center"></label>
 	
 	
-	
-	</div>
-	<div class="col-md-1"></div>
-	</div>
+		</div>
+	</div>	
 	
 		<div class="row my-5 gy-2"><!--- 1st row under fourth container start--->
-		
-			
-        
+		        
 			<div class="col-md-12" ><!--1st col under 1st row start -->
 				  <!-- Code Start here--> 
+				  <button type="button" onclick=""  class="btn btn-primary " >Control Panel for Pendulum stabilization</button><br/>
 				<div class="img-container"><!--img container div start-->
 				
 				
-					<img class="img-fluid " id="controller" src="images/s3.jpg " />
-					<!--<img class="img-fluid " id="cbtn1" onclick="crane_ctrl_pics1()" src="./images/btn1.jpg " />
-					<img class="img-fluid " id="cbtn2" onclick="crane_ctrl_pics2()" src="./images/btn2.jpg " />
-					<img class="img-fluid " id="cbtn3" onclick="crane_ctrl_pics3()" src="./images/invpend.png " />-->
+					<img class="img-fluid " id="controller" src="images/s4.jpg " />
 					
+					<img class="img-fluid " id="stbc" src="images/stbc.png " onclick="set_controller()" title="Stabilizing Controller"/>
 					
-					<img class="img-fluid " id="b1" src="images/build.png " onclick="Build()" title="Incremental Build"/>
 					<img class="img-fluid " id="b2" src="images/build.png " onclick="Build()" title="Incremental Build"/>
 					
-					<img class="img-fluid " id="c1" src="images/conn.png " onclick="CT()" title="Connect to Target"/>
+					
 					<img class="img-fluid " id="c2" src="images/conn.png " onclick="CT()" title="Connect to Target"/>
 					
-					<img class="img-fluid " id="r1" src="images/run.png " onclick="simu1()" title="Run"/>
-					<img class="img-fluid " id="r2" src="images/run.png " onclick="simu2()" title="Run"/>
 					
-					<input type="number" id="display_duration" min='10' max='100' value='40' style="display:block;position:absolute;top:1%;left:83.5%;width:6%;height:7%"readonly="readonly">
-					<input type="number" id="display_duration2" min='10' max='100' value='40' style="display:none;position:absolute;top:1%;left:83.5%;width:6%;height:7%">
+					<img class="img-fluid " id="r2" src="images/run.png " onclick="run()" title="Run"/>
 					
 					
-					<img class="img-fluid " id="sine" src="images/dt.png " onclick="set_trajectory()" />
+					<input type="number" id="display_duration2" min='1' max='100' value='10' style="display:block;position:absolute;top:3.3%;left:65.5%;width:6%;height:7%" >
 					
-					<!--<div id="signaltab">
-					<span>Cart desired trajectory</span><br>
-					<input type="number" id="craneopchk" min="1" max="2" value="1" style="visibility:hidden"><br>
-					
-					<button type="button" style="position:absolute;top:26%;left:15%"  onclick="set_trajectory1()"  class="btn btn-primary" >Sinusoidal</button><br><br>
-					
-					<button type="button" style="position:absolute;top:48%;left:15%"  onclick="set_trajectory2()"  class="btn btn-primary" >Step</button><br><br>
-					
-					<button type="button" style="position:absolute;top:64%;left:70%"  onclick="close_trajectory()"  class="btn btn-danger" >Ok</button>
-					</div>-->
+					<button type="button" id="simubtn" onclick="simu2()"  class="btn btn-success ">Simulate</button>
+					<button type="button" id="cbtn" onclick="clr()"  class="btn btn-danger" disabled=disabled>Clear</button>
+					<button type="button" id="tbtn" onclick="Gen_Table()" class="btn btn-primary" disabled=disabled> Show Table</button>
+					<button type="button" id="compbtn" onclick="Multiple_Response_Plot()"  class="btn btn-info ">Compared plots</button>
+					<button type="button" id="rbtn" onclick="Reset()"  class="btn btn-danger " disabled=disabled>Reset</button>
 					
 					
-					<div id="sinetab">
-					<span>Cart desired trajectory (Sine)</span><br>
 					
-					<input type="number" id="amp" min="0" max="0.3" step="0.01" value="0.3">&nbsp;Amplitude<br><br>
+					<div id="Control_Params">
+					<span style="float:middle">Controller block</span><br>
 					
-					<input type="number" id="frq" min="0" max="0.5" step="0.1" value="0.1">&nbsp;Frequency (Hz)<br><br>
+					<button type="button" onclick="gc()"  class="btn btn-secondary">Get calculated controller values</button><br/>
 					
-					<input type="number" id="timesine" min="0" max="100" step="10" value="40">&nbsp;Time (sec)<br><br>
+					<span style="text-align:center">Controller C<sub>1</sub></span><br>					
+					<input type="number" id="kp1" min="-100" max="100" value="0" step="0.1" readonly=readonly style="text-align:center">&nbsp;<span class="fontCss">k<sub>p</sub></span><b><sup>1</sup></b><br/>
+					<input type="number" id="ki1" min="-100" max="100" value="0" step="0.1" readonly=readonly style="text-align:center">&nbsp;<span class="fontCss">k<sub>i</sub></span><b><sup>1</sup></b><br/>
+					<input type="number" id="kd1" min="-100" max="100" value="0" step="0.1" readonly=readonly style="text-align:center">&nbsp;<span class="fontCss">k<sub>d</sub></span><b><sup>1</sup></b><br/>
+					<br/>
 					
+					<span style="text-align:center">Controller C<sub>2</sub></span><br>
+					<input type="number" id="kp2" min="-100" max="100" value="0" step="0.1" readonly=readonly style="text-align:center">&nbsp;<span class="fontCss">k<sub>p</sub></span><b><sup>2</sup></b><br/>
+					<input type="number" id="ki2" min="-100" max="100" value="0" step="0.1" readonly=readonly style="text-align:center">&nbsp;<span class="fontCss">k<sub>i</sub></span><b><sup>2</sup></b><br/>
+					<input type="number" id="kd2" min="-100" max="100" value="0" step="0.1" readonly=readonly style="text-align:center">&nbsp;<span class="fontCss">k<sub>d</sub></span><b><sup>2</sup></b><br/>
+					
+										
 					<button type="button" style="position:absolute;top:64%;left:70%"  onclick="close_trajectory()"  class="btn btn-danger" >Ok</button>
 					</div>
 					
-					<!--<div id="steptab">
-					<span>Cart desired trajectory(step)</span><br>
-					
-					<input type="number" id="stepv" min="0.001" max="0.1" step="0.001" value="0.001">Amplitude<br><br>
-										
-					<input type="number" id="timestep" min="0" max="100" step="10" value="40">Time(sec)<br><br>
-					
-					<button type="button" style="position:absolute;top:64%;left:70%"  onclick="close_trajectory()"  class="btn btn-danger" >Ok</button>
-					</div>-->
-					
-					<!--<img class="img-fluid " id="sc1" src="images/simu_scope.png " />
-					<img class="img-fluid " id="sc2" src="images/simu_scope.png " />
-					<input type="number" id="temp" min="5" max="100" step="5" value="5" readonly=readonly >
 					
 					
-					<img class="img-fluid " onclick="OnOff()" id="on-off" src="./images/off.png " />
-					<img class="img-fluid " id="Hi-Lo" src="images/Hi.png " />
-					<img class="img-fluid " onclick="SetMeasure()" id="set-measure" src="images/off.png " />
-					<img class="img-fluid " onclick="RunWait()" id="run-wait" src="./images/on.png " />-->
-				
-				
-				
-					
-		  
 				</div><!--img container div end--><br>
-				<!--<button type="button"   onclick="back()"  class="btn btn-success" >Back</button>-->	
-					<!--<button type="button" id="refresh" onclick="Refresh()" class="btn btn-primary" >Clear</button>-->
 				
 			</div><!---end of 1st col under 1st row--->	
 			
         </div><!--1st row under fourth container end-->
 
- 
+ <div class="row my-5 gy-2"><!--- 1st row under fourth container start--->
+		        
+			<div class="col-md-12" ><!--1st col under 1st row start -->
+			</div>
+			</div>
         
 	<div class="row my-5 gy-2"><!--- 2nd row under fourth container start--->
 	
 		<div class="col-md-2 ">
-		<button type="button"  id="strt" onclick="start()"  class="btn btn-success" >Start</button>
+		<!-- <button type="button"  id="strt" onclick="start()"  class="btn btn-success" >Start</button>
 		<button type="button"   id="stp" onclick="stop()"  class="btn btn-danger" >Stop</button>
-		
+		 -->
 		</div><!--1st col under 2nd row start and end -->
 		
 			<div class="col-md-8 "><!--2nd col under 2nd row start -->	
@@ -256,9 +262,10 @@
 					       
 					<img class="img-fluid" id="plant"  src="./images/plant.png "/>
 					
+					<img class="img-fluid" id="sw" onclick="swonoff()" src="./images/switch_off.png"/>
 					<img class="img-fluid" id="ponoff" onclick="ponoff()" src="./images/poff.png "/>
 					<img class="img-fluid" id="con" onclick="pgon()" src="./images/cgoff.png "/>	
-					<img class="img-fluid" id="coff" onclick="pgoff()"  src="./images/c_off.png "/>
+					<img class="img-fluid" id="coff" onclick="pgoff()"  src="./images/c_off.png " style="pointer-events:none"/>
 					
 					
 					<div id="pendset">
@@ -267,18 +274,9 @@
 					<img class="img-fluid" id="pend" onclick="rotate_pend()"  src="./images/pendulum.png"/>
 					</div>
 					
-					
-					
 				</div>
-							   
-								
-							
-						
 				
 				</div>
-			
-				
-				
 			
 		
 		<div class="col-md-2 "></div><!--3rd col under 2nd row start and end -->		
@@ -291,20 +289,45 @@
 		
 	 
 			<div class="col-md-12">
-				<div id = "plotbucket" class="content-center" style="display:none; position :relative; border:3px solid white;height:650px;width:823px ">
+				<div id = "plotbucket" class="content-center" style="display:none; position:relative; border:3px solid white;height:1050px;width:1000px ">
 				
-				<div id="chartContainer"  style="display:none; position:absolute; height: 30%; width: 40%;z-index:1 "></div><br>
-				<br><br><br><br><br><br><br/><br/>
-				<div id="chartContainer2"  style="display:none; position:absolute; height: 30%; width: 40%;z-index:1 "></div>
+				<div id="chartContainer"  style="display:none; position:absolute; height: 35%; width: 100%;z-index:1 "></div><br>
+				<br><br><br><br><br><br><br/><br/><br/><br/><br/><br/><br/><br/>
+				<div id="chartContainer2"  style="display:none; position:absolute; height: 35%; width: 100%;z-index:1 "></div><br/>
+				<br><br><br><br><br><br><br/><br/><br/><br/><br/><br/><br/><br/>
+				<div id="chartContainer3"  style="display:none; position:absolute; height: 30%; width: 100%;z-index:1 "></div>
 								
-				</div>				
-				<button type="button" id="exportChart" class="btn btn-primary p-2"  style="display:none;position:absolute;left:20%;">Download</button>
+				</div><br/><br/>				
+				<button type="button" id="exportChart" class="btn btn-primary p-2"  onclick="saveImg()" style="display:none;position:absolute;left:20%;">Download</button>
 				<button type="button" id="result" class="btn btn-danger" onclick="Refresh()"  style="display:none;position:absolute;left:27%">Ok</button><br/><br/>
 			</div>
 			
 			
 		
 	</div>	
+	
+	<div class="row my-5 gy-2"><!--- 4th row under fourth container start--->
+	
+		
+        <div class="col-md-12 "><!--1st col under 4th row start -->	
+		
+		
+			<table id="myTable" style="visibility:hidden;width:100%">
+			
+				
+				  <tr>
+					<th>Sl No.</th>
+					<th>Initial Angle (&deg;)</th> 
+					<th><span class="fontCss">k<sub>d</sub></span><b><sup>2</sup></b></th>
+					<th><span class="fontCss">k<sub>d</sub></span><b><sup>1</sup></b></th>
+					<th><span class="fontCss">k<sub>i</sub></span><b><sup>2</sup></b></th>
+					<th>ISE</th>					
+				  </tr>
+				  
+			</table>
+			
+		</div><!--1st col under 4th row end -->
+		</div>
 
 	
 	
