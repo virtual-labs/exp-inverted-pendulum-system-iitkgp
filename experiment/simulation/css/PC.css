@@ -58,44 +58,15 @@
 		position:absolute;
 		top: -7.5%;
 		left: 47.7%;
-				
+	transform-origin: 50% 20%;
+      transition: transform 10s linear forwards;			
 }
-
-#cbtn1{
-		display:block;
-		position:absolute;
-		top: 5.5%;
-		left: 49.7%;
-		z-index: 10;
-	
-}
-#cbtn2{
-		display:none;
-		position:absolute;
-		top: 4.7%;
-		left: 76.7%;
-		z-index: 10;
-	
-}
-#cbtn3{
-		display:none;
-		position:absolute;
-		top:37.7%;
-		left:26.7%;
-		z-index: 10;
-	
-}
-
-
-
-
-
 
 #bk{
 		position:absolute;
 		top: -18%;
 		left: 85%;
-		z-index: 10;
+		z-index: 0;
 	
 }
 
@@ -108,6 +79,49 @@
 		z-index: 10;
 	
 }
+
+#sw{
+		position: absolute;
+    width: 3.5%;
+    height: 10%;
+    top: 28%;
+    left: 83%;
+    z-index: 10;
+	
+}
+
+#simubtn{
+	position: absolute;
+    top: 76%;
+    left: 1%;
+    
+}
+
+#compbtn{
+	position: absolute;
+    top: 76%;
+    left: 34%;
+    
+}
+#cbtn{
+	position: absolute;
+    top: 76%;
+    left: 12.5%;
+    
+}
+#tbtn{
+	position: absolute;
+    top: 76%;
+    left: 20.5%;
+    
+}
+#rbtn{
+	position: absolute;
+    top: 76%;
+    left: 52%;
+    
+}
+
 #con{
 		width:6%;
 		height:11%;
@@ -115,6 +129,7 @@
 		top: 59.5%;
 		left: 42%;
 		z-index: 10;
+		
 	
 }
 #coff{
@@ -124,7 +139,7 @@
 		top: 59.5%;
 		left: 51.2%;
 		z-index: 10;
-	
+			
 }
 
 #holder{
@@ -151,61 +166,35 @@
 			
 }
 
-#sine{
-	
-display:block;
-position: absolute;
-    width: 6.2%;
-    top: 39%;
-    left: 27.5%;
-	
-}
-
 
 	
-#signaltab {
+#Control_Params {
     display: none;
     position: absolute;
-    top: 48%;
-    left: 25.5%;
-    width: 40%;
-    height: 66%;
+    top: 22%;
+    left: 93.5%;
+    width: 35%;
+    height: 90%;
     border: 2px solid red;
     background-color: #e5e6ed;
     text-decoration: left;
     text-align: left;
     padding: 10px;
-    color: red;	
-}
-#sinetab {
-    display: none;
-    position: absolute;
-    top: 48%;
-    left: 25.5%;
-    width: 40%;
-    height: 66%;
-    border: 2px solid red;
-    background-color: #e5e6ed;
-    text-decoration: left;
-    text-align: left;
-    padding: 10px;
-    color: red;	
-}
-#steptab {
-    display: none;
-    position: absolute;
-    top: 48%;
-    left: 25.5%;
-    width: 40%;
-    height: 66%;
-    border: 2px solid red;
-    background-color: #e5e6ed;
-    text-decoration: left;
-    text-align: left;
-    padding: 10px;
-    color: red;	
+    color: red;
 }
 
+/* css for Table  */
+  
+  table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}  
+tr:nth-child(odd) {
+  background-color: #F0FBCC;
+} 
 
 /*-----------------------------for normal movement of pendulum------------------------*/
 .movependulum{
@@ -229,7 +218,7 @@ position: absolute;
 	animation:invpendulum 2s linear forwards;	
 }
 
-@keyframes invpendulum {
+ @keyframes invpendulum {
   0% {
     transform: rotate(-45deg);
 	transform-origin:50% 20%;
@@ -239,18 +228,20 @@ position: absolute;
 	transform-origin:50% 20%;
   }
   
-  70% {
+  90% {
     transform: rotate(-90deg);
 	transform-origin:50% 20%;
   }
   
-  100% {
-    transform: rotate(-180deg);
+   100% {
+    transform: rotate();
 	transform-origin:50% 20%;
-	  }
+	  } 
    from {left: 47.7%;}
     to   {left: 46%;}
-}	
+}	 
+
+
 /*------------------------------------------------------------------------*/
 
 /*-----------------------------for making inverted pendulum fall after simulation---------------------------*/	
@@ -291,142 +282,74 @@ position: absolute;
 }	
 /*-------------------------------------------------------------------------*/	
 	
-/*-----------------------------for pendulum swing operation---------------------------*/	
-.swingUp{
-	animation:swingUp 2s linear forwards;	
-}
 
-@keyframes swingUp {
-  0% {
-    transform: rotate(45deg);
-	transform-origin:50% 20%;
-  }
-  
-  20% {
-    transform: rotate(-45deg);
-	transform-origin:50% 20%;
-  }
-  
-  40% {
-    transform: rotate(90deg);
-	transform-origin:50% 20%;
-  }
-  60% {
-    transform: rotate(-90deg);
-	transform-origin:50% 20%;
-  }
-  
-  80% {
-    transform: rotate(180deg);
-	transform-origin:50% 20%;
-  }
-  
- 100% {
-    transform: rotate(-180deg);
-	transform-origin:50% 20%;
- }
-	  
-	from {left: 47.7%;}
-    to   {left: 46%;}
-	  
-}	
-	
-
- #b1{
-display:block;
-position:absolute;
-top:1%;
-left:90%;
-width:3%;
-height:8%;
- } 
-  
  #b2{
-display:none;
+display:block;
 position: absolute;
-top: 1.3%;
+top: 3.3%;
 left: 90%;
-width: 3%;
-height: 6%;
+width: 4%;
+height: 9%;
+pointer-events:auto;
  }  
   
- #c1{
-display:block;
-position:absolute;
-top:0.5%;
-left:80.5%;
-width:3%;
-height:8%;
- }  
+ 
   
  #c2{
 display:none;
 position: absolute;
-top: 0%;
-left: 80.5%;
-width: 3.3%;
+top: 3.3%;
+left: 18.5%;
+width:4%;
 height: 8%;
  }  
   
- #r1{
-display:none;
-position:absolute;
-top:1%;
-left:77.5%;
-width:3%;
-height:7%;
- }  
+ 
   
 #r2{
 display:none;
 position: absolute;
-top: 1%;
-left: 77.5%;
+top: 3.3%;
+left: 9.5%;
 width: 3%;
 height: 7%;
  }   
   
- .fontCss{
-  font-family:'Bodoni MT';
-  font-size:20px;
-  font-style:italic;
-  }
-  .fontCss2{
-  font-family:'Bodoni MT';
-  font-style:italic;
-  }
-  .fontCssp{
-  font-family:'Bodoni MT';
-  font-size:18px;
-  font-style:italic;
-  }
- /*#sc1{
-	display:none;
-position:absolute;
-top:65%;
-left:93%;
-width:4%;
-height:7%; 
-	 
-	 
- } 
+ #stbc{
+display: block;
+    position: absolute;
+    top: 41%;
+    left: 54%;
+    width: 13%;
+    height: 15%;
+ }  
   
-  #sc2{
-	  
-	display:none;
-position:absolute;
-top:52%;
-left:91%;
-width:3%;
-height:5.4%;  
-	  
-	  
-  }*/
-  
-  
-  
-  
-  
-  
-  
-  
+.fontCss{
+font-family:'Bodoni MT';
+font-size:20px;
+font-style:italic;
+}
+.fontCss2{
+font-family:'Bodoni MT';
+font-style:italic;
+}
+.fontCssp{
+font-family:'Bodoni MT';
+font-size:18px;
+font-style:italic;
+}
+.supsub {
+    display: inline-block;
+}
+
+.supsub sup,
+.supsub sub {
+    position: relative;
+    display: block;
+    font-size: .5em;
+    line-height: 1.2;
+}
+
+.supsub sub {
+    top: .3em;
+}  

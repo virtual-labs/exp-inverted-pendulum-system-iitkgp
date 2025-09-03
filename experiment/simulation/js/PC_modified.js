@@ -5,165 +5,74 @@
     Virtual Labs IIT Kharagpur.*/      
 
 	
-/*$(document).ready(function(){
-  $("#instcontrol").click(function(){
-	//$("#inst").css("display","block");  
-    $("#inst").slideDown();
-  });
-  //$(".btn2").click(function(){
-    //$("p").slideDown();
-  });	*/
-  
-  
-  function crane_ctrl_pics1(){
-	  
-	document.getElementById('controller').src = './images/s2.jpg';
-	document.getElementById('cbtn2').style.display = "block";
-	document.getElementById('cbtn3').style.display = "block";
-	document.getElementById('cbtn1').style.display = "none";
-	  
-  }
-  
-   function crane_ctrl_pics2(){
-	  
-	document.getElementById('controller').src = './images/s3.jpg';
-	document.getElementById('cbtn2').style.display = "none";
-	document.getElementById('cbtn1').style.display = "none";
-	document.getElementById('cbtn3').style.display = "none";
-	document.getElementById('sine').style.display = "block";
-	document.getElementById('b1').style.display="block";
-	document.getElementById('c1').style.display="block";
-	document.getElementById('r1').style.display="none";
-	document.getElementById('display_duration').style.display="block";	
-	  
-  }
-  
-  function crane_ctrl_pics3(){
-	  
-	document.getElementById('controller').src = './images/s4.jpg';
-	document.getElementById('cbtn2').style.display = "none";
-	document.getElementById('cbtn1').style.display = "none";
-	document.getElementById('cbtn3').style.display = "none";
-	
-	document.getElementById('b2').style.display="block";
-	document.getElementById('c2').style.display="block";
-	document.getElementById('r2').style.display="none";
-	document.getElementById('display_duration2').style.display="block";	
-	  
-  }
-  
-  function showpic1(){
-	document.getElementById('controller').src = "images/s3.jpg";  
-	document.getElementById('b1').style.display = "block";
-	document.getElementById('c1').style.display = "block";
-	//document.getElementById('r1').style.display = "block";
-	document.getElementById('sine').style.display = "block";
-	document.getElementById('display_duration').style.display = "block";
-	
-	document.getElementById('b2').style.display = "none";
-	document.getElementById('c2').style.display = "none";
-	document.getElementById('r2').style.display = "none";
-	document.getElementById('display_duration2').style.display = "none";
-	  
-  }
-  
-  function showpic2(){
-	document.getElementById('controller').src = "images/s4.jpg";  
-	document.getElementById('b2').style.display = "block";
-	document.getElementById('c2').style.display = "block";
-	//document.getElementById('r2').style.display = "block";
-	document.getElementById('display_duration2').style.display = "block";
-	
-	document.getElementById('b1').style.display = "none";
-	document.getElementById('c1').style.display = "none";
-	document.getElementById('r1').style.display = "none";
-	document.getElementById('sine').style.display = "none";
-	document.getElementById('display_duration').style.display = "none";
-	  
-	  
-  }
+
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  function set_trajectory(){
-	  
-	document.getElementById('sinetab').style.display='block';
-	
+  function set_controller(){
+	 
+if(document.getElementById('ckp1').value!=0){	 
+	document.getElementById('Control_Params').style.display='block';
+}
+else{
+	alert('Follow the instructions carefully. Click on Submit button under Controller Analysation block to calculate the controller values.');
+}
 	  
   }
    
-  function set_trajectory1(){
-	  
-	document.getElementById('sinetab').style.display='block';
-	document.getElementById('craneopchk').value = "1";
-	  
-  }
-  function set_trajectory2(){
-	  
-	document.getElementById('steptab').style.display='block';
-	document.getElementById('craneopchk').value = "2";  
-  }
+  
   
   function close_trajectory(){
-	//document.getElementById('signaltab').style.display='none';  
-	document.getElementById('sinetab').style.display='none';
-	//document.getElementById('steptab').style.display='none';
-	//if(document.getElementById('craneopchk').value == 1){
-	document.getElementById('display_duration').value = document.getElementById('timesine').value;
-	//}
-//else if(document.getElementById('craneopchk').value == 2){
-	//document.getElementById('display_duration').value = document.getElementById('timestep').value;
-	//}
-		  
+	  
+	document.getElementById('Control_Params').style.display='none';
+	
   }
   
-  
-  
-  
-  function back(){
-	document.getElementById('controller').src = './images/s3.jpg';
-	//document.getElementById('cbtn1').style.display = "block"; 	  
-	//document.getElementById('cbtn2').style.display = "none";
-	document.getElementById('sine').style.display = "block";
-	
-	document.getElementById('b1').style.display="block";
-	document.getElementById('c1').style.display="block";
-	document.getElementById('r1').style.display="block";
-	document.getElementById('display_duration').style.display="block";
-	
-	
-	document.getElementById('b2').style.display="none";
-	document.getElementById('c2').style.display="none";
-	document.getElementById('r2').style.display="none";
-	document.getElementById('display_duration2').style.display="none";
+  ///power supply on-off switch
+  function swonoff(){
+	if(document.getElementById('sw').src.match('./images/switch_off.png')){
+		
+		document.getElementById('sw').src = './images/switch_on.png';
+		//document.getElementById('b2').style['pointer-events'] = "auto";
+	}
+
+	else if(document.getElementById('sw').src.match('./images/switch_on.png')){	
+		
+		document.getElementById('sw').src = './images/switch_off.png';	
+		//document.getElementById('b2').style['pointer-events'] = "none";
+	}
+	  
   }
+  
   
   function ponoff(){
-	if(document.getElementById('ponoff').src.match('./images/poff.png')){
+	if(document.getElementById('ponoff').src.match('./images/poff.png')&& document.getElementById('c2').style.display == "block" && document.getElementById('r2').style.display == "block"){
 		
 		document.getElementById('ponoff').src = './images/pon.png';		
 	}
 
 	else if(document.getElementById('ponoff').src.match('./images/pon.png')){	
 		
-		document.getElementById('ponoff').src = './images/poff.png';		
+		document.getElementById('ponoff').src = './images/poff.png';
+		document.getElementById('con').src = './images/cgoff.png';		
+	}
+	
+	else if(document.getElementById('ponoff').src.match('./images/poff.png')&& document.getElementById('c2').style.display != "block"){
+		alert('Follow the instructions. First build the model by clicking on Incremental Build icon and wait till the simulation model gets built.');
+	}
+	else if(document.getElementById('ponoff').src.match('./images/poff.png')&& document.getElementById('r2').style.display != "block"){
+		alert('Follow the instructions. Click on Connect to Target icon and wait till the Run button gets enabled.');
 	}
 	  
   }
   
   function pgon(){
-	if(document.getElementById('con').src.match('./images/cgoff.png')){
+	if(document.getElementById('con').src.match('./images/cgoff.png')&& document.getElementById('ponoff').src.match('./images/pon.png')){
 		
 		document.getElementById('con').src = './images/c_on.png';		
+	}
+	else if (document.getElementById('con').src.match('./images/cgoff.png')&& document.getElementById('ponoff').src.match('./images/poff.png')){
+		alert('Follow the instructions. Switch on the green Power button to start the controller.');
 	}
   
   }
@@ -173,676 +82,1339 @@
 		
 		document.getElementById('con').src = './images/cgoff.png';
 
-		if(document.getElementById('controller').src.match('./images/s3.jpg')){
-			
-			stop_simu1();
-		}
 		
-		else if(document.getElementById('controller').src.match('./images/s4.jpg')){
-			stop_simu2();
+		if(document.getElementById('pend').classList.contains("invpendulum")){
+			
+		document.getElementById('pend').classList.add("invpendfall");
+/* document.getElementById('pend').style.transform='rotate(360deg)';			 
+			document.getElementById('pend').classList.remove("invpendfall");
+			document.getElementById('pend').classList.remove("invpendulum");
+			document.getElementById('pend').style.left=47.7+'%';		 */
+			Thanim.push(360);
+			Posanim.push(0);
+			document.getElementById('pend').style.left=47.7+'%';
 		}
+	}
+	else{
+		alert('The controller has not been started.');
 	}
 	  
   }
-  
-  
-  
-  
-  
-  
-  
-  
- ///////////////////////////////////////////////////////////// moves the cart_pendulum to left- right and right - left direction //////////////////////////////////////////////////////////////
-   
-   //var right = 120; /* initial positon */
-	var left1 = 0;//math.round(0.2); /*initial position */
-	var left2 = 0.2; /*initial position */
-	//var left3 = 340; /*initial position */
-	//var temp = right;
-	var temp1 = left1;
-	var temp2 = left2;
+  ///FOR CALCULATION OF CONTROLLER PARAMETERS BASED ON USER PROVIDED KD2
+  function calc(){
+	  
+	var kd2 = $('#ckd2').val();
 	
-	var goLeft1 = false;
-	var goRight1 = true;
+	if(kd2>0){
+	var kd1 = math.divide(math.add(26.4,math.multiply(3.863,kd2)),-5.703).toFixed(3);
+	var ki1 = math.divide(1343.7,37.901).toFixed(3);
+	var kp1 = math.divide(1721.8,37.901).toFixed(3);
+	var ki2 = math.divide(math.add(871.3,math.multiply(-37.901,kd1),math.multiply(5.703,ki1)),-3.863).toFixed(3);
+	var kp2 = math.divide(math.add(225.5,math.multiply(5.703,kp1)),-3.863).toFixed(3); 
 	
-	var goLeft2 = false;
-	var goRight2 = true;
+	$('#ckd1').val(kd1);
+	$('#cki1').val(ki1);
+	$('#ckp1').val(kp1);
+	$('#cki2').val(ki2);
+	$('#ckp2').val(kp2);
+	}
+else {
 	
-	//var goLeft3 = false;
-	//var goRight3 = true;
-   var movecart;
-   var movepend;
-   var movecart2;
-   
-function start(){
-	clearInterval(movecart);
-   movecart= setInterval(movecart_pend, 30); 
-  // movepend= setInterval(move_pend, 30);    
-    //clearInterval(1000); 
-	document.getElementById('pend').classList.add("movependulum");
-	document.getElementById('stp').disabled = false; 
-	document.getElementById('strt').disabled = true; 
+	//alert('The gain value kd2 must be a positive integer number not any negative value or zero.');
+	document.getElementById('alrtDiv1').style.display = "block";
+	
+}	
+  }
+  
+  function Realrt1(){
+	document.getElementById('alrtDiv1').style.display = "none";  
+  }
+  
+  function Realrt2(){
+	document.getElementById('alrtDiv2').style.display = "none";  
+  }
+  
+  ///FINAL NON LINEAR MODEL OF THE INVERTED PENDULUM SIMULATION DEVELOPED BY  PIYALI CHATTERJEE (CODE). CONTROLLER BY SURAJ KUMAR (M.TECH)
+  
+  var chart1,chart2,chart3;///global variable charts
+  var ArPos=[],ArTheta=[],ArU=[];///Arrays to store data
+  var inp=0,inth=0,inu=0;///counters
+  var Dcounter=0;///counters for all store data
+  var Thanim = [];///for animation store thetas
+  var Posanim = [];///for animation store positions
+  var Arr_ETheta = [];
+  
+  var anglstore=[],kp1store=[],ki1store=[],kd1store=[],kp2store=[],ki2store=[],kd2store=[];///Initial angle and kp, ki, kd values storing for designing tooltip content in multiple plot.
+  var Ise=0;///ISE calculation global variable
+  
+   function Nonlin_Model_TwoLoopPID(){
+    
+	var degValue = parseFloat($('#theta0').val());//math.multiply(math.divide(180,math.pi),theta0);
+	//document.getElementById('thetad').value = degValue;
+	var theta0 = math.multiply(math.divide(math.pi,180),degValue);
+	console.log(theta0);
+
+    const M = 2.4, m = 0.23, L = 0.4, b = 0.055, d = 0.005, g = 9.81, I = 0.099;
+    const dt = 0.01;
+	var totalTime = $('#display_duration2').val();
+
+    // PID gains of suraj, calculated from research and controller design by LQR PID. In theory these values have been kept. These are the actual values of Two loop PID
+    //const Kp_theta = -125.4, Ki_theta = -389.66, Kd_theta = 10;
+    //const Kp_pos = 45.43, Ki_pos = 35.45, Kd_pos = -11.402;
+	
+	var Kp_pos = $('#kp1').val();
+	var Kp_theta = $('#kp2').val();
+	var Ki_pos = $('#ki1').val();
+	var Ki_theta = $('#ki2').val();
+	var Kd_pos = $('#kd1').val();
+	var Kd_theta = $('#kd2').val();
+	
+	///store values in arrays
+	anglstore.push(degValue);///initial angle value
+	kp1store.push(Kp_pos);///kp1 value
+	kp2store.push(Kp_theta);///kp2 value
+	ki1store.push(Ki_pos);///ki1 value
+	ki2store.push(Ki_theta);///ki2 value
+	kd1store.push(Kd_pos);///kd1 value
+	kd2store.push(Kd_theta);///kd2 value
+	
+	var angl = anglstore.at(Dcounter);
+	var kp1v = kp1store.at(Dcounter);
+	var kp2v = kp2store.at(Dcounter);
+	var ki1v = ki1store.at(Dcounter);
+	var ki2v = ki2store.at(Dcounter);
+	var kd1v = kd1store.at(Dcounter);
+	var kd2v = kd2store.at(Dcounter);	
+
+    let x = 0, x_dot = 0;
+    let theta = theta0, theta_dot = 0;
+    let e_theta_sum = 0, e_pos_sum = 0;
+    let e_theta_prev = 0, e_pos_prev = 0;
+
+    const xData = [], thetaData = [], uData = [];
+	let F = 0;
+// Push initial state
+xData.push({ x: 0, y: x });
+thetaData.push({ x: 0, y: degValue });
+uData.push({ x: 0, y: 0 });
+
+    for (let t = dt; t <= totalTime; t += dt) {
+      const e_theta = 0 - theta;
+      const e_pos = 0 - x;
+
+      e_theta_sum += e_theta * dt;
+      e_pos_sum += e_pos * dt;
+
+      const de_theta = (e_theta - e_theta_prev) / dt;
+      const de_pos = (e_pos - e_pos_prev) / dt;	  
+
+      const u_theta = Kp_theta * e_theta + Ki_theta * e_theta_sum + Kd_theta * de_theta;
+      const u_pos = -(Kp_pos * e_pos + Ki_pos * e_pos_sum + Kd_pos * de_pos);
+
+       F = (u_theta + u_pos)*15;
+
+      const sinTheta = Math.sin(theta);
+      const cosTheta = Math.cos(theta);
+      const theta_dot_sq = theta_dot * theta_dot;
+	  const temp1 = math.add(I,math.multiply(m,L,L));
+        const temp2 = math.multiply(m,L,cosTheta);
+
+      const den = math.subtract(math.multiply(temp1,math.add(m , M)),math.multiply(temp2,temp2));
+
+        const theta_num = math.add(math.multiply((-temp2),math.add(F,math.add(math.multiply(-b,x_dot), math.multiply(m, L, theta_dot, theta_dot, sinTheta)))), math.multiply(math.add(m , M), math.subtract(math.multiply(m, g,L,sinTheta), math.multiply(dt, theta_dot))));
+        const theta_ddot = math.divide(theta_num,den);
+
+        const x_num = math.subtract(math.multiply(temp1, math.add(F,math.add(math.multiply(-b,x_dot), math.multiply(m, L, theta_dot, theta_dot, sinTheta)))), math.multiply(temp2, math.subtract(math.multiply(m, g, L,sinTheta), math.multiply(dt, theta_dot))));
+        const x_ddot = math.divide(x_num, den);
+		
+		var control_Voltage = math.multiply(math.divide(2.5,20),math.divide(F,15));///as per manual 20 N = + 2.5 V
+
+      x_dot += x_ddot * dt;
+      x += (x_dot * dt );
+      theta_dot += theta_ddot * dt;
+      theta += (theta_dot * dt);
+	  
+	  var thetaDeg = math.multiply(math.divide(180,math.pi),theta);
+
+      e_theta_prev = e_theta;
+      e_pos_prev = e_pos;
+	  
+	  // Accumulate ISE: e(t)^2 * dt
+    Ise += e_theta * e_theta * dt;
+	if(!isNaN(Ise)){
+	Ise=Ise;	
+	}
+	else if(isNaN(Ise)){
+		Ise = "Infinity";
+	}
+	
+	  
+	  //if(theta0>0.32 || theta0<-0.32){
+	  if(Number.isFinite(thetaDeg) || Number.isFinite(x)){
+	  //totalTime=1;
+	  x=x;//math.abs(x);
+	  thetaDeg=thetaDeg;//math.abs(thetaDeg);
+	  control_Voltage = control_Voltage;
+	  //xint = 0.02;
+	  //yint1 = 1;
+	  //yint2=10;
+	  }
+	  if(!Number.isFinite(thetaDeg) || !Number.isFinite(x) || !Number.isFinite(control_Voltage)){
+	  thetaDeg = null;
+	  x = null;	
+	control_Voltage = null;
+	}
+	  //}
+	  //else{
+	  //x=x;
+	  //thetaDeg=thetaDeg;
+	  //xint=null;
+	  //yint=null;
+	  //}
+	 /*  Arr_ETheta.push(e_theta);
+	  
+	  if(Number.isFinite(e_theta)){
+		Ise += e_theta * e_theta * dt;  
+	  }
+	  if(!Number.isFinite(e_theta)){
+		var lastFiniteValue = Arr_ETheta.findLast(element => Number.isFinite(element));  
+		Ise += Number(lastFiniteValue * lastFiniteValue * dt);  
+	  } */
+
+      /* xData.push({ x: t, y: x });
+      thetaData.push({ x: t, y: thetaDeg });
+      uData.push({ x: t, y: control_Voltage });
+	  
+	  ArPos["array"+inp]=xData;
+	  ArTheta["array"+inth]=thetaData;
+	  ArU["array"+inu]=uData;
+	  ArPos.push("array"+inp);
+	  ArTheta.push("array"+inth);
+	  ArU.push("array"+inu); */
+	  
+	  if(thetaDeg!=null && degValue<=6){
+		  if(x<0.5 && x>-0.5){
+	  var pend_angl = math.subtract(-180,thetaDeg);
+	  Thanim.push(pend_angl);
+	  
+	  var pend_pos = math.multiply(math.divide(29,0.5),x);//math.multiply(math.divide(6.2,0.3),x);it was 6.2 before but it was noticed that for 0.1 rad or approx 6 deg initial theta the realtime plant only goes up to +0.5 m in track hence the factor to show the virtual animation has been designed like this .
+		  Posanim.push(pend_pos);
+		  }
+		  if(x>=0.5){
+			   var pend_pos = math.multiply(math.divide(29,0.5),0.5);//math.multiply(math.divide(6.2,0.3),x);it was 6.2 before but it was noticed that for 0.1 rad or approx 6 deg initial theta the realtime plant only goes up to +0.5 m in track hence the factor to show the virtual animation has been designed like this .
+		  //Posanim.push(pend_pos);
+		  Posanim.push(pend_pos);
+		  x=0.5;
+			  Kp_pos =0;
+	  Ki_pos =0;
+	  Kd_pos =0;
+	  Kp_theta=0;
+	  Ki_theta=0;
+	  Kd_theta=0;
+	  var pend_angl = math.subtract(-180,thetaDeg);	  
+	  Thanim.push(pend_angl);
+	  x=0.5;
+	  //Thanim.push(360);
+	  //document.getElementById('pend').classList.add('invpendfall');
+	  //document.getElementById('pend').style.left=47.7+'%';
+	  
+	 
+		 
+		  }	
+	if(x<=-0.5){
+		var pend_pos = math.multiply(math.divide(29,0.5),-0.5);//math.multiply(math.divide(6.2,0.3),x);it was 6.2 before but it was noticed that for 0.1 rad or approx 6 deg initial theta the realtime plant only goes up to +0.5 m in track hence the factor to show the virtual animation has been designed like this .
+		  //Posanim.push(pend_pos);
+		  Posanim.push(pend_pos);
+		  x=-0.5;
+		Kp_pos =0;
+	  Ki_pos =0;
+	  Kd_pos =0;
+	  Kp_theta=0;
+	  Ki_theta=0;
+	  Kd_theta=0;
+	  var pend_angl = math.subtract(-180,thetaDeg);
+	  Thanim.push(pend_angl);
+	  x=-0.5;
+	  }			  
+	  }
+	  
+	  if(degValue>6 || degValue<-6){///as with an initial condition >6 deg the pendulum falles in real time plant
+		
+		  x=null;	    
+		thetaDeg = null; 
+control_Voltage = null;		
+	  }
+	  
+	  
+	  
+	  
+	  xData.push({ x: t, y: x });
+      thetaData.push({ x: t, y: thetaDeg });
+      uData.push({ x: t, y: control_Voltage });
+	  
+	  ArPos["array"+inp]=xData;
+	  ArTheta["array"+inth]=thetaData;
+	  ArU["array"+inu]=uData;
+	  ArPos.push("array"+inp);
+	  ArTheta.push("array"+inth);
+	  ArU.push("array"+inu);
+	  
+	  //console.log('Position =' + x);
+	  //console.log('Angle =' + thetaDeg);
+	  AngleValue=thetaDeg;
+    }
+	
+	
+	LastElem = AngleValue;
+	inp++;
+	inth++;
+	inu++;	
+	
+	document.getElementById('plotbucket').style.display  = "block"; 
+	document.getElementById('chartContainer').style.display  = "block"; 
+	document.getElementById('chartContainer2').style.display  = "block";
+	document.getElementById('chartContainer3').style.display  = "block";
+	
+	var animD = math.multiply(totalTime,1000);
+	
+      chart1 = new CanvasJS.Chart("chartContainer", {
+	animationEnabled:true,
+	animationDuration:animD,
+	zoomEnabled: true,
+      title: { text: "Position" },
+      axisY: [{ title: "Position (m)"}],
+      axisX: { title: "Time (seconds)"},
+      data: [{ type: "spline", 
+	  toolTipContent:
+	  "Initial Angle ="+ "" + angl+"<br/>"+
+	  "kp1 = " + kp1v +"<br/>"+
+      "ki1 = " + ki1v +"<br/>"+
+      "kd1 = " + kd1v +"<br/>"+
+      "kp2 = " + kp2v +"<br/>"+
+      "ki2 = " + ki2v +"<br/>"+
+      "kd2 = " + kd2v +"<br/>"+
+	  "<b>Time:</b> {x}" +"<br/>"+
+  "<b>Position:</b> {y}",color: "red", name: "Position Vs. Time", dataPoints: xData }]
+    });
+    chart1.render();
+
+      chart2 = new CanvasJS.Chart("chartContainer2", {
+	animationEnabled:true,
+	animationDuration:animD,
+	zoomEnabled: true,
+      title: { text: "Angle" },
+      axisY: [{ title: "Angle (degree)"}],
+      axisX: { title: "Time (seconds)"},
+      data: [{ type: "spline",
+	  toolTipContent:
+	  "Initial Angle ="+ "" + angl+"<br/>"+
+	  "kp1 = " + kp1v +"<br/>"+
+      "ki1 = " + ki1v +"<br/>"+
+      "kd1 = " + kd1v +"<br/>"+
+      "kp2 = " + kp2v +"<br/>"+
+      "ki2 = " + ki2v +"<br/>"+
+      "kd2 = " + kd2v +"<br/>"+
+	  "<b>Time:</b> {x}" +"<br/>"+
+  "<b>Angle:</b> {y}", color: "blue", name: "Angle Vs. Time", dataPoints: thetaData }]
+    });
+    chart2.render();
+
+     chart3 = new CanvasJS.Chart("chartContainer3", {
+	animationEnabled:true,
+	animationDuration:animD,
+	zoomEnabled: true,
+      title: { text: "Control Voltage" },
+      axisY: [{ title: "Voltage (V)"}],
+      axisX: { title: "Time (seconds)"},
+      data: [{ type: "spline",
+	  toolTipContent:
+	  "Initial Angle ="+ "" + angl+"<br/>"+
+	  "kp1 = " + kp1v +"<br/>"+
+      "ki1 = " + ki1v +"<br/>"+
+      "kd1 = " + kd1v +"<br/>"+
+      "kp2 = " + kp2v +"<br/>"+
+      "ki2 = " + ki2v +"<br/>"+
+      "kd2 = " + kd2v +"<br/>"+
+	  "<b>Time:</b> {x}" +"<br/>"+
+  "<b>Control voltage:</b> {y}", color: "green", name: "Control Voltage Vs. Time", dataPoints: uData }]
+    });
+    chart3.render();
+	document.getElementById('result').style.display  = "block"; 
+	document.getElementById('exportChart').style.display  = "block"; 
+	Dcounter++;
+	}
+	
+	
+	///Dynamic Graph
+ var incrfr1=0,incrfr2=0,datasetpos=[],datasettheta=[],datasetu=[];
+ var usedColors = [];
+ 
+ ///this fn is called when eachtime changing the initial angle you get directly compared plots.
+ /* function Multiple_Response_Plot(){
+	 
+	 Nonlin_Model_TwoLoopPID();
+	 //var sampleP = document.getElementById('Ts').value;
+	 //var uniqueColor = getUniqueColor();
+	 
+	 CanvasJS.addColorSet("positionColorPalette",
+                [//colorSet Array for cart position
+
+                "#a2b9bc","#b2ad7f","#878f99","#6b5b95","#feb236","#d64161","#ff7b25","#d6cbd3","#eca1a6","#bdcebe"               
+                ]);
+				CanvasJS.addColorSet("angleColorPalette",
+                [//colorSet Array for pendulum angle
+
+                "#ada397","#feb236","#d64161","#ff7b25","#d6cbd3","#eca1a6","#bdcebe","#e3eaa7","#d5e1df","#b5e7a0"
+			
+                ]);
+				CanvasJS.addColorSet("voltageColorPalette",
+                [//colorSet Array for control voltage
+
+                "#86af49","#587e76","#dac292","#c4b7a6","#3e4444","#bc5a45","#80ced6","#50394c","#c83349","#b2ad7f"			
+                ]);
+
+	 var totalTime = $('#display_duration2').val();
+	 
+	 for (var dnum = 0; dnum<=incrfr1; dnum++){
+		  
+	 datasetpos[dnum] = ArPos["array"+dnum];
+	 datasettheta[dnum] = ArTheta["array"+dnum];
+	 datasetu[dnum] = ArU["array"+dnum];
+	 
+	 
+		 dtan=dnum+1;
+	
+	
+if(incrfr1>=0 && incrfr2>=0){
+		var angl = anglstore.at(dtan);
+	var kp1v = kp1store.at(dtan);
+	var kp2v = kp2store.at(dtan);
+	var ki1v = ki1store.at(dtan);
+	var ki2v = ki2store.at(dtan);
+	var kd1v = kd1store.at(dtan);
+	var kd2v = kd2store.at(dtan); 
+	
+	
+	chart1.addTo("colorSet","positionColorPalette");
+	chart1.addTo("axisY", {gridThickness: 0, tickLength:0, lineThickness:0});
+	
+	
+	chart2.addTo("colorSet","angleColorPalette");
+	chart2.addTo("axisY", {gridThickness: 0, tickLength:0, lineThickness:0});
+	
+	
+	chart3.addTo("colorSet","voltageColorPalette");
+	chart3.addTo("axisY", {gridThickness: 0, tickLength:0, lineThickness:0});
+	
+	
+	chart1.addTo("data", {type: "spline",
+	toolTipContent:
+	  "Initial Angle ="+ "" + angl+"<br/>"+
+	  "kp1 = " + kp1v +"<br/>"+
+      "ki1 = " + ki1v +"<br/>"+
+      "kd1 = " + kd1v +"<br/>"+
+      "kp2 = " + kp2v +"<br/>"+
+      "ki2 = " + ki2v +"<br/>"+
+      "kd2 = " + kd2v +"<br/>"+
+	  "<b>Time:</b> {x}" +"<br/>"+
+  "<b>Position:</b> {y}"});
+	chart2.addTo("data", {type: "spline",
+	toolTipContent:
+	  "Initial Angle ="+ "" + angl+"<br/>"+
+	  "kp1 = " + kp1v +"<br/>"+
+      "ki1 = " + ki1v +"<br/>"+
+      "kd1 = " + kd1v +"<br/>"+
+      "kp2 = " + kp2v +"<br/>"+
+      "ki2 = " + ki2v +"<br/>"+
+      "kd2 = " + kd2v +"<br/>"+
+	  "<b>Time:</b> {x}" +"<br/>"+
+  "<b>Angle:</b> {y}"});
+	chart3.addTo("data", {type: "spline",
+	toolTipContent:
+	  "Initial Angle ="+ "" + angl+"<br/>"+
+	  "kp1 = " + kp1v +"<br/>"+
+      "ki1 = " + ki1v +"<br/>"+
+      "kd1 = " + kd1v +"<br/>"+
+      "kp2 = " + kp2v +"<br/>"+
+      "ki2 = " + ki2v +"<br/>"+
+      "kd2 = " + kd2v +"<br/>"+
+	  "<b>Time:</b> {x}" +"<br/>"+
+  "<b>Control voltage:</b> {y}"});
+	
+	}
+	
+	
+	chart1.options.data[dnum].dataPoints = datasetpos[dnum]; 
+	chart2.options.data[dnum].dataPoints = datasettheta[dnum]; 
+	chart3.options.data[dnum].dataPoints = datasetu[dnum];
+	
+
+	
+	chart1.render();
+	
+	chart2.render();
+	
+	chart3.render();
+	
+	document.getElementById("exportChart").style.display = "block";
+	
+	 }
+	incrfr1++;
+	incrfr2++;
+	 
+ } */
+ 
+ ///FINAL MULTIPLE PLOT RESPONSE ONLY SHOWS COMPARED PLOTS IF THE BUTTON IS PRESSED
+ function Multiple_Response_Plot() {
+    var totalTime = $('#display_duration2').val();
+
+    // Initialize color palettes
+    CanvasJS.addColorSet("positionColorPalette", ["#a2b9bc", "#b2ad7f", "#878f99", "#6b5b95", "#feb236", "#d64161", "#ff7b25", "#d6cbd3", "#eca1a6", "#bdcebe"]);
+    CanvasJS.addColorSet("angleColorPalette", ["#ada397", "#feb236", "#d64161", "#ff7b25", "#d6cbd3", "#eca1a6", "#bdcebe", "#e3eaa7", "#d5e1df", "#b5e7a0"]);
+    CanvasJS.addColorSet("voltageColorPalette", ["#86af49", "#587e76", "#dac292", "#c4b7a6", "#3e4444", "#bc5a45", "#80ced6", "#50394c", "#c83349", "#b2ad7f"]);
+
+    // Clear previous chart data arrays
+    chart1.options.data = [];
+    chart2.options.data = [];
+    chart3.options.data = [];
+
+    for (var dnum = 0; dnum <= Dcounter-1; dnum++) {
+        datasetpos[dnum] = ArPos["array" + dnum];
+        datasettheta[dnum] = ArTheta["array" + dnum];
+        datasetu[dnum] = ArU["array" + dnum];
+
+        if (incrfr1 >= 0 && incrfr2 >= 0) {
+            var angl = anglstore[dnum];
+            var kp1v = kp1store[dnum];
+            var kp2v = kp2store[dnum];
+            var ki1v = ki1store[dnum];
+            var ki2v = ki2store[dnum];
+            var kd1v = kd1store[dnum];
+            var kd2v = kd2store[dnum];
+
+            // Position Chart
+            chart1.options.data.push({
+                type: "spline",
+                //showInLegend: true,
+                //name: "Run " + dnum,
+                toolTipContent:
+                    "Initial Angle = " + angl + "<br/>" +
+                    "kp1 = " + kp1v + ", ki1 = " + ki1v + ", kd1 = " + kd1v + "<br/>" +
+                    "kp2 = " + kp2v + ", ki2 = " + ki2v + ", kd2 = " + kd2v + "<br/>" +
+                    "<b>Time:</b> {x}, <b>Position:</b> {y}",
+                dataPoints: datasetpos[dnum]
+            });
+
+            // Angle Chart
+            chart2.options.data.push({
+                type: "spline",
+                //showInLegend: true,
+                //name: "Run " + dnum,
+                toolTipContent:
+                    "Initial Angle = " + angl + "<br/>" +
+                    "kp1 = " + kp1v + ", ki1 = " + ki1v + ", kd1 = " + kd1v + "<br/>" +
+                    "kp2 = " + kp2v + ", ki2 = " + ki2v + ", kd2 = " + kd2v + "<br/>" +
+                    "<b>Time:</b> {x}, <b>Angle:</b> {y}",
+                dataPoints: datasettheta[dnum]
+            });
+
+            // Control Voltage Chart
+            chart3.options.data.push({
+                type: "spline",
+                //showInLegend: true,
+                //name: "Run " + dnum,
+                toolTipContent:
+                    "Initial Angle = " + angl + "<br/>" +
+                    "kp1 = " + kp1v + ", ki1 = " + ki1v + ", kd1 = " + kd1v + "<br/>" +
+                    "kp2 = " + kp2v + ", ki2 = " + ki2v + ", kd2 = " + kd2v + "<br/>" +
+                    "<b>Time:</b> {x}, <b>Control Voltage:</b> {y}",
+                dataPoints: datasetu[dnum]
+            });
+        }
+    }
+
+    chart1.render();
+    chart2.render();
+    chart3.render();
+
+    document.getElementById("exportChart").style.display = "block";
+
+    incrfr1++;
+    incrfr2++;
 }
-      
-	  
-      function movecart_pend(){
-		var ampl = Number(document.getElementById('amp').value);
-		var unit_meter = math.divide(16.2,0.3);
-		var pos = math.round(math.multiply(ampl,unit_meter));
-		
-		var unit_meterrev = math.divide(-16.8,0.3);
-		var npos = math.round(math.multiply(ampl,unit_meterrev));
-		
-		//console.log(pos);
-		//console.log(npos);
-		
-		if(goRight1) {
-			temp1++;
-			
-			if(temp1 == math.number(pos) ) { /* move right*/
-				goRight1 = false;
-				goLeft1 = true;
-			}
-		} else if(goLeft1) {
-			temp1--;
-			
-			if(temp1 == math.number(npos)) { /* move left */
-				goLeft1 = false;
-				goRight1 = true;
-			}
-		}
-		document.getElementById('pendset').style.left = temp1+'%';
-		
 
-     
-	  }
-	  
-	  
-	  function movecart_pend2(){ 
-		
-		if(goRight2) {
-			temp2++;
-			
-			if(temp2 == 6.2 ) { /* move right*/
-				goRight2 = false;
-				goLeft2 = true;
-			}
-		} else if(goLeft2) {
-			temp2--;
-			
-			if(temp2 == -6.8 ) { /* move left */
-				goLeft2 = false;
-				goRight2 = true;
-			}
-		}
-		document.getElementById('pendset').style.left = temp2+'%';
-		
+ function gc(){	 
+	 var kpp = $('#ckp1').val();
+	 var kip = $('#cki1').val();
+	 var kdp = $('#ckd1').val();
+	 var kpt = $('#ckp2').val();
+	 var kit = $('#cki2').val();
+	 var kdt = $('#ckd2').val();
+	 
+	 $('#kp1').val(kpp);
+	 $('#ki1').val(kip);
+	 $('#kd1').val(kdp);
+	 $('#kp2').val(kpt);
+	 $('#ki2').val(kit);
+	 $('#kd2').val(kdt);	 
+	 
+ }
 
-     
-	  }
-	  
-	  
-	  
-	  
-	 	  
-	  function stop(){
-		
-		 clearInterval(movecart);
-		 //clearInterval(movepend);
-		document.getElementById('pend').classList.remove("movependulum");
-		document.getElementById('strt').disabled = false;
-		document.getElementById('stp').disabled = true; 
-	} 
-  
-  function stop_simu1(){
-		
-		 clearInterval(movecart);
-		document.getElementById('r1').src = "./images/run.png";
-		 
-	} 
-  
-  function stop_simu2(){
-		
-		 clearInterval(movecart2);
-		document.getElementById('r2').src = "./images/run.png";
-		document.getElementById('pend').classList.add("invpendfall");
-		 
-	} 
-  
+	
+	
+/* function getUniqueColor() {
+  const palette = [
+    "#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd",
+    "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"
+  ];
+  for (let color of palette) {
+    if (!usedColors.includes(color)) {
+      usedColors.push(color);
+      return color;
+    }
+  }
+  // fallback: generate random unique color
+  let color;
+  do {
+    color = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+  } while (usedColors.includes(color));
+  usedColors.push(color);
+  return color;
+} */
+	
+	
+	///TESTED LINEAR FINAL MODEL. CODED BY PIYALI CHATTERJEE, CONTROLLER DEVELOPED BY SURAJ KUMAR.
+	///THE PROBLEM TO IMPLEMENT THIS LINEAR MODEL IS THAT WHATEVER BE THE INITIAL THETA VALUE IT DRAGS FROM THAT THETA TO 0. DOESNOT SHOW ANY UNSTABLE ZONE. HENCE FINALLY WE DECIDED TO IMPLEMENT NON LINEAR MODEL
+	///IT IS DIRECTLY COPIED FROM pend6_linFinal_SurajController.html. UNEDITED FOR THIS SIMULATION PAGE.
+	/*document.getElementById("initForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const theta0 = parseFloat(document.getElementById("theta0").value);
+      simulate(theta0);
+    });
+
+    function simulate(thetaInitial) {
+      const dt = 0.01;
+      const tMax = 10;
+      const steps = Math.floor(tMax / dt);
+      let time = [], xArr = [], thetaArr = [], uArr = [];
+
+      // PID controller gains
+      let kp1 = 45.43, ki1 = 35.45, kd1 = -11.402;
+      let kp2 = -125.4, ki2 = -512.04, kd2 = 10;
+
+      // Plant parameters
+      const b1 = 5.703;
+      const b2 = -3.8625;
+      const a2 = 6.654;
+
+      // System states
+      let x = 0, x_dot = 0;
+      let theta = thetaInitial, theta_dot = 0;
+
+      // Controller memory
+      let e1_sum = 0, e2_sum = 0;
+      let e1_prev = 0, e2_prev = 0;
+
+      let u = 0; // initialize outside the loop
+
+for (let i = 0; i <= steps; i++) {
+  let t = i * dt;
+
+  // Push current state to plot arrays before state update
+  xArr.push({ x: t, y: x });
+  thetaArr.push({ x: t, y: theta });
+  uArr.push({ x: t, y: u });
+
+  // Calculate control error
+  let e1 = 0 - x;
+  let e2 = 0 - theta;
+
+  e1_sum += e1 * dt;
+  e2_sum += e2 * dt;
+
+  let de1 = (e1 - e1_prev) / dt;
+  let de2 = (e2 - e2_prev) / dt;
+
+  let u1 = -(kp1 * e1 + ki1 * e1_sum + kd1 * de1);
+  let u2 = kp2 * e2 + ki2 * e2_sum + kd2 * de2;
+
+  u = u1 + u2;
+
+  // System dynamics
+  let x_ddot = b1 * u;
+  let theta_ddot = b2 * u + a2 * theta;
+
+  x_dot += x_ddot * dt;
+  x += x_dot * dt;
+
+  theta_dot += theta_ddot * dt;
+  theta += theta_dot * dt;
+
+  e1_prev = e1;
+  e2_prev = e2;
+}
+
+      renderCharts(xArr, thetaArr, uArr);
+    }
+
+    function renderCharts(xArr, thetaArr, uArr) {
+      new CanvasJS.Chart("chartX", {
+        animationEnabled: true,
+        title: { text: "Cart Position X(t)" },
+        axisX: { title: "Time (s)" },
+        axisY: { title: "X (m)" },
+        data: [{ type: "spline", dataPoints: xArr }]
+      }).render();
+
+      new CanvasJS.Chart("chartTheta", {
+        animationEnabled: true,
+        title: { text: "Pendulum Angle θ(t)" },
+        axisX: { title: "Time (s)" },
+        axisY: { title: "θ (rad)" },
+        data: [{ type: "spline", dataPoints: thetaArr }]
+      }).render();
+
+      new CanvasJS.Chart("chartU", {
+        animationEnabled: true,
+        title: { text: "Control Effort U(t)" },
+        axisX: { title: "Time (s)" },
+        axisY: { title: "U (N)" },
+        data: [{ type: "spline", dataPoints: uArr }]
+      }).render();
+    }
+
+    // Run with default θ = 0.1
+    simulate(0.1);*/
+	
 
 function Build(){
+	
+	var ckp1_value = $('#ckp1').val();
+	var ckp2_value = $('#ckp2').val();
+	var cki1_value = $('#cki1').val();
+	var cki2_value = $('#cki2').val();
+	var ckd1_value = $('#ckd1').val();
+	var ckd2_value = $('#ckd2').val();
+	
+		
+			
+		 if (document.getElementById('controller').src.match("./images/s4.jpg") && document.getElementById('ckp1').value==0){
+			alert('Click on Submit button under Controller Analysation block to calculate the controller values first.');
+		} 
+		
+		else if(document.getElementById('controller').src.match("./images/s4.jpg") && document.getElementById('sw').src.match("./images/switch_on.png") && document.getElementById('kd2').value==ckd2_value && document.getElementById('ckd2').readOnly == false && document.getElementById('display_duration2').readOnly == false && document.getElementById('display_duration2').value>0 && document.getElementById('display_duration2').value<=100){
+			
+			if(document.getElementById('kp1').value==ckp1_value || document.getElementById('kp2').value==ckp2_value || document.getElementById('ki1').value==cki1_value || document.getElementById('ki2').value==cki2_value || document.getElementById('kd1').value==ckd1_value || document.getElementById('kd2').value==ckd2_value){
 		setTimeout(function(){
-		alert('Model Built');	
-		},2000)
+		document.getElementById('c2').style.display="block";
+		alert('Model Built');
+		document.getElementById('ckd2').readOnly = true;
+		document.getElementById('display_duration2').readOnly = true;
+		},2000);
+			}
+		}
+		else if (document.getElementById('controller').src.match("./images/s4.jpg") && document.getElementById('sw').src.match("./images/switch_off.png")){
+			alert('Click on the red switch to switch on the Power Supply.');
+		}
+		
+		 else if (document.getElementById('controller').src.match("./images/s4.jpg") && document.getElementById('kd2').value!=ckd2_value){
+			alert('Click on Stabilizing controller, then on Get calculated controller values button in Controller block to get the controller values for simulation.');
+		} 
+		
+		else if (document.getElementById('ckd2').readOnly == true && document.getElementById('display_duration2').readOnly == true){
+			alert('Click on Clear button');
+		}
+		else if (document.getElementById('display_duration2').value<=0 || document.getElementById('display_duration2').value>100){
+			alert('Keep the Time of Simulation \u2264 100 sec.');
+		}
 		
 	}
 	function CT(){		
-		setTimeout(function() {
+		setTimeout(function() {         	
+		if(document.getElementById('controller').src.match("./images/s4.jpg")){
 			alert('Model loaded and ready');
-			if(document.getElementById('controller').src.match("./images/s3.jpg")){
-         document.getElementById('r1').style.display  = "block";
-			}
-         	
-		else if(document.getElementById('controller').src.match("./images/s4.jpg")){
          document.getElementById('r2').style.display  = "block";
 			}
-
-			
            }, 2000);
 	}
 	
 	
 
 
-
-/////////////////////////////////////////////////////crane stabilization simulation design//////////////////////////////
-
-function crane_stab_sine(){
-	
-	var Amp = document.getElementById('amp').value;
-	var duration = document.getElementById('timesine').value;
-	var freq = document.getElementById('frq').value;
-	
-	var i = math.sqrt(-1);
-	var yip = new Array();
-    var yop = new Array();	
-	var dataIPPoints=[];
-	var dataOPPoints=[];
-	
-	var omega = math.multiply(2,math.pi,freq);
-	var omega2 = math.pow(omega,2);
-	
-	///pendulum parameters
-	///C1,P1 for crane stabilization
-	var pconst = 43.3;///document.getElementById('kp').value;///kp1///AG sir's paper value
-	var iconst = 33.796;///document.getElementById('ki').value;///ki1 ''
-	var dconst = 2.254;///document.getElementById('kd').value;///kd1  ''
-	
-	///C2,P2 for pendulum stabilization
-	var pconst2 = 120.9;///document.getElementById('kp').value;///kp2///AG sir's paper value
-	var iconst2 = 247.43;///document.getElementById('ki').value;///ki2 ''
-	var dconst2 = 10;///document.getElementById('kd').value;///kd2  ''
-	
-	///crane position
-	var k = math.multiply(5.841,iconst);
-	var sconst = math.multiply(5.841,pconst);
-	var sqrconst = math.multiply(5.841,dconst);
-	
-	///crane angle (theta =Pi)
-	var k2 = math.multiply(3.957,iconst2);
-	var sconst2 = math.subtract(math.multiply(3.957,pconst2),6.807);
-	var sqrconst2 = math.multiply(3.957,dconst2);
-	
-	///crane Position
-	var roots = math.polynomialRoot(k,sconst,sqrconst,1);
-	var pol1 = roots[0];
-	var pol2 = roots[1];
-	var pol3 = roots[2];
-	
-	///crane angle
-	var roots2 = math.polynomialRoot(k2,sconst2,sqrconst2,1);
-	var pol12 = roots2[0];
-	var pol22 = roots2[1];
-	var pol32 = roots2[2];
-	
-	///crane Position
-	var rhs_sine = math.multiply(Amp,omega,5.841,math.add(math.multiply(dconst,math.pow(math.multiply(i,omega),2)),math.multiply(pconst,math.multiply(i,omega)),iconst));
-	var rhs_pol1 = math.multiply(Amp,omega,5.841,math.add(math.multiply(dconst,math.pow(pol1,2)),math.multiply(pconst,pol1),iconst));
-	var rhs_pol2 = math.multiply(Amp,omega,5.841,math.add(math.multiply(dconst,math.pow(pol2,2)),math.multiply(pconst,pol2),iconst));
-	var rhs_pol3 = math.multiply(Amp,omega,5.841,math.add(math.multiply(dconst,math.pow(pol3,2)),math.multiply(pconst,pol3),iconst));
-	
-	///crane angle
-	var rhs_theta = math.multiply(math.pi,3.957,iconst2);
-	var rhs_pol12 = math.multiply(math.pi,3.957,math.add(math.multiply(dconst2,math.pow(pol12,2)),math.multiply(pconst2,pol12),iconst2));
-	var rhs_pol22 = math.multiply(math.pi,3.957,math.add(math.multiply(dconst2,math.pow(pol22,2)),math.multiply(pconst2,pol22),iconst2));
-	var rhs_pol32 = math.multiply(math.pi,3.957,math.add(math.multiply(dconst2,math.pow(pol32,2)),math.multiply(pconst2,pol32),iconst2));
-	
-	///crane Position
-	var coeff1 = math.divide(rhs_sine,math.multiply(math.subtract(math.multiply(i,omega),pol1),math.subtract(math.multiply(i,omega),pol2),math.subtract(math.multiply(i,omega),pol3)));
-	var coeff2 = math.divide(rhs_pol1,math.multiply(math.add(math.pow(pol1,2),omega2),math.subtract(pol1,pol2),math.subtract(pol1,pol3)));
-	var coeff3 = math.divide(rhs_pol2,math.multiply(math.add(math.pow(pol2,2),omega2),math.subtract(pol2,pol1),math.subtract(pol2,pol3)));
-	var coeff4 = math.divide(rhs_pol3,math.multiply(math.add(math.pow(pol3,2),omega2),math.subtract(pol3,pol1),math.subtract(pol3,pol2)));
-	
-	///crane angle
-	var coeff12 = math.divide(rhs_theta,math.multiply(math.subtract(0,pol12),math.subtract(0,pol22),math.subtract(0,pol32)));
-	var coeff22 = math.divide(rhs_pol12,math.multiply(pol12,math.subtract(pol12,pol22),math.subtract(pol12,pol32)));
-	var coeff32 = math.divide(rhs_pol22,math.multiply(pol22,math.subtract(pol22,pol12),math.subtract(pol22,pol32)));
-	var coeff42 = math.divide(rhs_pol32,math.multiply(pol32,math.subtract(pol32,pol12),math.subtract(pol32,pol22)));
-	
-	
-	for( var t=0; t<=duration;t+=0.1){	
-	
-	///crane Position
-	var part1 = math.multiply(math.divide(coeff1,omega),math.sin(math.multiply(omega,t)));
-	var part2 = math.multiply(coeff2,math.pow(math.e,math.multiply(pol1,t)));
-	var part3 = math.multiply(coeff3,math.pow(math.e,math.multiply(pol2,t)));
-	var part4 = math.multiply(coeff4,math.pow(math.e,math.multiply(pol3,t)));
-	
-	///crane angle
-	var part12 = coeff12;
-	var part22 = math.multiply(coeff22,math.pow(math.e,math.multiply(pol12,t)));
-	var part32 = math.multiply(coeff32,math.pow(math.e,math.multiply(pol22,t)));
-	var part42 = math.multiply(coeff42,math.pow(math.e,math.multiply(pol32,t)));
-	
-	
-	//y[t]= math.multiply(sinv , math.sin(math.multiply(2,math.pi, sinf ,t)));//assuming sine amp of 0.5v .Input plot
-	
-	yop[t] = (math.add(part1,part2,part3,part4)).re;///crane Position
-	 
-	yip[t] = (math.add(part12,part22,part32,part42)).re;///3.141592;///crane angle
-	//console.log("cart position="+ yop[t]);
-	
-	dataIPPoints.push({x:(t), y:(yip[t])});///pendulum angle pi
-	dataOPPoints.push({x:(t), y:(yop[t])});///cart position in m
-	
-}
-
-document.getElementById('plotbucket').style.display  = "block"; 
-document.getElementById('chartContainer').style.display  = "block"; 
-document.getElementById('chartContainer2').style.display  = "block"; 
-	
-	var chart = new CanvasJS.Chart("chartContainer",
-    {
-      animationEnabled: true,
-		  animationDuration: 10000, 
-	  title:{
-      text: "Cart Position Response (m vs. sec) "
-	  
-      },
-	  
-	  axisX:{
-        interlacedColor: "#B2F9FA",
-        title: "Time (sec)"
-      },
-    axisY: [
-	      {/////output Y axis
-            title: "Position (m)",
-			
-			maximum:1,
-        },
-		/*{/////input y axis invisible
-			gridThickness: 0,
-    tickLength: 0,
-    lineThickness: 0,
-    labelFormatter: function(){
-      return " ";}
-	  
-		}*/
-		],
-	data: [
-      {        
-        type: "spline",
-		color:"black",
-        dataPoints:dataOPPoints
-	
-       },
-       /*{        
-        type: "spline",
-		color:"#F9CC1D",
-        dataPoints:dataIPPoints
-	
-       },*/
-      ]	
-	});
-
-	
-	var chart2 = new CanvasJS.Chart("chartContainer2",
-    {
-      animationEnabled: true,
-		  animationDuration: 10000, 
-	  title:{
-      text: "Angle (rad vs. sec) "
-	  
-      },
-	  
-	  axisX:{
-        interlacedColor: "#B2F9FA",
-        title: "Time (sec)"
-      },
-    axisY: [
-	      {/////output Y axis
-            title: "Angle (rad)",
-			
-			//maximum:3.5,
-        },
-		/*{/////input y axis invisible
-			gridThickness: 0,
-    tickLength: 0,
-    lineThickness: 0,
-    labelFormatter: function(){
-      return " ";}
-	  
-		}*/
-		],
-	data: [
-      {        
-        type: "spline",
-		color:"black",
-        dataPoints:dataIPPoints
-	
-       },
-       /*{        
-        type: "spline",
-		color:"#F9CC1D",
-        dataPoints:dataIPPoints
-	
-       },*/
-      ]	
-	});
-	
-	
-	chart.render();
-	chart2.render();
-	document.getElementById("result").style.display = "block";
-	document.getElementById("exportChart").style.display = "block";
-	document.getElementById("exportChart").addEventListener("click",function(){
-	//chart.exportChart({format: "jpg"})	
-	window.print();
-});
-}
-
-function Invpend_PD(){
-	
-	
-	// var Amp = 0.3;//document.getElementById('amp').value;
-	var duration = document.getElementById('display_duration2').value;
-	//var freq = 0.1;//document.getElementById('frq').value;
-	 
-	var i = math.sqrt(-1);
-	var yip = new Array();
-    var yop = new Array();	
-	var dataIPPoints=[];
-	var dataOPPoints=[];
-	
-	/* var omega = math.multiply(2,math.pi,freq);
-	var omega2 = math.pow(omega,2); */
-	
-	///pendulum parameters
-	///C1,P1 for crane stabilization
-	var pconst = 43.3;///document.getElementById('kp').value;///kp1///AG sir's paper value
-	var iconst = 33.796;///document.getElementById('ki').value;///ki1 ''
-	var dconst = 2.254;///document.getElementById('kd').value;///kd1  ''
-	
-	///C2,P2 for pendulum stabilization
-	var pconst2 = 120.9;///document.getElementById('kp').value;///kp2///AG sir's paper value
-	var iconst2 = 247.43;///document.getElementById('ki').value;///ki2 ''
-	var dconst2 = 10;///document.getElementById('kd').value;///kd2  ''
-	
-	///crane position
-	var k = math.multiply(5.841,iconst);
-	var sconst = math.multiply(5.841,pconst);
-	var sqrconst = math.multiply(5.841,dconst);
-	
-	///crane angle (theta =Pi)
-	var k2 = math.multiply(3.957,iconst2);
-	var sconst2 = math.subtract(math.multiply(3.957,pconst2),6.807);
-	var sqrconst2 = math.multiply(3.957,dconst2);
-	
-	///crane Position
-	var roots = math.polynomialRoot(k,sconst,sqrconst,1);
-	var pol1 = roots[0];
-	var pol2 = roots[1];
-	var pol3 = roots[2];
-	
-	///crane angle
-	var roots2 = math.polynomialRoot(k2,sconst2,sqrconst2,1);
-	var pol12 = roots2[0];
-	var pol22 = roots2[1];
-	var pol32 = roots2[2];
-	
-	///crane Position
-	//var rhs_sine = math.multiply(Amp,omega,5.841,math.add(math.multiply(dconst,math.pow(math.multiply(i,omega),2)),math.multiply(pconst,math.multiply(i,omega)),iconst));
-	var rhs_pol1 = math.multiply(5.841,math.add(math.multiply(dconst,math.pow(pol1,2)),math.multiply(pconst,pol1),iconst));
-	var rhs_pol2 = math.multiply(5.841,math.add(math.multiply(dconst,math.pow(pol2,2)),math.multiply(pconst,pol2),iconst));
-	var rhs_pol3 = math.multiply(5.841,math.add(math.multiply(dconst,math.pow(pol3,2)),math.multiply(pconst,pol3),iconst));
-	
-	///crane angle
-	//var rhs_theta = math.multiply(0.001,3.957,iconst2);
-	var rhs_pol12 = math.multiply(3.957,math.add(math.multiply(dconst2,math.pow(pol12,2)),math.multiply(pconst2,pol12),iconst2));
-	var rhs_pol22 = math.multiply(3.957,math.add(math.multiply(dconst2,math.pow(pol22,2)),math.multiply(pconst2,pol22),iconst2));
-	var rhs_pol32 = math.multiply(3.957,math.add(math.multiply(dconst2,math.pow(pol32,2)),math.multiply(pconst2,pol32),iconst2));
-	
-	///crane Position
-	//var coeff1 = math.divide(rhs_sine,math.multiply(math.subtract(math.multiply(i,omega),pol1),math.subtract(math.multiply(i,omega),pol2),math.subtract(math.multiply(i,omega),pol3)));
-	var coeff2 = math.divide(rhs_pol1,math.multiply(math.subtract(pol1,pol2),math.subtract(pol1,pol3)));
-	var coeff3 = math.divide(rhs_pol2,math.multiply(math.subtract(pol2,pol1),math.subtract(pol2,pol3)));
-	var coeff4 = math.divide(rhs_pol3,math.multiply(math.subtract(pol3,pol1),math.subtract(pol3,pol2)));
-	
-	///crane angle
-	//var coeff12 = math.divide(rhs_theta,math.multiply(math.subtract(0,pol12),math.subtract(0,pol22),math.subtract(0,pol32)));
-	var coeff22 = math.divide(rhs_pol12,math.multiply(pol12,math.subtract(pol12,pol22),math.subtract(pol12,pol32)));
-	var coeff32 = math.divide(rhs_pol22,math.multiply(pol22,math.subtract(pol22,pol12),math.subtract(pol22,pol32)));
-	var coeff42 = math.divide(rhs_pol32,math.multiply(pol32,math.subtract(pol32,pol12),math.subtract(pol32,pol22)));
-	
-	
-	for( var t=0; t<=duration;t+=0.1){	
-	
-	///crane Position
-	//var part1 = math.multiply(math.divide(coeff1,omega),math.sin(math.multiply(omega,t)));
-	var part2 = math.multiply(coeff2,math.pow(math.e,math.multiply(pol1,t)));
-	var part3 = math.multiply(coeff3,math.pow(math.e,math.multiply(pol2,t)));
-	var part4 = math.multiply(coeff4,math.pow(math.e,math.multiply(pol3,t)));
-	
-	///crane angle
-	//var part12 = coeff12;
-	var part22 = math.multiply(coeff22,math.pow(math.e,math.multiply(pol12,t)));
-	var part32 = math.multiply(coeff32,math.pow(math.e,math.multiply(pol22,t)));
-	var part42 = math.multiply(coeff42,math.pow(math.e,math.multiply(pol32,t)));
-	
-	
-	//y[t]= math.multiply(sinv , math.sin(math.multiply(2,math.pi, sinf ,t)));//assuming sine amp of 0.5v .Input plot
-	
-	yop[t] = (math.add(part2,part3,part4)).re;///crane Position
-	 
-	yip[t] = (math.add(part22,part32,part42)).re;///0.001 approx;///crane angle
-	//console.log("cart position="+ yop[t]);
-	
-	dataIPPoints.push({x:(t), y:(yip[t])});///pendulum angle approx 0.001
-	dataOPPoints.push({x:(t), y:(yop[t])});///cart position in m
-	
-}
-
-document.getElementById('plotbucket').style.display  = "block"; 
-document.getElementById('chartContainer').style.display  = "block"; 
-document.getElementById('chartContainer2').style.display  = "block"; 
-	
-	var chart = new CanvasJS.Chart("chartContainer",
-    {
-      animationEnabled: true,
-		  animationDuration: 10000, 
-	  title:{
-      text: "Cart Position Response (m vs. sec) "
-	  
-      },
-	  
-	  axisX:{
-        interlacedColor: "#B2F9FA",
-        title: "Time (sec)"
-      },
-    axisY: [
-	      {/////output Y axis
-            title: "Position (m)",
-			
-			//maximum:1,
-        },
-		/*{/////input y axis invisible
-			gridThickness: 0,
-    tickLength: 0,
-    lineThickness: 0,
-    labelFormatter: function(){
-      return " ";}
-	  
-		}*/
-		],
-	data: [
-      {        
-        type: "spline",
-		color:"black",
-        dataPoints:dataOPPoints
-	
-       },
-       /*{        
-        type: "spline",
-		color:"#F9CC1D",
-        dataPoints:dataIPPoints
-	
-       },*/
-      ]	
-	});
-
-	
-	var chart2 = new CanvasJS.Chart("chartContainer2",
-    {
-      animationEnabled: true,
-		  animationDuration: 10000, 
-	  title:{
-      text: "Angle (rad vs. sec) "
-	  
-      },
-	  
-	  axisX:{
-        interlacedColor: "#B2F9FA",
-        title: "Time (sec)"
-      },
-    axisY: [
-	      {/////output Y axis
-            title: "Angle (rad)",
-			
-			//maximum:3.5,
-        },
-		/*{/////input y axis invisible
-			gridThickness: 0,
-    tickLength: 0,
-    lineThickness: 0,
-    labelFormatter: function(){
-      return " ";}
-	  
-		}*/
-		],
-	data: [
-      {        
-        type: "spline",
-		color:"black",
-        dataPoints:dataIPPoints
-	
-       },
-       /*{        
-        type: "spline",
-		color:"#F9CC1D",
-        dataPoints:dataIPPoints
-	
-       },*/
-      ]	
-	});
-	
-	
-	chart.render();
-	chart2.render();
-	document.getElementById("result").style.display = "block";
-	document.getElementById("exportChart").style.display = "block";
-	document.getElementById("exportChart").addEventListener("click",function(){
-	//chart.exportChart({format: "jpg"})	
-	window.print();
-});
-}
-
-
-
-
-
-function simu1(){		
-		
-		if(document.getElementById('ponoff').src.match('./images/pon.png') && document.getElementById('con').src.match('./images/c_on.png')){
-		
-		var frequency = document.getElementById('frq').value;
-		var timep = math.divide(1,frequency);
-		var timer = Number(math.add(20,timep));
-		console.log(timer);
-		
-		document.getElementById('r1').src ="./images/pause.png";
-		movecart= setInterval(movecart_pend, timer);				
-		crane_stab_sine();
-		
-		var time = document.getElementById('display_duration').value;
-		var t2 = parseFloat((10000/50)* time);
-		
-		document.getElementById('strt').disable = true;
-		document.getElementById('stp').disable = true;
-		
-		setTimeout( function() { 
-		
-		stop_simu1(); },t2);
-		document.getElementById('strt').disable = false;
-		document.getElementById('stp').disable = false;
-		
-		}
-	else {
-		alert('Switch on the Power button and click on the green Start push button');
-		}
-		
-		
-		
-		
-	}
-
-
-function simu2(){		
-		
-		if(document.getElementById('ponoff').src.match('./images/pon.png') && document.getElementById('con').src.match('./images/c_on.png')){
+function run(){
+	if(document.getElementById('ponoff').src.match('./images/pon.png') && document.getElementById('con').src.match('./images/c_on.png')){
 			
 		document.getElementById('r2').src ="./images/pause.png";
-		movecart2= setInterval(movecart_pend2, 100);
-		Invpend_PD();
+	}
+	else{
+		alert('Power on the controller and click on green start push button');
+	}
+}
+
+ function simu2(){		
+		
+		if(document.getElementById('r2').src.match('./images/pause.png')&& document.getElementById("pend").classList.contains("invpendulum")){
+			
+			
+		
+		Nonlin_Model_TwoLoopPID();///FINAL NONLINEAR MODEL
+		//Multiple_Response_Plot();
+		
 		
 		var time = document.getElementById('display_duration2').value;
-		var t2 = parseFloat((10000/50)* time);
-		setTimeout( function() { stop_simu2(); },t2);
+		//var t2 = parseFloat((10000/50)* time);
+		var t2 = (time*1000);
+		
+		//if(math.round(LastElem)<= 0){
+			if(LastElem!=null){
+			
+			startMovement();
+			startRotation();
+			
+			/* if(math.abs(math.round(LastElem))==0){
+			alert('Stable zone');
+			}
+			else{
+				alert('Unstable Plant');
+			} */
+			
+		setTimeout( function() {
+			//stop_simu2(); 
+			 document.getElementById('c2').style.display="none";
+			 document.getElementById('r2').src = "./images/run.png";
+			 document.getElementById('r2').style.display="none";
+			//Thanim.push(360);			
+			},t2+10);			
+			setTimeout( function() {
+				if(document.getElementById('pendset').style.left != "29%" && document.getElementById('pendset').style.left != "-29%"){
+			document.getElementById('pend').classList.add("invpendfall");
+			document.getElementById('pend').classList.remove("invpendulum");
+			document.getElementById('pend').style.left=47.7+'%';
+			Thanim.push(360);
+				}
+				if(document.getElementById('pendset').style.left == "29%" || document.getElementById('pendset').style.left == "-29%"){
+				document.getElementById('pend').classList.remove("invpendulum");
+			document.getElementById('pend').style.left=47.7+'%';
+				Thanim.push(360);
+				}
+				//document.getElementById('tbtn').disabled  = false;
+		},t2+850);
+		
+		setTimeout( function() {
+			document.getElementById('tbtn').disabled  = false;
+			document.getElementById('coff').style['pointer-events'] = "auto";
+		},t2+1600);
+		
+		setTimeout( function() {
+			if(document.getElementById('pendset').style.left == "29%" || document.getElementById('pendset').style.left == "-29%"){
+				document.getElementById('rbtn').disabled = false;
+				//alert('For the provided kd2 gain value, the cart-pendulum system moves beyond the track length, hence the balancing of the pendulum fails. Change the kd2 gain value.');
+				document.getElementById('alrtDiv2').style.display="block";
+				Thanim.push(360);
+			}
+			},t2+1650);
+			 setTimeout( function() {
+			if(document.getElementById('pendset').style.left == "29%" || document.getElementById('pendset').style.left == "-29%"){
+				Thanim.push(360);
+			}
+			},t2+1700); 
+
+		//console.log('Thanim='+Thanim);
+		//console.log('Posanim='+Posanim);
+		 
 		}
-	else {
-		alert('Switch on the Power button and click on the green Start push button');
-		}	
 		
+		else if(LastElem == null){
+			
+			alert('The initial angle is in unstable zone. The pendulum can be balanced for -6\u00B0 \u2264 initial angle \u2264 6\u00B0.');
 		
+			///setTimeout( function() {
+				document.getElementById('pend').classList.add("invpendfall");
+				  document.getElementById('c2').style.display="none";
+				 document.getElementById('r2').src = "./images/run.png";
+				 document.getElementById('r2').style.display="none"; 
+			//},1000);
+			 setTimeout( function() {
+			 document.getElementById('pend').style.transform='rotate(360deg)';			 
+			document.getElementById('pend').classList.remove("invpendfall");
+			document.getElementById('pend').classList.remove("invpendulum");
+			document.getElementById('pend').style.left=47.7+'%';
+			document.getElementById('tbtn').disabled  = false;
+			},3000); 
+			
 		
+		 
+		}
+		}
+	else if(!document.getElementById('r2').src.match('./images/pause.png')) {
+		alert('Click on the Run button first to allow the control action.');
+		}
+	 else if(!document.getElementById("pend").classList.contains("invpendulum")) {
+		alert('Click on the pendulum to make it inverted with the provided initial angle.');
+		}	 	
+		
+	} 
+	
+	///for data clear
+	function clr(){
+		Thanim.length=0;
+		Posanim.length=0;
+		index=0;
+		pindex=0;
+		Ise=0;
+		console.log('Thanim='+Thanim);
+		console.log('Posanim='+Posanim);
+document.getElementById('pend').classList.remove('invpendfall');
+document.getElementById('cbtn').disabled  = true;
+ document.getElementById('pend').style.transform='rotate(360deg)';
+document.getElementById('ckd2').readOnly = false;
+		document.getElementById('display_duration2').readOnly = false; 
+	}
+	
+	function Reset(){
+		document.getElementById('pendset').style.left = "0.2%";
+document.getElementById('rbtn').disabled  = true;			
 	}
 
 function rotate_pend(){
 	
-	if(document.getElementById('controller').src.match('./images/s4.jpg')){
+	if(document.getElementById('controller').src.match('./images/s4.jpg') && document.getElementById('r2').src.match('./images/pause.png')){
+		 const pendulum = document.getElementById('pend');
+		const initTheta = parseFloat(document.getElementById('theta0').value);
+		const roAngle = math.add(-180,initTheta);
+
+    console.log('Rotation angle:', roAngle);
+
+    // Apply rotation
+	pendulum.classList.add('invpendulum');
+	pendulum.style.transformOrigin = '50% 20%';		
+    pendulum.style.transform = 'rotate(' + roAngle + 'deg)';
+	pendulum.style.left=46+'%';
 	
-	document.getElementById('pend').classList.add("invpendulum");
-	
+	}
+	else{
+		alert('Activate the controller first by clicking on Run button.');
 	}
 	
 }
+///for inverted rotation thetas
+var angles = Thanim;
+    var index = 0;
+function rotateTo(angle) {
+      var pendulum = document.getElementById("pend");
+      pendulum.style.transform = `rotate(${angle}deg)`;
+    }
 
-function swingUp(){
-	
-	//if(document.getElementById('controller').src.match('./images/s5.jpg')){
-	
-	document.getElementById('pend').classList.add("swingUp");
-	
-	//}
-	
-}
+    function startRotation() {
+      index = 0;
+      rotateSequence();
+	  
+    }
+
+    function rotateSequence() {
+      if (index < angles.length) {
+        rotateTo(angles[index]);
+        index++;
+        setTimeout(rotateSequence,10); // delay in ms between steps
+      }
+    }
+
+///for inverted pendulum position
+var pospend = Posanim;
+    var pindex = 0;
+function moveTo(pos) {
+      var cart = document.getElementById("pendset");
+      cart.style.left = pos+'%';
+    }
+
+    function startMovement() {
+      pindex = 0;
+      posSequence();
+	  
+    }
+
+    function posSequence() {
+      if (pindex < pospend.length) {
+        moveTo(pospend[pindex]);
+        pindex++;
+        setTimeout(posSequence,10); // delay in ms between steps
+      }
+    }
 
 
-  
-
+///////////////////////////////////////////////////////////////////////////////Table Creation//////////////////////////////////////////////////////////////////////////////////////
  
- 
- 
+var tabrowindex = 0;
+var Tarr = [];
+var pivTable;///performance index validation table
+
+//------------------------------------------------- Table Creation -----------------------------------------------//
+function Gen_Table() {
+	//computeThetaISE();
+	document.getElementById('tbtn').disabled  = true;
+	
+	setTimeout( function() {
+			document.getElementById('cbtn').disabled  = false;
+			},1000); 
+	
+	
+	document.getElementById("myTable").style.visibility="visible";
+	
+    Tarr[0] = tabrowindex+1 ;
+    Tarr[1] = document.getElementById("theta0").value;
+    Tarr[2] = document.getElementById("kd2").value;
+	Tarr[3] = document.getElementById("kd1").value;
+	Tarr[4] = document.getElementById("ki2").value;
+	Tarr[5] = Ise;
+   
+	
+	pivTable = document.getElementById("myTable");
+        
+    var row = pivTable.insertRow(++tabrowindex);
+   
+    if (pivTable.rows.length <= 5000) {
+        
+         // Row increment
+        for (var q = 0; q < 6; q++) {
+
+            var cell = row.insertCell(q);
+            cell.innerHTML = Tarr[q];
+
+    }
+
+    }
+
+}    
+
+
+
  function Refresh(){
 	location.reload();
  }
+  
  
+ ///code for downloading the plot area
+function saveAs(uri, filename) {
+
+    var link = document.createElement('a');
+
+    if (typeof link.download === 'string') {
+
+        link.href = uri;
+        link.download = filename;
+
+        //Firefox requires the link to be in the body
+        document.body.appendChild(link);
+
+        //simulate click
+        link.click();
+
+        //remove the link when done
+        document.body.removeChild(link);
+
+    } else {
+
+        window.open(uri);
+
+    }
+}
+
+function saveImg(){
+html2canvas(document.querySelector('#plotbucket')).then(function(canvas) {
+
+        saveAs(canvas.toDataURL(), 'Plot.png');
+    }); 
+	
+	
+}
+///FIND ROOTS OF 5TH ORDER POLYNOMIAL USING DURAND-KERNER METHOD 
+function durandKerner(coefficients, maxIterations = 100, tolerance = 1e-10) {
+  const degree = coefficients.length - 1;
+  if (degree !== 5) {
+    throw new Error("This implementation is only for 5th-order polynomials.");
+  }
+
+  // Complex number class
+  class Complex {
+    constructor(re, im) {
+      this.re = re;
+      this.im = im;
+    }
+
+    add(other) {
+      return new Complex(this.re + other.re, this.im + other.im);
+    }
+
+    sub(other) {
+      return new Complex(this.re - other.re, this.im - other.im);
+    }
+
+    mul(other) {
+      return new Complex(
+        this.re * other.re - this.im * other.im,
+        this.re * other.im + this.im * other.re
+      );
+    }
+
+    div(other) {
+      const denom = other.re * other.re + other.im * other.im;
+      return new Complex(
+        (this.re * other.re + this.im * other.im) / denom,
+        (this.im * other.re - this.re * other.im) / denom
+      );
+    }
+
+    abs() {
+      return Math.hypot(this.re, this.im);
+    }
+
+    toString() {
+      return `${this.re.toFixed(4)} ${this.im >= 0 ? '+' : '-'} ${Math.abs(this.im).toFixed(4)}i`;
+    }
+  }
+
+  // Evaluate polynomial at a complex point
+  function evaluatePoly(coeffs, x) {
+    let result = new Complex(0, 0);
+    for (let i = 0; i < coeffs.length; i++) {
+      let term = new Complex(coeffs[i], 0);
+      for (let j = 0; j < coeffs.length - 1 - i; j++) {
+        term = term.mul(x);
+      }
+      result = result.add(term);
+    }
+    return result;
+  }
+
+  // Initial guesses (roots of unity scaled slightly)
+  let roots = [];
+  const radius = 1;
+  for (let i = 0; i < degree; i++) {
+    const angle = (2 * Math.PI * i) / degree;
+    roots.push(new Complex(
+      radius * Math.cos(angle),
+      radius * Math.sin(angle)
+    ));
+  }
+
+  // Durand-Kerner iterations
+  for (let iter = 0; iter < maxIterations; iter++) {
+    let converged = true;
+    for (let i = 0; i < degree; i++) {
+      let xi = roots[i];
+      let prod = new Complex(1, 0);
+      for (let j = 0; j < degree; j++) {
+        if (i !== j) {
+          prod = prod.mul(xi.sub(roots[j]));
+        }
+      }
+      const fxi = evaluatePoly(coefficients, xi);
+      const delta = fxi.div(prod);
+      roots[i] = xi.sub(delta);
+
+      if (delta.abs() > tolerance) {
+        converged = false;
+      }
+    }
+    if (converged) break;
+  }
+
+  return roots;
+}
+
+
+// FIND ROOTS OF 4TH ORDER POLYNOMIAL USING DURAND-KERNER METHOD
+function durandKerner4(coefficients, maxIterations = 100, tolerance = 1e-10) {
+  const degree = coefficients.length - 1;
+  if (degree !== 4) {
+    throw new Error("This implementation is only for 4th-order polynomials.");
+  }
+
+  // Complex number class
+  class Complex {
+    constructor(re, im) {
+      this.re = re;
+      this.im = im;
+    }
+
+    add(other) {
+      return new Complex(this.re + other.re, this.im + other.im);
+    }
+
+    sub(other) {
+      return new Complex(this.re - other.re, this.im - other.im);
+    }
+
+    mul(other) {
+      return new Complex(
+        this.re * other.re - this.im * other.im,
+        this.re * other.im + this.im * other.re
+      );
+    }
+
+    div(other) {
+      const denom = other.re * other.re + other.im * other.im;
+      return new Complex(
+        (this.re * other.re + this.im * other.im) / denom,
+        (this.im * other.re - this.re * other.im) / denom
+      );
+    }
+
+    abs() {
+      return Math.hypot(this.re, this.im);
+    }
+
+    toString() {
+      return `${this.re.toFixed(6)} ${this.im >= 0 ? '+' : '-'} ${Math.abs(this.im).toFixed(6)}i`;
+    }
+  }
+
+  // Evaluate polynomial at a complex point
+  function evaluatePoly(coeffs, x) {
+    let result = new Complex(0, 0);
+    for (let i = 0; i < coeffs.length; i++) {
+      let term = new Complex(coeffs[i], 0);
+      for (let j = 0; j < coeffs.length - 1 - i; j++) {
+        term = term.mul(x);
+      }
+      result = result.add(term);
+    }
+    return result;
+  }
+
+  // Initial guesses: roots of unity (slightly perturbed)
+  let roots = [];
+  const radius = 1;
+  for (let i = 0; i < degree; i++) {
+    const angle = (2 * Math.PI * i) / degree;
+    roots.push(new Complex(
+      radius * Math.cos(angle),
+      radius * Math.sin(angle)
+    ));
+  }
+
+  // Durand-Kerner Iteration
+  for (let iter = 0; iter < maxIterations; iter++) {
+    let converged = true;
+
+    for (let i = 0; i < degree; i++) {
+      const xi = roots[i];
+      let prod = new Complex(1, 0);
+
+      for (let j = 0; j < degree; j++) {
+        if (i !== j) {
+          prod = prod.mul(xi.sub(roots[j]));
+        }
+      }
+
+      const fxi = evaluatePoly(coefficients, xi);
+      const delta = fxi.div(prod);
+      roots[i] = xi.sub(delta);
+
+      if (delta.abs() > tolerance) {
+        converged = false;
+      }
+    }
+
+    if (converged) break;
+  }
+
+  return roots;
+} 
  
- 
- 
- 
- 
- 
- 
+ function findRoots4thOrder(coefficients, maxIterations = 100, tolerance = 1e-10) {
+  const degree = coefficients.length - 1;
+  if (degree !== 4) {
+    throw new Error("This function only supports 4th-order polynomials.");
+  }
+
+  // Complex number class
+  class Complex {
+    constructor(re, im) {
+      this.re = re;
+      this.im = im;
+    }
+
+    add(c) {
+      return new Complex(this.re + c.re, this.im + c.im);
+    }
+
+    sub(c) {
+      return new Complex(this.re - c.re, this.im - c.im);
+    }
+
+    mul(c) {
+      return new Complex(
+        this.re * c.re - this.im * c.im,
+        this.re * c.im + this.im * c.re
+      );
+    }
+
+    div(c) {
+      const denom = c.re * c.re + c.im * c.im;
+      return new Complex(
+        (this.re * c.re + this.im * c.im) / denom,
+        (this.im * c.re - this.re * c.im) / denom
+      );
+    }
+
+    abs() {
+      return Math.hypot(this.re, this.im);
+    }
+
+    toString() {
+      return `${this.re.toFixed(6)} ${this.im >= 0 ? '+' : '-'} ${Math.abs(this.im).toFixed(6)}i`;
+    }
+  }
+
+  // Evaluate polynomial at a complex number x
+  function evaluatePoly(coeffs, x) {
+    let result = new Complex(0, 0);
+    for (let i = 0; i < coeffs.length; i++) {
+      let term = new Complex(coeffs[i], 0);
+      for (let j = 0; j < coeffs.length - 1 - i; j++) {
+        term = term.mul(x);
+      }
+      result = result.add(term);
+    }
+    return result;
+  }
+
+  // Initialize roots: perturbed 4th roots of unity
+  const roots = [];
+  const r = 1;
+  for (let i = 0; i < 4; i++) {
+    const angle = (2 * Math.PI * i) / 4;
+    roots.push(new Complex(
+      r * Math.cos(angle),
+      r * Math.sin(angle)
+    ));
+  }
+
+  // Durand–Kerner iterations
+  for (let iter = 0; iter < maxIterations; iter++) {
+    let converged = true;
+    for (let i = 0; i < 4; i++) {
+      let xi = roots[i];
+      let denom = new Complex(1, 0);
+      for (let j = 0; j < 4; j++) {
+        if (i !== j) {
+          denom = denom.mul(xi.sub(roots[j]));
+        }
+      }
+      const fxi = evaluatePoly(coefficients, xi);
+      const delta = fxi.div(denom);
+      roots[i] = xi.sub(delta);
+
+      if (delta.abs() > tolerance) {
+        converged = false;
+      }
+    }
+    if (converged) break;
+  }
+
+  return roots;
+}
  
  
  
