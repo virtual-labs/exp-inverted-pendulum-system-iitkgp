@@ -24,7 +24,6 @@ and the cart position (<span class="fontCss">x</span> (m)) on the rail. The cont
 
 <div align="center">
 <p><b>Cart-Pendulum system Parameters</b></p><br/>
-
 <table class="table table-bordered text-center table-striped ">
 <tr>
 <th colspan=2><b>Table 1</b></th>
@@ -189,7 +188,7 @@ $$\frac{X(s)}{F(s)} \approx \frac{b_1}{s^2} = P_1 \ where, b_1 = \frac{1}{M + m}
 
 Now, substituting the value of <span class="fontCss2">X</span>(<span class="fontCss">s</span>) from (16) into the Laplace transform of (6), (19) is obtained,
 
-$$-(M + m)\left\{ \frac{(I + ml^2) s^2 - mgl}{ml} \theta(s) \right\} + mls^2 \theta(s)  = F(s)$$
+$$-(M + m) \left\{ \frac{(I + ml^2) s^2 - mgl}{ml} \theta(s) \right\} + mls^2 \theta(s) = F(s)$$
 
 $$\Longrightarrow \frac{\theta(s)}{F(s)} = \frac{ml}{m^2l^2s^2 - (M + m)(I + ml^2)s^2 + (M + m) mgl} \tag{19}$$
 
@@ -434,6 +433,7 @@ A lower value of <span class="fontCss2">ISE</span> indicates superior controller
 <br/><br/>
 
 <b> Effect of changing <span class="fontCss">k<sub>d</sub></span><b><sup>2</sup></b> on other gains and <span class="fontCss2">ISE</span> values</b><br/>
+<div align="center">
 <table class="table table-bordered text-center table-striped ">
 <tr>
 <th colspan=5><b>Table 2</b></th>
@@ -445,7 +445,6 @@ A lower value of <span class="fontCss2">ISE</span> indicates superior controller
 <th><span class="fontCss">k<sub>i</sub></span><b><sup>2</sup></b></th>
 <th><span class="fontCss2">ISE</span></th>
 </tr>
-
 <tr>
 <th>6</th>
 <th>10</th>
@@ -461,6 +460,7 @@ A lower value of <span class="fontCss2">ISE</span> indicates superior controller
 <th>130.36807</th>
 </tr>
 </table>
+</div>
 <br/><br/>
 
 
