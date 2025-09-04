@@ -183,7 +183,7 @@ $$\frac{X(s)}{F(s)} \approx \frac{b_1}{s^2} = P_1 \ where, b_1 = \frac{1}{M + m}
 
 Now, substituting the value of <span class="fontCss2">X</span>(<span class="fontCss">s</span>) from (16) into the Laplace transform of (6), (19) is obtained,
 
-$$-(M + m)  \left \{ \frac{ (I + ml^2) s^2 - mgl} {ml} \theta(s) \right \} + mls^2 \theta(s) = F(s)$$
+$$-(M + m) \left\[ \frac{ (I + ml^2) s^2 - mgl }{ ml } \theta(s) \right\] + mls^2 \theta(s) = F(s)$$
 
 $$\Longrightarrow \frac{\theta(s)}{F(s)} = \frac{ml}{m^2l^2s^2 - (M + m)(I + ml^2)s^2 + (M + m) mgl} \tag{19}$$
 
