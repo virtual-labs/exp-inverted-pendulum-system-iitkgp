@@ -19,7 +19,7 @@ and the cart position (<span class="fontCss">x</span> (m)) on the rail. The cont
 
 <div align="center">
 <p><b>Cart-Pendulum system parameters</b></p>
-<table class="table text-center" style="width:56%:border:none">
+<table class="table text-center" style="width:56%;border:none">
 <tr>
 <th colspan=2><b>Table 1</b></th>
 </tr>
@@ -429,7 +429,7 @@ A lower value of <span class="fontCss2">ISE</span> indicates superior controller
 
 <div align="center">
 <b> Effect of changing <span class="fontCss">k<sub>d</sub></span><b><sup>2</sup></b> on other gains and <span class="fontCss2">ISE</span> values</b>
-<table class="table text-center" style="width:50%:border:none">
+<table class="table text-center" style="width:50%;border:none">
 <tr>
 <th colspan=5><b>Table 2</b></th>
 </tr>				
