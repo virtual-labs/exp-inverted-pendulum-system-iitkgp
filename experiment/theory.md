@@ -17,14 +17,9 @@ and the cart position (<span class="fontCss">x</span> (m)) on the rail. The cont
 <b>Fig. 1. Digital Pendulum mechanical unit</b> 
 </div><br>
 
-<div align="center">				
-<img alt="" src="./images/pscth2.png" class="img-fluid"><br/>
-<b>Fig. 2. Cart-Pendulum system</b>
-</div><br><br/>
-
 <div align="center">
 <p><b>Cart-Pendulum system Parameters</b></p><br/>
-<table class="table table-bordered text-center table-striped ">
+<table class="table text-center">
 <tr>
 <th colspan=2><b>Table 1</b></th>
 </tr>
@@ -33,40 +28,40 @@ and the cart position (<span class="fontCss">x</span> (m)) on the rail. The cont
 <th><b>Value</b></th>				
 </tr>
 <tr>
-<th ><span style="font-family:'Calibri';font-style:italic">g</span> - Acceleration due to gravity</th>
-<th>9.81 m/s<sup>2</sup></th>				
+<td ><span style="font-family:'Calibri';font-style:italic">g</span> - Acceleration due to gravity</td>
+<td>9.81 m/s<sup>2</sup></td>				
 </tr>
 <tr >
-<th ><span class="fontCss2">l</span> - Length of the pendulum</th>
-<th>0.4 m</th>				
+<td ><span class="fontCss2">l</span> - Length of the pendulum</td>
+<td>0.4 m</td>				
 </tr>
 <tr >
-<th ><span class="fontCss2">M</span> - Mass of the cart</th>
-<th>2.4 kg</th>				
+<td><span class="fontCss2">M</span> - Mass of the cart</td>
+<td>2.4 kg</td>				
 </tr>
 <tr >
-<th ><span class="fontCss">m</span> - Mass of the pendulum</th>
-<th>0.23 Kg</th>				
+<td><span class="fontCss">m</span> - Mass of the pendulum</td>
+<td>0.23 Kg</td>				
 </tr>
 <tr >
-<th ><span class="fontCss2">J</span> - Moment of inertia of pendulum</th>
-<th>0.099 Kg.m<sup>2</sup></th>				
+<td><span class="fontCss2">J</span> - Moment of inertia of pendulum</td>
+<td>0.099 Kg.m<sup>2</sup></td>				
 </tr>
 <tr >
-<th ><span class="fontCss">b</span> - Coefficient of cart friction</th>
-<th>0.055 Ns/m</th>				
+<td><span class="fontCss">b</span> - Coefficient of cart friction</td>
+<td>0.055 Ns/m</td>				
 </tr>
 <tr >
-<th ><span class="fontCss">d</span> - Pendulum damping coefficient</th>
-<th>0.005 Nm.s/rad</th>				
+<td><span class="fontCss">d</span> - Pendulum damping coefficient</td>
+<td>0.005 Nm.s/rad</td>				
 </tr>
 <tr >
-<th ><span class="fontCss2">F</span> - Applied force to the cart</th>
-<th>- 24 N &lt; F &lt; + 24 N</th>				
+<td><span class="fontCss2">F</span> - Applied force to the cart</td>
+<td>- 24 N &lt; F &lt; + 24 N</td>				
 </tr>
 <tr >
-<th ><span class="fontCss">x</span> - Position of cart from the reference</th>
-<th>- 0.5 m &lt; x &lt; + 0.5 m</th>				
+<td><span class="fontCss">x</span> - Position of cart from the reference</td>
+<td>- 0.5 m &lt; x &lt; + 0.5 m</td>				
 </tr>
 </table>
 </div>
@@ -188,7 +183,7 @@ $$\frac{X(s)}{F(s)} \approx \frac{b_1}{s^2} = P_1 \ where, b_1 = \frac{1}{M + m}
 
 Now, substituting the value of <span class="fontCss2">X</span>(<span class="fontCss">s</span>) from (16) into the Laplace transform of (6), (19) is obtained,
 
-$$-(M + m) \left\{ \frac{(I + ml^2) s^2 - mgl}{ml} \theta(s) \right\} + mls^2 \theta(s) = F(s)$$
+$$-(M + m) \left \{ \frac{(I + ml^2) s^2 - mgl}{ml} \theta(s) \right \} + mls^2 \theta(s) = F(s)$$
 
 $$\Longrightarrow \frac{\theta(s)}{F(s)} = \frac{ml}{m^2l^2s^2 - (M + m)(I + ml^2)s^2 + (M + m) mgl} \tag{19}$$
 
@@ -434,7 +429,7 @@ A lower value of <span class="fontCss2">ISE</span> indicates superior controller
 
 <b> Effect of changing <span class="fontCss">k<sub>d</sub></span><b><sup>2</sup></b> on other gains and <span class="fontCss2">ISE</span> values</b><br/>
 <div align="center">
-<table class="table table-bordered text-center table-striped ">
+<table class="table text-center">
 <tr>
 <th colspan=5><b>Table 2</b></th>
 </tr>				
@@ -446,23 +441,22 @@ A lower value of <span class="fontCss2">ISE</span> indicates superior controller
 <th><span class="fontCss2">ISE</span></th>
 </tr>
 <tr>
-<th>6</th>
-<th>10</th>
-<th>-11.403</th>
-<th>-389.768</th>
-<th>0.012937</th>
+<td>6</td>
+<td>10</td>
+<td>-11.403</td>
+<td>-389.768</td>
+<td>0.012937</td>
 </tr>
 <tr>
-<th>6</th>
-<th>20</th>
-<th>-18.176</th>
-<th>-456.220</th>
-<th>130.36807</th>
+<td>6</td>
+<td>20</td>
+<td>-18.176</td>
+<td>-456.220</td>
+<td>130.36807</td>
 </tr>
 </table>
 </div>
 <br/><br/>
-
 
 <b>Conclusion :</b><br/>
 Table 2 data reveals that,
