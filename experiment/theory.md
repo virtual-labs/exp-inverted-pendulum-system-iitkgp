@@ -22,7 +22,7 @@ and the cart position (<span class="fontCss">x</span> (m)) on the rail. The cont
 <b>Fig. 2. Cart-Pendulum system</b>
 </div><br><br/>
 
-<center>
+<div align="center">
 <p><b>Cart-Pendulum system Parameters</b></p><br/>
 
 <table class="table table-bordered text-center table-striped ">
@@ -70,7 +70,7 @@ and the cart position (<span class="fontCss">x</span> (m)) on the rail. The cont
 <th>- 0.5 m &lt; x &lt; + 0.5 m</th>				
 </tr>
 </table>
-</center>
+</div>
 
 Summing the forces acting on the cart-pendulum system (Fig. 2) the following nonlinear equations of motion are obtained.<br/>
 
@@ -127,58 +127,35 @@ $$\left[\begin{array}{cc}
 \ddot{x}\newline
 \dot{\theta}\newline
 \ddot{\theta}\newline
-\end{array}\right]
-=
-\left[\begin{array}{cc} 
+\end{array}\right]=\left[\begin{array}{cc}
 0 & 1& 0 & 0 \newline
-
 0 & 0 & -\frac{m^2 l^2 g}{\Delta}  & 0 \newline
-
 0 & 0& 0 & 1 \newline
-
-0 & 0 & \frac{mgl(m+M)}{\Delta} & 0 \newline				
-
+0 & 0 & \frac{mgl(m+M)}{\Delta} & 0 \newline
 \end{array}\right]
-
 \left[\begin{array}{cc}
 x \newline
-
 \dot{x} \newline
-
 \theta \newline
-
-\dot{\theta} \newline					
-
-\end{array}\right]
-
-+
-
+\dot{\theta} \newline
+\end{array}\right]+
 \left[\begin{array}{cc}
 0 \newline
-
 \frac{(I+ml^2)}{\Delta} \newline
-
 0 \newline
-
-\frac{-ml}{\Delta} \newline					
-
+\frac{-ml}{\Delta} \newline	
 \end{array}\right]
-F \tag {14}	$$		
+F \tag {14}$$		
 
 $$y = \ \left[\begin{array}{cc}
 1 & 0 & 0 & 0 \newline
 0 & 0 & 1 & 0
 \end{array}\right]
-
 \left[\begin{array}{cc}
 x \newline
-
 \dot{x} \newline
-
 \theta \newline
-
-\dot{\theta} \newline					
-
+\dot{\theta} \newline	
 \end{array}\right] \tag {15}$$
 
 
@@ -288,29 +265,20 @@ $$s^5 + p_1s^4 + p_2s^3 + p_3s^2 + p_4s + p_5 = 0 \tag {28}$$
 Comparing the coefficients of (27) and (28),  (29) is obtained,
 
 $$\left[\begin{array}{cc}
-
 -b_1 & 0 & 0 & b_2 & 0 & 0 \newline
-
 0  & -b_1 & 0 & 0 & b_2 & 0 \newline
-
 a_2b_1 & 0 & -b_1 & 0 & 0 & b_2\newline
-
 0 & a_2b_1 & 0 & 0 & 0 & 0\newline
-
 0 & 0 & a_2b_1 & 0 & 0 & 0 \newline
-
 \end{array}\right]
 \left[\begin{array}{cc}
-
 k^1_d\newline
 k^1_p \newline
 k^1_i\newline
 k^2_d\newline
 k^2_p\newline
 k^2_i\newline				
-\end{array}\right]
-=
-\left[\begin{array}{cc}
+\end{array}\right]=\left[\begin{array}{cc}
 p_1\newline
 p_2 + a_2\newline
 p_3\newline
@@ -341,22 +309,19 @@ $$K = -R^{-1}B^TP \tag {33}$$
 Now for the inverted pendulum system (presented in (14) and (15)), the LQR design is carried out. By substituting the system parameter values from Table 1 
 into (14) and (15), and then comparing these equations with (30), we obtain
 
-$$A =
-\left[\begin{array}{cc}
+$$A =\left[\begin{array}{cc}
 0 & 1 & 0 & 0\newline
 0 & 0 & -0.238 & 0 \newline
 0 & 0 & 0 & 1\newline
 0 & 0 & 6.807 & 0\newline			
 \end{array}\right],
-B =
-\left[\begin{array}{cc}
+B =\left[\begin{array}{cc}
 0\newline
 0.3894\newline
 0\newline
 -0.2638\newline			
 \end{array}\right]\times 15,
-\ C = 
-\left[\begin{array}{cc}
+\ C =\left[\begin{array}{cc}
 1 & 0 & 0 & 0\newline
 0 & 0 & 1 & 0 \newline
 \end{array}\right]
@@ -364,8 +329,7 @@ B =
 
 The <i style="font-family:'century'">Q</i> matrix and <span class="fontCss2">R</span> are taken as,
 
-$$Q = 
-\left[\begin{array}{cc}
+$$Q =\left[\begin{array}{cc}
 50000 & 0 & 0 & 0\newline
 0 & 2000 & 0 & 0 \newline
 0 & 0 & 2000 & 0 \newline
@@ -399,16 +363,14 @@ k^1_i\newline
 k^2_d\newline
 k^2_p\newline
 k^2_i\newline				
-\end{array}\right]
-=
-\left[\begin{array}{cc}
+\end{array}\right]=\left[\begin{array}{cc}
 26.4\newline
 225.25\newline
 871.3\newline
 1721.8\newline
 1343.7\newline
 \end{array}\right]
-\tag {36}$$				
+\tag {36}$$			
 
 In (36), five poles need to be placed and we have six parameters. So we need to fix one parameter. 
 
