@@ -21,11 +21,11 @@ and the cart position (<span class="fontCss">x</span> (m)) on the rail. The cont
 <div align="center">
 <table class="table" style="width:56%;border:none">
 <tr>
-<th colspan=2><b>Table 1</b></th>
+<th colspan=2 style="text-align:center"><b>Table 1</b></th>
 </tr>
 <tr >
-<th><b>Parameter</b></th>
-<th><b>Value</b></th>				
+<th style="text-align:center"><b>Parameter</b></th>
+<th style="text-align:center"><b>Value</b></th>				
 </tr>
 <tr>
 <td ><span style="font-family:'Calibri';font-style:italic">g</span> - Acceleration due to gravity</td>
@@ -432,14 +432,14 @@ A lower value of <span class="fontCss2">ISE</span> indicates superior controller
 <div align="center">
 <table class="table" style="width:50%;border:none">
 <tr>
-<th colspan=5><b>Table 2</b></th>
+<th colspan=5 style="text-align:center"><b>Table 2</b></th>
 </tr>				
 <tr>
-<th>Initial angle (&deg;)</th>
-<th><span class="fontCss">k<sub>d</sub></span><b><sup>2</sup></b></th>
-<th><span class="fontCss">k<sub>d</sub></span><b><sup>1</sup></b></th>
-<th><span class="fontCss">k<sub>i</sub></span><b><sup>2</sup></b></th>
-<th><span class="fontCss2">ISE</span></th>
+<th style="text-align:center">Initial angle (&deg;)</th>
+<th style="text-align:center"><span class="fontCss">k<sub>d</sub></span><b><sup>2</sup></b></th>
+<th style="text-align:center"><span class="fontCss">k<sub>d</sub></span><b><sup>1</sup></b></th>
+<th style="text-align:center"><span class="fontCss">k<sub>i</sub></span><b><sup>2</sup></b></th>
+<th style="text-align:center"><span class="fontCss2">ISE</span></th>
 </tr>
 <tr>
 <td>6</td>
