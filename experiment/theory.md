@@ -12,9 +12,15 @@ As a result, they share the same angle of rotation (<span class="fontCss2" style
 in two directions by the dc motor attached at the end of the rail. By applying a voltage to the motor the force is controlled with which the cart is pulled. The value of the force depends on 
 the value of the control voltage. The voltage is the control signal. The two variables that are read from the pendulum (using optical encoders) are the pendulum position (angle i.e., <span class="fontCss2" style="font-weight:bold">θ</span> (&deg;)) 
 and the cart position (<span class="fontCss">x</span> (m)) on the rail. The controller’s task will be to change the dc motor voltage depending on these two variables in such a way that the desired control task is fulfilled (stabilizing in a vertical upright position).<br>
+
 <div align="center">				
 <img alt="" src="./images/mech_unit.png" class="img-fluid"><br/>
 <b>Fig. 1. Digital Pendulum mechanical unit</b> 
+</div><br>
+
+<div align="center">				
+<img alt="" src="./images/pscth2.png" class="img-fluid"><br/>
+<b>Fig. 2. Cart-Pendulum system</b> 
 </div><br>
 
 <p><b>Cart-Pendulum system parameters</b></p>
