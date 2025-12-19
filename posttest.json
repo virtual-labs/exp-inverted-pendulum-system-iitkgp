@@ -1,0 +1,126 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. A girl uses simple pendulum to determine the value of acceleration due to gravity in her physics laboratory. The percentage error of measurement in length and time period of pendulum are 1% and 2% respectively. The percentage error in g, determined by her is",
+      "answers": {
+        "a": "1\u0025",
+        "b": "3\u0025",
+        "c": " 5\u0025",
+        "d": "None of the above"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    
+    {
+      "question": "2. The value of 'g' in the moon is 1/6 th times than that on the earth surface, then the time period of a pendulum in the moon is how much times than that of the earth surface?",
+      "answers": {
+        "a": "6 ",
+        "b": "1/6 ",
+        "c": "&#8730 6",
+        "d": "1/&#8730 6"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. A pendulum clock is taken from earth to revolving artificial satellite, it will ____",
+      "answers": {
+        "a": "Run slow",
+        "b": "Run fast",
+        "c": "Stop oscillating",
+        "d": "None of the above"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. The length of a simple pendulum is increased by 44&percnt;. What is the percentage increase in its time period ?",
+      "answers": {
+       "a": " 10&percnt;",
+        "b": "20&percnt;",
+		"c": "40&percnt;",
+		"d": "44&percnt;" 
+	  },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. Which one of the following is a correct statement",
+      "answers": {
+        "a": " PI controller improves steady state response ",
+        "b": "PD controller improves transient response",
+        "c": "None of the above",
+        "d": " All of the above"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    
+    {
+      "question": "6. The period of oscillation of a simple pendulum of constant length on the earth surface is T. Its period inside a mine is",
+      "answers": {
+        "a": "Greater than T",
+        "b": "Less than T",
+		"c": "Equal to T",
+		"d": "Cannot be compared"        
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    }, 
+	
+	
+	{
+      "question": "7. A pendulum suspended from the ceiling of a train has a period T, when the train is at rest. When the train is accelerating with a uniform acceleration a, the period of oscillation will",
+      "answers": {
+        "a": "Increase",
+        "b": "Decrease",
+		"c": "Remain unaffected",
+		"d": "Become infinite"        
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    }, 
+	
+	
+	{
+      "question": "8. Two pendulums begin to swing simultaneously. If the ratio of the frequency of oscillations of the two is 7 : 8, then the ratio of lengths of the two pendulums will be",
+      "answers": {
+        "a": "7:8",
+        "b": "8:7",
+		"c": "49:64",
+		"d": "64:49"        
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    }, 
+	
+	
+	
+    {
+      "question": "9. The period 'T' of a pendulum, having length'L', moment of inertia'I', bob of mass 'm' is given by",
+      "answers": {
+        "a": " T = 2π &#8730(I/mgL) ",
+        "b": "T= 2πIL/g",
+        "c": "T= 2πmgL/I",
+        "d": "None of the above "
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+	
+	{
+      "question": "10. If a child swinging on a swing in sitting position suddenly stands up, the time period of swing will",
+      "answers": {
+        "a": " Decrease ",
+        "b": "Remain same",
+        "c": "Increase",
+        "d": "None of the above "
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    }
+    
+  ]
+}
